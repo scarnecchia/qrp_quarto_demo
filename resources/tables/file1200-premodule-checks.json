@@ -1,0 +1,32 @@
+[
+  {
+    "Check": "Pre-Module Check 1",
+    "Description": "This check confirms there are no system errors.",
+    "Action": "If an error is detected, the following message will be written to the log and the package will abort:<ul><li><code>Pre-Module Check 1: System error detected. MASTER_FLOW macro is aborting. => Check main log at &sasprograms.00.0_scdm_data_qa_review_master_file.log</code></li></ul>"
+  },
+  {
+    "Check": "Pre-Module Check 2",
+    "Description": "This check confirms the ETL parameter specified in the master program has been updated with a valid value.",
+    "Action": "If an error is detected, the following message will be written to the log and the package will abort:<ul><li><code>Pre-Module Check 2: ETL error detected. MASTER_FLOW macro is aborting. => The ETL parameter cannot be blank or include any non-numeric value(s). Please contact SOC DMQA  for next steps.</code></li></ul>"
+  },
+  {
+    "Check": "Pre-Module Check 3",
+    "Description": "This check confirms existing output in the \"msoc\" directory will not be unintentionally overwritten during module processing.",
+    "Action": "If content is found but is not based on the user-specified ETL, processing will abort and the following message will be written to the log:<ul><li><code>Pre-Module Check 3: Different ETL content detected in MSOC library. MASTER_FLOW macro is aborting.</code></li></ul>If there is content in the directory that is based on the current ETL, the directory will be cleared before processing continues, and the following message will be written to the log:<ul><li><code>ETL Versions match and the program will continue HOWEVER, unless otherwise specified in the master program, all existing SAS datasets in the local output directories ('dplocal','msoc') will be deleted for data quality assurance purposes.</code></li></ul>"
+  },
+  {
+    "Check": "Pre-Module Check 4",
+    "Description": "This check confirms there are no system errors.",
+    "Action": "If an error is detected, the following message will be written to the log and the package will abort:<ul><li><code>Pre-Module Check 4: System error detected. MASTER_FLOW macro is aborting. => Check main log at &sasprograms.00.0_scdm_data_qa_master_&dt_today..log</code></li></ul>"
+  },
+  {
+    "Check": "Pre-Module Check 5",
+    "Description": "This check confirms that each table specified in the control flow input corresponds to a user specified SCDM table parameter in the master program.",
+    "Action": "If an error is detected, the following message will be written to the log:<ul><li><code>SCDM &table. parameter not specified in master program but defined by SOC inputfiles/control flow.csv file</code></li></ul>If an error is detected, after checking all tables in in the control flow input, the following message will be written to the log and the package will abort:<ul><li><code>Pre-Module Check 5: MASTER_FLOW macro is aborting because an expected SCDM Table Name was not defined by your site for the ETL under review.</code></ul></li>"
+  },
+  {
+    "Check": "Pre-Module Check 6",
+    "Description": "This check confirms that each user-specified table in the master programs corresponds to tables that will serve as input according to content in the control flow input file.",
+    "Action": "<ul><li><code>SCDM &table. name is defined by DP, but not expected at the site. Only the SCDM tables defined by SOC in inputfiles/control_flow.csv file should be present in the directory and named in the master program.</code></li></ul> After checking all tables in in the control flow input but not flagged for inclusion, an additional error message will be written to the log and processing will abort:<ul><li><code>Pre-Module Check 6:  MASTER_FLOW macro is aborting because an unexpected SCDM table name was defined by your site for the ETL under review.</code></li></ul>"
+  }
+]

@@ -1,0 +1,9 @@
+In order to calculate prevalence and incidence, the program calculates both the number of eligible patients and the number of eligible days for the denominator(s).
+
+## Eligible Patients
+
+For both prevalent and incident cohorts, eligible patients must meet the enrollment requirements, demographic criteria, and inclusion/exclusion criteria specified. Prevalent cohort eligible patients must meet the index criteria for at least one day during the query period if ENRDAYS = 0. Incident cohort eligible patients must meet the criteria for the washout period number of days as well as one day of enrollment during the query period or during the pre-query period. If additional inclusion/exclusion criteria are specified, the patient must also satisfy those requirements to be included as eligible. Eligible patients may or might not also meet the index defining criteria. Index defining criteria are not evaluated in the enumeration of eligible patients. Minimum cumulative dose is only taken into account for determining eligible members when it is specified as an inclusion or exclusion criteria.
+
+## Eligible Days
+
+Eligible days for prevalent and incident cohorts are calculated as all the days during the query period that an eligible patient is eligible for inclusion in the cohort. Minimum cumulative dose is only taken into account for determining eligible member-days when it is specified as an inclusion or exclusion criteria.

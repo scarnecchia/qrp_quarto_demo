@@ -1,0 +1,29 @@
+{
+  "index.qmd": {
+    "index.html": "7bc0d35e"
+  },
+  "file0001-about-the-qrp.qmd": {
+    "file0001-about-the-qrp.html": "49960784"
+  },
+  "type1/file0001-type1-module.qmd": {
+    "file0001-type1-module.html": "ff56a4fe"
+  },
+  "type1/file0002-type1-backratecalc.qmd": {
+    "file0002-type1-backratecalc.html": "45f049b5"
+  },
+  "type1/file0003-type1-eligpatients.qmd": {
+    "file0003-type1-eligpatients.html": "0687835c"
+  },
+  "disclosure.qmd": {
+    "disclosure.html": "37f03b82"
+  },
+  "type1/file0004-type1-combo.qmd": {
+    "file0004-type1-combo.html": "f4767117"
+  },
+  "type1/file0005-type1-type1file.qmd": {
+    "file0005-type1-type1file.html": "ee251a65"
+  },
+  "modification-history.qmd": {
+    "modification-history.html": "db2ab46c"
+  }
+}

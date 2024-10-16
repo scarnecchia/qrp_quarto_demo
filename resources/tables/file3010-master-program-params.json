@@ -1,0 +1,84 @@
+[
+  {
+    "Parameter": "SCC",
+    "Description": "Path to directory containing executed Phase A Common Components (cca) associated with this ETL",
+    "Notes": [
+      {
+        "1": "Request ID should be included in path name",
+        "2": "Data Partners who do not have Common Components output related to their Phase A ETL should leave this blank and populate parameters specified in Table \\@ref(tab:file2010-master-program-optional)."
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "/sentinel/etl22/soc_cca_wp001_xxxx_v01/",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "PROJID",
+    "Description": "Project identifier for internal SOC identification and tracking",
+    "Notes": null,
+    "Format": "Alphanumeric",
+    "Example": "soc",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "WPTYPE",
+    "Description": "Work plan type for internal SOC identification and tracking.",
+    "Notes": [
+      {
+        "1": "This value is used to conditionally select the appropriate inputfiles for the distributed database type."
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "qmr",
+    "Valid Values": [
+      "qmr: Used for package distributions aimed at Sentinel Distributed Database Data Partners",
+      "qcm: Used for package distributions aimed at Rapid COVID Distributed Database Data Partners",
+      "qmd: Used for beta test packages"
+    ]
+  },
+  {
+    "Parameter": "WPID",
+    "Description": "Work plan identifier for internal SOC identification and tracking.",
+    "Notes": [
+      {
+        "1": "Should follow the format wp[###].",
+        "2": "Should be used to uniquely identify packages distributed against given ETL"
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "wp001",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "DPID",
+    "Description": "Data Partner identifier for internal SOC identification and tracking.",
+    "Notes": null,
+    "Format": "Alphanumeric",
+    "Example": "nsdp",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "VERID",
+    "Description": "Version identifier for internal SOC identification and tracking. Should track each re-distribution of the package (if multiple distributions are required).",
+    "Notes": [
+      {
+        "1": "Should follow the format v[##]."
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "v01",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "_ETL",
+    "Description": "ETL Number for this request.",
+    "Notes": [
+      {
+        "1": ": This needs to be the same ETL number for Phase A"
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "22",
+    "Valid Values": null
+  }
+]

@@ -1,0 +1,1 @@
+Sitemap: https://dev.sentinelsystem.org/projects/SENTINEL/repos/sentinel-routine-querying-tool-documentation/browse/sitemap.xml

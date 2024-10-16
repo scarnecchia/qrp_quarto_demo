@@ -1,0 +1,257 @@
+[
+  {
+    "Version": "9.0.0",
+    "Date": "06/06/2024",
+    "Modification": "<ul><li>Integrates Common Components and the SCDM Snapshot Program Package as modules in the QA Package</li><li>Updates the description of CheckID 245 to read \"variable contains an incorrect non-missing value.\"</li><li>Integrates logic allowing for the optional supression of small cells on a table by table basis</li></ul>"
+  },
+  {
+    "Version": "8.9.0",
+    "Date": "04/11/2024",
+    "Modification": "<ul><li>Overhauls the Level 2 module to improve readability and maintainability</li><li>Consolidates MSOC log output to single qa_package.log file</li><li>PostalCode_Date is now included in `all_l3_dates_dist`</li><li>Fixes an issue where system errors could result in DP Max Date being set to defaults instead of being zeroed out, and in rare cases, giving the impression that the package had run successfully</li><li>Removes unused variables module_cat and module_util from control_flow</li></ul><p><b>MIR module updates</b></p><ul><li>Removes the following non-live birth codes from `m_cohortcodes` <li>64631: Recurrent pregnancy loss, delivered, with or without mention of antepartum condition</li><li>64601: Papyraceous fetus, delivered, with or without mention antepartum cond</li></li><li>Adjusts the Mother's washout period to 182 days</li></ul>"
+  },
+  {
+    "Version": "8.8.0",
+    "Date": "12/15/2023",
+    "Modification": "<p>QA Package 8.8.0 adds SCDM 8.2.0 compatibility while retaining backwards compatibility with SCDM 8.1.0. It also introduces the a new master program parameter ZIP3, which allows the package to run at Data Partners with three digit zip codes, aswell as numerous minor bug fixes and code enhancements.</p><u><b>SCDM 8.2.0 Compatibility Updates</b></u><br /><br /><u><i>New Checks</i></u><ul><li>CheckID 224: &variable1 &value does not match &variable2 &value</li></ul><u><i>New Flags</i></u><ul><li>FlagID: DEM_1_08_00-0_110<ul><li>Description: ImputedHispanic variable does not exist</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: DEM_1_09_00-0_110<ul><li>Description: ImputedRace variable does not exist</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: DEM_1_08_00-0_111<ul><li>Description: ImputedHispanic variable is not populated</li><li>FlagType: Note</li><li>Abort: N</li></ul></li><li>FlagID: DEM_1_09_00-0_111<ul><li>Description: ImputedRace variable is not populated</li><li>FlagType: Note</li><li>Abort: N</li></ul></li><li>FlagID: DEM_1_08_00-0_112<ul><li>Description: ImputedHispanic variable type does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: DEM_1_09_00-0_112<ul><li>Description: ImputedRace variable type does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: DEM_1_08_00-0_113<ul><li>Description: ImputedHispanic variable length does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: DEM_1_09_00-0_113<ul><li>Description: ImputedRace variable length does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: DEM_1_08_00-0_121<ul><li>Description: ImputedHispanic variable contains an invalid non-missing value</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: DEM_1_09_00-0_121<ul><li>Description: ImputedRace variable contains an invalid non-missing value</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_07_00-0_110<ul><li>Description: PlanType variable does not exist</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_08_00-0_110<ul><li>Description: PayerType variable does not exist</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_07_00-0_111<ul><li>Description: PlanType variable is not populated</li><li>FlagType: Note</li><li>Abort: N</li></ul></li><li>FlagID: ENR_1_08_00-0_111<ul><li>Description: PayerType variable is not populated</li><li>FlagType: Note</li><li>Abort: N</li></ul></li><li>FlagID: ENR_1_07_00-0_112<ul><li>Description: PlanType variable type does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_08_00-0_112<ul><li>Description: PayerType variable type does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_07_00-0_113<ul><li>Description: PlanType variable length does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_08_00-0_113<ul><li>Description: PayerType variable length does not conform to specifications</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_07_00-0_121<ul><li>Description: PlanType variable contains an invalid non-missing value</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_1_08_00-0_121<ul><li>Description: PayerType variable contains an invalid non-missing value</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: COD_2_02_00-0_223<ul><li>Description: COD value is invalid based on CodeType value</li><li>FlagType: Warn</li><li>Abort: N</li></ul></li><li>FlagID: COD_2_02_00-0_228<ul><li>Description: COD value length is invalid based on CodeType</li><li>FlagType: Warn</li><li>Abort: N</li></ul></li><li>FlagID: DEM_2_04_00-0_224<ul><li>Description: Hispanic value does not match ImputedHispanic value</li><li>FlagType: Note</li><li>Abort: N</li></ul></li><li>FlagID: DEM_2_05_00-0_224<ul><li>Description: Race value does not match ImputedRace value</li><li>FlagType: Note</li><li>Abort: N</li></ul></li></ul><u><i>Modified Flags</i></u><ul><li>FlagID: ENR_2_00_00-0_211<ul><li>Description: Duplicate record(s) present for unique key variable(s): PatID, Enr_Start, Enr_End, MedCov, DrugCov, Chart, PlanType, PayerType</li><li>Description of Change: Added PlanType and PayerType to unique key</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li><li>FlagID: ENR_2_02_00-0_226<ul><li>Description: Enr_Start value occurs after Enr_End value</li><li>Description of Change: ENR_2_02_00-0_226 has been modified to be a FAIL/ABORT flag: Enr_Start value occurs after Enr_End value</li><li>FlagType: Fail</li><li>Abort: Y</li></ul></li></ul><u><i>New Tables</i></u><ul><li>cod_l2_cod_codetype: contains the frequency of records stratified by CodeType and COD values</li><li>enr_l3_catvars: contains the frequency of records stratified by PlanType and PayerType</li></ul><u><i>Updated Tables</i></u><ul><li>dem_l3_catvars: This dataset contains frequency of records stratified by sex, race, hispanic, imputedRace, and imputedHispanic values</li></ul><u><b>Additional Updates</b></u><ul><li>Added additional logic which will preprocess inputfiles when parameter `SCDMVer = 8.1.0` in the QA Package master program, allowing backwards compatibility with SCDM 8.1.0</li><li>Added additional logic which will preprocess inputfiles to handle ZIP3 when parameter `ZIP3 = Y`</li><li>Retired checks 100 & 101. The QA Package will still check for the existence of tables and whether they are populated, but will abort and write an error to the log rather than outputting a flag</li><li>Retired check 123, which had not been in use since SCDM 7</li><li>Streamlined Checks 111 & 120 to ensure they did not apply when redundant to each other</li><li>General refactoring to improve efficiency and code quality, as well as minor bug fixes</li></ul>"
+  },
+  {
+    "Version": "8.7.1",
+    "Date": "10/30/2023",
+    "Modification": "<p>Minor Package Updates and Bug Fixes.</p>"
+  },
+  {
+    "Version": "8.7.0",
+    "Date": "08/31/2023",
+    "Modification": "<p><strong>Elimination of Separate QAR and QCR Lookups</strong></p><ul><li>Input files are now stored in the `inputfiles` folder and modified at the start of the package run based on master program parameters</li></ul><p><strong>Automated Creation of Data Characteristics Sign-Off Report</strong></p><ul><li>The Data Characteristics Sign-off Report is automatically generated upon a successful package run. This can be found in the msoc folder under the name `data_characteristics_sign_off_report_[dpid]_etl[#].xlsx`.</li><li>Using the previous ETL's `all_l1_l2_flags` output dataset, the report calculates difference between flag counts in ETL under review and ETL-1.</li></ul><p><strong>Improved Cross Table Checks</strong></p><ul><li>Refactored the creation of datasets Used in L2 cross table ID variable checks</li><li>The following NOTE flags were previously CheckID 202 and are now CheckID 201:<ul><li>ENR-VIT_2_01_00-0_201: PatID value present in ENR table, but not in the VIT table</li><li>ENR-IRX_2_01_00-0_201: PatID value present in ENR table, but not in the IRX table</li><li>ENR-TXN_2_01_00-0_201: PatID value present in ENR table, but not in the TXN table</li><li>ENR-PRE_2_01_00-0_201: PatID value present in ENR table, but not in the PRE table</li><li>ENR-PRR_2_01_00-0_201: PatID value present in ENR table, but not in the PRR table</li><li>ENR-DEM_2_01_00-0_201: PatID value present in ENR table, but not in the DEM table</li><li>ENR-DIS_2_01_00-0_201: PatID value present in ENR table, but not in the DIS table</li><li>ENR-ENC_2_01_00-0_201: PatID value present in ENR table, but not in the ENC table</li><li>ENR-DIA_2_01_00-0_201: PatID value present in ENR table, but not in the DIA table</li><li>ENR-PRO_2_01_00-0_201: PatID value present in ENR table, but not in the PRO table</li><li>ENR-DTH_2_01_00-0_201: PatID value present in ENR table, but not in the DTH table</li><li>ENR-COD_2_01_00-0_201: PatID value present in ENR table, but not in the COD table</li><li>ENR-LAB_2_01_00-0_201: PatID value present in ENR table, but not in the LAB table</li><li>FAC-ENC_2_01_00-0_201: FacilityID value present in FAC table, but not in the ENC table</li><li>FAC-LAB_2_01_00-0_201: FacilityID value present in FAC table, but not in the LAB table</li><li>PVD-PRE_2_01_00-0_201: ProviderID value present in PVD table, but not in the PRE table</li><li>PVD-DIS_2_01_00-0_201: ProviderID value present in PVD table, but not in the DIS table</li><li>PVD-DIA_2_01_00-0_201: ProviderID value present in PVD table, but not in the DIA table</li><li>PVD-PRO_2_01_00-0_201: ProviderID value present in PVD table, but not in the PRO table</li><li>PRS-PRR_2_01_00-0_201: PRM_Code value present in PRS table, but not in the PRR table</li><li>PRS-PRR_2_02_00-0_201: SurveyID value present in PRS table, but not in the PRR table</li><li>PRS-PRR_2_03_00-0_201: QuestionID value present in PRS table, but not in the PRR table</li><li>PRS-PRR_2_04_00-0_201: QuestionVerID value present in PRS table, but not in the PRR table</li><li>ENC-VIT_2_02_00-0_201: EncounterID value present in ENC table, but not in the VIT table</li><li>ENC-IRX_2_02_00-0_201: EncounterID value present in ENC table, but not in the IRX table</li><li>ENC-TXN_2_02_00-0_201: EncounterID value present in ENC table, but not in the TXN table</li><li>ENC-PRE_2_02_00-0_201: EncounterID value present in ENC table, but not in the PRE table</li><li>ENC-PRR_2_02_00-0_201: EncounterID value present in ENC table, but not in the PRR table</li><li>ENC-DIA_2_02_00-0_201: EncounterID value present in ENC table, but not in the DIA table</li><li>ENC-PRO_2_02_00-0_201: EncounterID value present in ENC table, but not in the PRO table</li><li>DTH-COD_2_01_00-0_201: PatID value present in DTH table, but not in the COD table</li></ul></li></ul><p><strong>Improved ICD-10 Era Check Handling</strong></p><ul><li>`DIA-ENC_2_07_00-0_223` and `PRO-ENC_2_07_00-0_223` replace `DIA_2_07_00-0_223` and `PRO_2_07_00-0_223` for Institutional and Inpatient Encounter Types and properly clock the start of the era to DDate when EncType is IP or IS. For more information, please refer to Section \\@ref(icd10-changeover): [Enforcing the ICD-10 switchover for Inpatient and Institutional Encounters](#icd10-changeover)</li></ul><p><strong>Minor Package Updates</strong></p><ul><li>Removed ETL Number Verification Check</li><li>Removed Logic for CheckID 204</li></ul>"
+  },
+  {
+    "Version": "8.6.3",
+    "Date": "07/20/2023",
+    "Modification": "<p><strong>Ensured Proper Evaluatation of Special Missing Values for ID Variables</strong></p><ul><li>Fixed a bug where CheckID 201 was not correctly checking that special missing values for ID variables were present in the Facility and Provider Tables when found in other tables. The following flags will now properly evaluate:</li><ul><li>PRE-PVD_2_04_00-0_201: ProviderID value present in PRE table, but not in the PVD table</li><li>DIS-PVD_2_07_00-0_201: ProviderID value present in DIS table, but not in the PVD table</li><li>DIA-PVD_2_04_00-0_201: ProviderID value present in DIA table, but not in the PVD table</li><li>PRO-PVD_2_04_00-0_201: ProviderID value present in PRO table, but not in the PVD table</li><li>ENC-FAC_2_06_00-0_201: FacilityID value present in ENC table, but not in the FAC table</li><li>LAB-FAC_2_33_00-0_201: FacilityID value present in LAB table, but not in the FAC table</li></ul><li>These flags are FAIL level flags and will cause the QA Package to abort if triggered.</li></ul><p><strong>Ensured Proper Evaluation of Flags Assessing PRS and PRR Tables</strong></p><ul><li>Fixed a bug preventing checks designed to evaluate whether QuestionID, QuestionVerID, PRM_Code, and SurveyID where present in the PRR table if they exist in the PRS table. The following FlagIDs have been retired:</li><ul><li>PRS-PRR_2_01_00-0_202: PRM_Code value present in PRR table, but not in the PRS table</li><li>PRS-PRR_2_02_00-0_202: SurveyID value present in PRR table, but not in the PRS table</li><li>PRS-PRR_2_03_00-0_202: QuestionID value present in PRR table, but not in the PRS table</li><li>PRS-PRR_2_04_00-0_202: QuestionVerID value present in PRR table, but not in the PRS table</li></ul><li>These were duplicates of an existing CheckID 201. These have now been replaced with the following:</li><ul><li>PRS-PRR_2_01_00-0_201: PRM_Code value present in PRS table, but not in the PRR table</li><li>PRS-PRR_2_02_00-0_201: SurveyID value present in PRS table, but not in the PRR table</li><li>PRS-PRR_2_03_00-0_201: QuestionID value present in PRS table, but not in the PRR table</li><li>PRS-PRR_2_04_00-0_201: QuestionVerID value present in PRS table, but not in the PRR table</li></ul><li>These new flags are NOTE level flags</li></ul>"
+  },
+  {
+    "Version": "8.6.0",
+    "Date": "02/23/2023",
+    "Modification": "<p>Refactored the Level 1 Module to improve package runtime by reducing the number of times the QA Package Level 1 Module reads Data Partner SCDM tables.</p><p>Introduced new FlagType NOTE:</p><ul><li>In intances where an SCDM variable is optional and not populated, CheckID 111 will now write flag NOTE intead of WARN</li><li>`msoc/all_l1_l2_flags` sort order logic is modified to push NOTE flags to bottom of dataset</li></ul><p>Mother-Infant Identification Updates:</p><ul><li>Removed requirement for Data Partner to have at least one year of data available before package begins identifying infants</li><li>Relaxed infant enrollment criteria to at least 1 day in the first three years of life</li><li>Relaxed mother enrollment requirements from 180 days of prior enrollment to 90</li></ul><p>Minor Package Modifications and Bug Fixes</p>"
+  },
+  {
+    "Version": "8.5.2",
+    "Date": "12/15/2022",
+    "Modification": "<p>Resolves an issue which caused the package to exclude Mothers and Infants whose RACE = “M” from the results.</p>"
+  },
+  {
+    "Version": "8.5.1",
+    "Date": "12/01/2022",
+    "Modification": "<p><u><strong>CheckID 223 and 228 Modifications</strong></u></p><p>This release adds or modifies the following flags:</p><ul><li><code>PRE_2_07_00-0_223</code>: In the Prescribing table, when Rx_CodeType = <code>ND</code>, Rx must be all digits.</li><li><code>DIS_2_03_00-0_223</code>: In the Dispensing table, when Rx_CodeType = <code>ND</code>, Rx must be all digits.</li><li><code>DIS_2_03_00-0_228</code>: In the Dispensing table, when Rx_CodeType = <code>ND</code> an Rx code length of ≥ 9 and ≤ 11 is now enforced.</li></ul><p><u><strong>Minor Package Modifications and Bug Fixes</strong></u></p><ul><li>Updated the MIR module to prevent the package from aborting when BIRTHTYPE = 6."
+  },
+  {
+    "Version": "8.5.0",
+    "Date": "09/22/2022",
+    "Modification": "<p><u><strong>CheckID 223 and 228 Modifications</strong></u></p><p>This release adds or modifies the following flags:</p><ul><li><code>PRE_2_07_00-0_228</code>: In the Prescribing table, when Rx_CodeType = <code>GP</code> an Rx code length of 14 is now enforced. This flag is a warn.</li><li><code>DIA_2_06_00-0_223</code>: In the Diagnosis table, when Dx_CodeType = <code>09</code> or Dx_CodeType = <code>10</code>, a warn flag is thrown if <code>Dx</code> contains a decimal. This flag is a warn.</li><li><code>PRO_2_06_00-0_223</code>: In the Procedure table, when <code>Px_CodeType</code> = <code>09</code> or <code>Px_CodeType</code> = <code>10</code>, a warn flag is thrown if <code>Px</code> contains a decimal. This flag is a warn.</li></ul><p><code>DIA_2_06_00-0_228</code> and <code>PRO_2_06_00-0_228</code> have been modified to enforce the following new valid lengths:</p><ul><li><code>Px_CodeType</code> = <code>09</code>, <code>Px</code> length ≥ 3 and ≤ 4</li><li><code>Dx_CodeType</code> = <code>09</code>, <code>Dx</code> length ≥ 3 and ≤ 5</li><li><code>Dx_CodeType</code> = <code>10</code>, <code>Dx</code> length ≥ 3 and ≤ 7</li></ul><p><u><strong>CheckID 111 Modifications</strong></u></p><p>Previously, the QA Package would issue a FAIL if the Data Partner did not have at least one observation for in any of the following variables:</p><ul><li><code>RxSup</code> and <code>RxAmt</code> in the Dispensing Table</li><li><code>Result_Loc</code> in the Lab Results Table</li><li><code>EncType</code> and <code>Orig_TransProd</code> in the Inpatient Transfusion Table</li></ul><p>As these variables are considered optional by the Sentinel Common Data Model (SCDM), these flags have been downgraded to WARN.</p><p><u><strong>CheckID 121 Modifications</strong></u></p><p>The following values are considered valid by the SCDM, but were missing from the QA Package:</p><ul><li><p>In the Lab Results Table, <code>Px_CodeType</code> now accepts the following valid values:</p><ul><li><code>CP</code> = Canadian Classification of Diagnostic, Therapeutic, and Surgical Procedures (CCP)</li><li><code>CX</code> = Canadian Classification of Health Interventions (CCI)</li><li><code>OT</code> = Other</li></ul></li><li><p>In the Prescribing table, Rx_CodeType now accepts the following valid value:</p><ul><li><code>AT</code>= Anatomical Therapeutic Chemical Classification (DK)</li></ul></li></ul><p>The following values do not appear in the SCDM and have been removed as valid values from the QA Package:</p><ul><li>In the Diagnosis table, Dx_CodeType no longer accepts the value <code>C0</code></li><li>In the Lab Results Table, Px_CodeType no longer accepts the value <code>CV</code></li></ul><p><u><strong>Lab Results Table LOINC Value Updates</strong></u></p><p>In response to the August 2.73 LOINC release, the QA Package has been modified</p><ul><li>The following LOINCs have been added as valid values: <a href=\"https://loinc.org/94507-1/\" title=\"Follow link\">94507-1</a>, <a href=\"https://loinc.org/94508-9/\" title=\"Follow link\">94508-9</a>, <a href=\"https://loinc.org/94661-6/\" title=\"Follow link\">94661-6</a>, <a href=\"https://loinc.org/95542-7/\" title=\"Follow link\">95542-7</a>, <a href=\"https://loinc.org/98069-8/\" title=\"Follow link\">98069-8</a></li><li><code>SARS_COV_2_AB_NS</code> is no longer a valid <code>MS_Test_Name</code> value.</li></ul><p><u><strong>Additional Bug Fixes</strong></u></p><p>This release fixes an issue where the table names for the PRM and PRS tables were not being written to <code>qa_cc_metadata</code>. This would cause Common Components to fail at Data Partners populating those tables.</p>"
+  },
+  {
+    "Version": "8.4.1",
+    "Date": "06/08/2022",
+    "Modification": "New features / enhancements: <ul><li>Minor Input file updates to allow numeric lab values associated with COVID Antibody MS_Test_Names</li><li>The package will no longer fail and abort on **LAB_1_22_00-0_111** (MS_Result_N has no values) when run by Data Partners populating only COVID Labs with character based results</li></ul>"
+  },
+  {
+    "Version": "8.4.0",
+    "Date": "06/02/2022",
+    "Modification": "New features / enhancements: <ul><li>SCDM 8.1.0 Compliance Updates:</li><ul><li>The QA Package now allows the value `M` for multi-racial in the Demographic Table's Race variable</li><li>Adds new valid MS_Test_Names: `SARS_COV_2_AB_TOTAL`, `SARS_COV_2_AB_A`, `SARS_COV_2_AB_G`, `SARS_COV_2_AB_M`, `SARS_COV_2_AB_AM`, `SARS_COV_2_AB_GM`, `SARS_COV_2_AB_NS`, `UNMAPPED`</li><li>Introduces a new lookup file lkp_lab_loincs.sas7bdat, mapping SOC Approved LOINCS to their corresponding MS_Test_Name</li><li>Introduces a new set of CheckID 222 Flags: **LAB\\_2\\_07\\_\\[TestID]\\_222** which warn if MS_Test_Name does not correspond with the appropriate SOC Approved LOINC value</li><li>Introduces a new set of CheckID 222 Flags: **LAB\\_2\\_\\[VarID]\\_99-U\\_222** which fail and cause the QA Package to abort in instances where MS_Test_Name is set to `UNMAPPED` and the following variables do not contain the appropriate value corresponding with Unknown: Modifier, Specimen Source, Fast Ind, Stat, Pt_Loc, Abn_Ind, and Result_Type</li><li>Flag **LAB_2_07_99-U_220** will cause the QA Package to abort if MS_Test_Name is set to `UNMAPPED` but LOINC is not populated</li><li>Introduces a new set of CheckID 111 Flags: **PRE\\_1\\_\\[VarID]\\_00-0\\_111** which cause cause the QA Package to abort if the following variables are not populated in the Prescribing Table: RxSup, RxAmt, RxDoseQuantity, RxFreqQuantity</li><li>The QA Package will return three new Level 3 tables for characterizing Unmapped LOINCS:</li><ul><li>**lab_l3_unmap_loinc_all**: This dataset contains 1-way frequencies for all LOINCS where MS_Test_Name is `UNMAPPED`</li><li>**lab_l3_n_unmap_loinc_agegrp_sex**: This dataset contains frequencies of the top 5000 LOINCS where MS_Test_Name is `UNMAPPED`, stratified by agegroup and sex</li><li>**lab_l3_n_unmap_loinc_ym**: This dataset contains frequencies of the top 5000 LOINCS where MS_Test_Name is `UNMAPPED`, stratified by year-month</li></ul><li>SCDM 8.1.0 introduces new key variable combinations for several tables. The new unique row definitions enforced by the package are:</li><ul><li>Encounter: EncounterID</li><li>Diagnosis: EncounterID, DX_CodeType, DX, ProviderID</li><li>Procedure: EncounterID, PX_CodeType, PX, ProviderID</li><li>Lab Result: LabID</li><li>Inpatient Pharmacy: RxID</li><li>Inpatient Transfusion: TransID</li><li>Prescribing: PrescribingID</li></ul></ul></ul>"
+  },
+  {
+    "Version": "8.3.5",
+    "Date": "03/10/2022",
+    "Modification": "New features/enhancement: <ul><li>Modifies Check 223 to allow alphabetic character `M` or `U` as the fifth character in a PRO code when Px_CodeType is `C4`</li><li> Addition of valid value `SK` for px_codetype in LAB and PRO tables.</li></ul>"
+  },
+  {
+    "Version": "8.3.4",
+    "Date": "01/27/2022",
+    "Modification": "New features/enhancement: <ul><li>Modifies Check 223 to allow alphabetic character `A` as the fifth character in a PRO code when Px_CodeType is `C4`.</li></ul>"
+  },
+  {
+    "Version": "8.3.0",
+    "Date": "12/16/2021",
+    "Modification": "New features/enhancement: <ul><li>Adds a new dataset dis_l2_rx_rxtype_spec with combinations of Rx, RxType, and Provider Specialty.</li><li>•\tModifies Check 223 to prevent erroneous warns for PRO Table Code Types C2 and C3 based on presence of alphabetic characters `F` and `T`, respectively, as the fifth character in a code</li><li>Adds logic which will abort the package if the ETL number specified in the SCDM Tables Labels does not align with the expected ETL number</li></ul>"
+  },
+  {
+    "Version": "8.2.0",
+    "Date": "11/18/2021",
+    "Modification": "New features/enhancement: <ul><li>Implement ability to QA Rapid COVID Freshest Feasible SDD</li><li>New QA Package Dataset `enc_l2_byvar_dates` returns distribution of ENC `adate` stratified by `EncType`.</li><li>CheckID 116 updated from warn to an abort.</li><li>Minor Package updates</li></ul>"
+  },
+  {
+    "Version": "8.1.1",
+    "Date": "11/10/2021",
+    "Modification": "Minor Package Updates"
+  },
+  {
+    "Version": "8.1.0",
+    "Date": "10/21/2021",
+    "Modification": "New features/enhancement: <ul><li>Addition of .U as an valid value for unknown / missing values in certain Prescribing Table variables</li><li>New QA Package Dataset `vit_l3_pt_ym_stat` returning statistics from VIT tables</li><li>New QA Package Dataset `re_l2_rx_rxtype_spec` stratifying PRE records by `rx`, `rx_codetype`, and Provider Specialty</li><li>New CheckID 116 which checks FORMATL from PROC CONTENTS results to ensure the formatted value of any ID will not cause downstream issues</li></ul>"
+  },
+  {
+    "Version": "8.0.0",
+    "Date": "09/23/2021",
+    "Modification": "New features/enhancement: <ul><li>Add L2 checks for valid variable combinations of EncType, DDate, Discharge_Disposition, Discharge_Status in Encounter table</li><li>Add L2 checks to validate new PX_CodeType `CV`</li></ul>"
+  },
+  {
+    "Version": "7.3.0",
+    "Date": "08/14/2021",
+    "Modification": "New features/enhancement: <ul><li>New table outputting age in days as of earliest enrollment start for infants.</li><li>Minor package improvements and updates</li></ul>"
+  },
+  {
+    "Version": "7.2.1",
+    "Date": "08/14/2021",
+    "Modification": "A minor update to the lab look-up files fixing issue where new COVID Lab LOINCs provided to Data Partners had been omitted."
+  },
+  {
+    "Version": "7.2.0",
+    "Date": "07/29/2021",
+    "Modification": "New features/enhancement: <ul><li>Addition of CheckIDs 236 and 237: These checks ensure that DTH records have one and only one underlying cause of death.</li><li>Minor package Updates and improvements</li></ul>"
+  },
+  {
+    "Version": "7.1.0",
+    "Date": "07/01/2021",
+    "Modification": "New features/enhancement: <ul><li>Addition of `dia_l2_dx_dxtype_spec`, which replaces `dia_l2_dx_dxtype`. This dataset adds provider specialty (spec) to strata.</li><li>Addition of `pro_l2_px_pxtype_spec` which replaces `pro_l2_px_pxtype`. This dataset adds provider specialty (spec) to strata.</li><li>Addition of Check 208, which will replace 114 and confirms length of numeric variable is not longer than is needed after confirming this length is the same across SCDM tables</li></ul>"
+  },
+  {
+    "Version": "7.0.3",
+    "Date": "02/27/2021",
+    "Modification": "&bull; Minor package changes for input files only for inpatient tables to enable use of internal dataset <br>"
+  },
+  {
+    "Version": "7.0.2",
+    "Date": "01/29/2021",
+    "Modification": "&bull; Minor maintenance version to address Prescribing table Check ID 120; no longer aborts package.<br>"
+  },
+  {
+    "Version": "7.0.1",
+    "Date": "01/22/2021",
+    "Modification": "&bull; Minor maintenance version to address Prescribing table Check ID 111; no longer aborts package.<br>"
+  },
+  {
+    "Version": "7.0.0",
+    "Date": "04/01/2020",
+    "Modification": "&bull; L1/L2/L3 flags for SCDM v8.0.0 model compliance in existing tables<br>&bull;  Update select L1/L2/L3 flags for SCDM v8.0.0 model compliance in existing tables<br>&bull; Add compliance checks and new modules for addition of Prescribing, Provider, and Facility tables to the model.<br>&bull;  Temporary removal of the SCDM Snapshot program functionality until the stand-alone version is updated to be SCDM v8.0.0 compliant.<br>"
+  },
+  {
+    "Version": "6.2.0",
+    "Date": "02/14/2020",
+    "Modification": "&bull;  Update SCDM Snapshot functionality<br>* Include SCDMVer variable/ value in qa_cc_metadata output file for future use in qa_common_components<br>&bull; Replicate all L2/L3 datasets that contain variable DIS.NDC, breaking creating variable<br>&bull; `Rx_Codetype`, populated as `ND`, and renaming NDC to Rx.<br>&bull; Incorporate new SAS Option (Option=FMTERR) into the master program file.<br>"
+  },
+  {
+    "Version": "6.1.0",
+    "Date": "12/05/2019",
+    "Modification": "&bull; Add SCDM Snapshot program functionality<br>&bull; Minor bug fix for LAB CheckID 200<br>&bull; Change input file control_flow from a SAS dataset (.sas7bdat) to a .csv file for internal request building automation<br>"
+  },
+  {
+    "Version": "6.0.0",
+    "Date": "09/16/2019",
+    "Modification": "&bull; Add inpatient transfusion and inpatient dispensing model compliance checks and distribution statistics<br>"
+  },
+  {
+    "Version": "5.0.1",
+    "Date": "05/15/2019",
+    "Modification": "&bull; Minor bug fix for hardcoded dates in the MI ID program<br>"
+  },
+  {
+    "Version": "5.0.0",
+    "Date": "01/31/2019",
+    "Modification": "&bull; Updated to no longer use CC<br>&bull; Added metadata output table for use with post-QA CC<br>&bull; Integrated optional execution of MI ID package<br>"
+  },
+  {
+    "Version": "4.2.1",
+    "Date": "08/28/2018",
+    "Modification": "&bull; Addition of warning flag 121 for negative values in vital signs variables HT, WT, Systolic, and Diastolic<br>"
+  },
+  {
+    "Version": "4.2.0",
+    "Date": "08/10/2018",
+    "Modification": "&bull; Add vital signs module and model compliance checks<br>"
+  },
+  {
+    "Version": "4.1.5",
+    "Date": "07/03/2018",
+    "Modification": "&bull; Minor bug fix in dia_l2_dx_dxtype (introduced in 4.1.4)<br>"
+  },
+  {
+    "Version": "4.1.4",
+    "Date": "05/24/2018",
+    "Modification": "&bull; Bugfix for CheckID 223<br>&bull; Added missing CheckID 223 for PRO in lkp_all_flags<br>&bull; Updated temporary dataset name in DIA for CheckID 223"
+  },
+  {
+    "Version": "4.1.3",
+    "Date": "05/10/2018",
+    "Modification": "&bull; Minor bug fixes:<br>&bull; Corrected missing LAB CheckIDs (223, 23X, 243) from msoc. all_l1_l2_flags<br>&bull; Corrected record counts in msoc.pro_l3_enctype_pxtype_ym<br>&bull; Removed lowercase function of DP- specific path in LogChecker module<br>"
+  },
+  {
+    "Version": "4.1.1",
+    "Date": "03/08/2018",
+    "Modification": "&bull; Added missing valid value for PRO.px_codetype in lookup table `lkp_all_l1`<br>"
+  },
+  {
+    "Version": "4.1.0",
+    "Date": "02/22/2018",
+    "Modification": "&bull; Minor bug fixes<br>&bull; Optimization of L1 module<br>"
+  },
+  {
+    "Version": "4.0.2",
+    "Date": "11/14/2017",
+    "Modification": "&bull; Minor bug fix<br>"
+  },
+  {
+    "Version": "4.0.1",
+    "Date": "09/2/2017",
+    "Modification": "&bull; Minor bug fixes<br>"
+  },
+  {
+    "Version": "4.0.0",
+    "Date": "04/27/2017",
+    "Modification": "&bull; Major updates<br>"
+  },
+  {
+    "Version": "3.3.4",
+    "Date": "2/16/2017",
+    "Modification": "&bull; Added/modified diagnosis datasets<br>"
+  },
+  {
+    "Version": "3.3.3",
+    "Date": "8/17/2016",
+    "Modification": "&bull; Added/modified core and lab datasets"
+  },
+  {
+    "Version": "3.3.2",
+    "Date": "9/30/2015",
+    "Modification": "&bull; Corrected error in PatID exclusion in Labs Module<br>"
+  },
+  {
+    "Version": "3.3.1",
+    "Date": "9/17/2015",
+    "Modification": "&bull; Corrected error in DEM module<br>"
+  },
+  {
+    "Version": "3.3.0",
+    "Date": "5/1/2015",
+    "Modification": "&bull; Redesign of labs module, addition of core checks<br>"
+  },
+  {
+    "Version": "3.2.4",
+    "Date": "9/23/2014",
+    "Modification": "&bull; Updated program for new RequestID compatibility, fixed bug<br>"
+  },
+  {
+    "Version": "3.2.3",
+    "Date": "9/2/2014",
+    "Modification": "&bull; Implemented minor bug fixes<br>"
+  },
+  {
+    "Version": "3.2.2",
+    "Date": "8/26/2014",
+    "Modification": "&bull; Implemented minor bug fixes<br>"
+  },
+  {
+    "Version": "3.2.1",
+    "Date": "7/25/2014",
+    "Modification": "&bull; Implemented minor bug fixes<br>"
+  }
+]

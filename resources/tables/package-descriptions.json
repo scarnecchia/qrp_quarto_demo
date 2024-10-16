@@ -1,0 +1,22 @@
+[
+  {
+    "Package": "[Sentinel Data Quality Assurance and Characterization Program Package](https://dev.sentinelsystem.org/projects/QA/repos/qa_package/browse) (QA Package)",
+    "Description": "A distributed program package used to assess the quality of data held in the Sentinel Distributed Database."
+  },
+  {
+    "Package": "[Sentinel Mother-Infant Linkage Data Quality Assurance Package](https://dev.sentinelsystem.org/projects/QA/repos/qa_mil_package/browse) (QA MIL Package)",
+    "Description": "A distributed program package used to assess the quality of the data in the Sentinel Distributed Database Mother-Infant Linkage table."
+  },
+  {
+    "Package": "Mother-Infant Identification Package (MID Package)",
+    "Description": "A distributed program package used to identify cohorts of mothers and infants for linkage in the Mother-Infant Linkage table. This package is available as a standalone package but is more typically embedded within the QA Package."
+  },
+  {
+    "Package": "SCDM Snapshot Program Package",
+    "Description": "A distributed program package used to characterize data found within the Sentinel Distributed Database. This package is available as a standalone package but is more typically embedded within the QA Package and QA MIL Package."
+  },
+  {
+    "Package": "Sentinel Common Components",
+    "Description": "A distributed program package used to provide refresh specific metadata to distributed packages run against the SDD—e.g., the [Query Request Package](https://dev.sentinelsystem.org/projects/AD/repos/qrp/browse) (QRP). A standalone package is available, it is more typically embedded within the QA Package and QA MIL Package"
+  }
+]

@@ -1,0 +1,23 @@
+# Sentinel Routine Querying System {.unnumbered}
+
+The purpose of this repository is to document version {{< var version.qrp >}} of the Sentinel Routine Querying System, also known as the [Query Request Package (QRP)](https://dev.sentinelsystem.org/projects/AD/repos/qrp/browse). This system is comprised of cohort identification and Analytic Modules. This version of the QRP contains version {{< var version.qrp-report >}} of the [QRP Reporting Tool](https://dev.sentinelsystem.org/projects/AD/repos/qrp_report/browse).
+
+This documentation describes QRP capabilities and provides the information required to build query packages (i.e., input and output specifications) to address questions of interest.
+
+For details on which QRP features can be used against a given Sentinel Common Data Model (SCDM) table, view the [Available Analyses by SCDM Table](files/file018-typeall-analyses.md) page.
+
+For details on modifications between release versions, please see @sec-modification-history
+
+## [Cohort Identification And Descriptive Analysis (CIDA) Module](files/file020-typeall-cohortidstrategies.md)
+
+QRP’s Cohort Identification and Descriptive Analysis Module (CIDA) identifies and extracts cohorts of interest from the Sentinel Distributed Database based on user-defined options (e.g., exposures, outcomes, continuous enrollment requirements, incidence criteria, inclusion/exclusion criteria, relevant age groups, demographics).
+
+CIDA calculates descriptive statistics for the cohort(s) of interest and outputs datasets needed for additional analyses.
+
+### CIDA Cohort Identification Strategies
+
+- Type 1: [**Extract information to calculate background rates**](#sec-type1-package)
+
+## Please Be Advised
+
+While table names, variables, and variable values are capitalized throughout this documentation for emphasis, to ensure compatibility on all operating systems, all filenames used in Sentinel Routine Querying Package files should be lowercase.

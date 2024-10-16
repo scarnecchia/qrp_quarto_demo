@@ -1,0 +1,2741 @@
+{
+  "package": "Sentinel Mother-Infant Identification Program Package",
+  "version": "1.3.0",
+  "description": "This is the data dictionary for the Sentinel Mother-Infant Identification Program Package. This includes data dictionaries for the program package input file datasets and datasets output to the msoc and dplocal subdirectories.",
+  "directories": {
+    "inputfiles": {
+      "name": "inputfiles",
+      "description": "Input files are used to parameterize the program.",
+      "datasets": [
+        {
+          "filename": "cohort",
+          "description": "The cohort file defines the enrollment and demographic criteria. This input file is named `infant_cohort` for the Infant run of the package and `m_cohort` for the Mother run of the package.",
+          "variables": [
+            {
+              "variable": "group",
+              "description": "Standardized name used to differentiate cohorts. No special characters are allowed and underscores are used to delinate spaces.",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "coverage",
+              "description": "Indicates medical and drug coverage type requirements for the cohort.",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "M",
+                  "value_map": "Only enrollment spans with at least medical coverage should be considered by the MP algorithm"
+                },
+                {
+                  "value": "D",
+                  "value_map": "only enrollment spans with at least drug coverage should be considered by the MP algorithm"
+                },
+                {
+                  "value": "MD",
+                  "value_map": "only enrollment spans with both medical and drug coverage should be considered by the MP algorithm"
+                }
+              ]
+            },
+            {
+              "variable": "enrolgap",
+              "description": "Sets the number of days that will be bridged between two consecutive enrollment periods to create a “continuously enrolled” period. For example, if `ENROLGAP=30` and a member is eligible for medical and drug coverage in periods `1/1/2007-3/27/2007 `and `4/1/2007-12/21/2007`---i.e., a 4-day gap between two consecutive enrollment episodes---the member will be considered continuously enrolled from `1/1/2007` to `12/21/2007.` Any gaps in enrollment greater than 30 days will result in a new enrollment period, and all the days in the gap will be considered un-enrolled.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "enrdays",
+              "description": "Specifies the number of days of continuous enrollment required before the index date.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "type1",
+              "description": "Indicates if background rate cohort identification should be performed (see TYPE1FILE specifications).",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Perform background rate cohort identification"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Do not perform background rate cohort identification"
+                }
+              ]
+            },
+            {
+              "variable": "type2",
+              "description": "Indicates if an exposures and follow-up time cohort identification should be performed.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Perform exposures and follow-up time cohort identification"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Do not perform exposures and follow-up time cohort identification"
+                }
+              ]
+            },
+            {
+              "variable": "type3",
+              "description": "Indicates if self-controlled risk interval design cohort identification should be performed.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Perform self-controlled risk interval design cohort identification"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Do not perform self-controlled risk interval design cohort identification"
+                }
+              ]
+            },
+            {
+              "variable": "type4",
+              "description": "Indicates if pregnancy episodes cohort identification strategy should be performed.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Perform pregnancy episodes cohort identification strategy"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Do not perform pregnancy episodes cohort identification strategy"
+                }
+              ]
+            },
+            {
+              "variable": "type5",
+              "description": "Indicates if a medical product utilization cohort identification strategy should be performed.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Perform medical product utilization cohort identification strategy"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Do not perform medical product utilization cohort identification strategy"
+                }
+              ]
+            },
+            {
+              "variable": "enrdaysaft",
+              "description": "Specifies the number of days of continuous enrollment required after the index date. Criteria apply to the analytic cohort only. May be left blank if no post-index enrollment is required.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "chartres",
+              "description": "Indicates if extraction should exclude members for whom medical charts cannot be requested for the entire study period.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Exclude members for whom medical charts cannot be requested for the entire study period"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Do not exclude members for whom medical charts cannot be requested for the entire study period"
+                }
+              ]
+            },
+            {
+              "variable": "sex",
+              "description": "Optional parameter to restrict cohort to only specified Sex values. Blank will ensure that all Sex values are included in analyses.",
+              "Variable Type (Length)": "char (5)",
+              "format": "$5.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "A",
+                  "value_map": "Ambiguous"
+                },
+                {
+                  "value": "F",
+                  "value_map": "Female"
+                },
+                {
+                  "value": "M",
+                  "value_map": "Male"
+                },
+                {
+                  "value": "U",
+                  "value_map": "Unknown"
+                },
+                {
+                  "value": null,
+                  "value_map": "All sex values included in analyses."
+                }
+              ]
+            },
+            {
+              "variable": "race",
+              "description": "Optional parameter to restrict cohort to only specified Race values. Blank will ensure that all Race values are included in analyses.",
+              "Variable Type (Length)": "char (5)",
+              "format": "$5.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "0",
+                  "value_map": "Unknown"
+                },
+                {
+                  "value": "1",
+                  "value_map": "American indian or Alaska Native"
+                },
+                {
+                  "value": "2",
+                  "value_map": "Asian"
+                },
+                {
+                  "value": "3",
+                  "value_map": "Black or African-American"
+                },
+                {
+                  "value": "4",
+                  "value_map": "Native Hawaiian or Other Pacific Islander"
+                },
+                {
+                  "value": "5",
+                  "value_map": "White"
+                },
+                {
+                  "value": "M",
+                  "value_map": "Multi-racial"
+                },
+                {
+                  "value": null,
+                  "value_map": "All Race values are included in analyses."
+                }
+              ]
+            },
+            {
+              "variable": "hispanic",
+              "description": "Optional parameter to restrict cohort to only specified Hispanic values. Blank will ensure that all Hispanic values are included in analyses.",
+              "Variable Type (Length)": "char (5)",
+              "format": "$5.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "N",
+                  "value_map": "No"
+                },
+                {
+                  "value": "U",
+                  "value_map": "Unknown"
+                },
+                {
+                  "value": "Y",
+                  "value_map": "Yes"
+                },
+                {
+                  "value": null,
+                  "value_map": "All Hispanic values are included in analyses."
+                }
+              ]
+            },
+            {
+              "variable": "race_out",
+              "description": "Indicates if output should be stratified by values of Race",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Yes"
+                },
+                {
+                  "value": "N",
+                  "value_map": "No"
+                }
+              ]
+            },
+            {
+              "variable": "hispanic_out",
+              "description": "Indicates if output should be stratified by values of Hispanic.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Yes"
+                },
+                {
+                  "value": "N",
+                  "value_map": "No"
+                }
+              ]
+            },
+            {
+              "variable": "agestrat",
+              "description": "Age group categories for reporting. Specifying this parameter will restrict to certain age groups and specify how age groups will be stratified in result tables. For example, to have results stratified by 20 year increments for members 40-99 years of age, enter `AGESTRAT=40-59 60-79 80-99`.",
+              "Variable Type (Length)": "char (100)",
+              "format": "$100.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "geog",
+              "description": "Indicate if output should be stratified by geographic location.",
+              "Variable Type (Length)": "char (50)",
+              "format": "$50.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "zip3",
+                  "value_map": "Stratify output by 3-digit ZIP code"
+                },
+                {
+                  "value": "state",
+                  "value_map": "Stratify output by 2-digit State code"
+                },
+                {
+                  "value": "hhs_reg",
+                  "value_map": "Stratify output by 2-digit HHS region code"
+                },
+                {
+                  "value": "cb_reg",
+                  "value_map": "Stratify output by Census Bureau regions"
+                },
+                {
+                  "value": null,
+                  "value_map": "Do not include geographic information in standard output"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "cohortcodes",
+          "description": "The Cohort Codes File specifying codes used to define exposures, exposure incidence criteria, outcomes, outcome incidence criteria, and live births. NDCs, ICD procedure and diagnosis codes, HCPCS codes, and/or laboratory result values can be used in any combination and can be restricted to specific care settings and diagnosis code positions. This input file is named `infant_cohortcodes` for the infant run of the package and `m_cohortcodes` for the mother run of the package.",
+          "variables": [
+            {
+              "variable": "group",
+              "description": "Standardized name used to differentiate cohorts. ",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "stockgroup",
+              "description": "Standardized name used to refer to a specific exposure/HOI within a given GROUP.",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "codecat",
+              "description": "Type of each code category value included in the CODETYPE field.",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "RX",
+                  "value_map": "NDC"
+                },
+                {
+                  "value": "DX",
+                  "value_map": "Diagnosis Code"
+                },
+                {
+                  "value": "PX",
+                  "value_map": "Procedure Code"
+                },
+                {
+                  "value": "LB",
+                  "value_map": "Lab Code"
+                },
+                {
+                  "value": "AN",
+                  "value_map": "Target Age Anniversary"
+                },
+                {
+                  "value": "DT",
+                  "value_map": "Fixed Calendar Date"
+                }
+              ]
+            },
+            {
+              "variable": "codetype",
+              "description": "Type of each code value included in the CODE field.",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Age anniversary specified in years"
+                },
+                {
+                  "value": "M",
+                  "value_map": "Age anniversary specified in months"
+                },
+                {
+                  "value": "W",
+                  "value_map": "Age anniversary specified in weeks"
+                },
+                {
+                  "value": "D",
+                  "value_map": "Age anniversary specified in days"
+                }
+              ]
+            },
+            {
+              "variable": "code",
+              "description": "NDC, procedure, diagnosis, and/or lab code of interest. For CODECAT=RX, DX, PX, or LB, the requester should input the NDC, diagnosis, procedure and/or lab code values used to determine the index date. For CODECAT=AN, the requester should input the desired age in the unit specified in CODETYPE. For CODECAT=DT, the requester should input the calendar date in the SAS format `Date9.`---e.g., 01Jan2015",
+              "Variable Type (Length)": "char (11)",
+              "format": "$11.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "caresettingprincipal",
+              "description": "defines the care setting and principal diagnosis position requirements for each code. This field uses combination(s) of the SCDM variables care setting (ENCTYPE) and principal discharge diagnosis flag (PDX) to restrict the observance of codes  to those in the requested care settings and with the requested diagnosis position. If no restrictions are required---e.g., requester wants all care settings and any value of PDX---leave the field blank.",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "IPP",
+                  "value_map": "Inpatient hospital stays, principal diagnoses"
+                },
+                {
+                  "value": "IPS",
+                  "value_map": "Inpatient hospital stays, secondary diagnoses"
+                },
+                {
+                  "value": "IPX",
+                  "value_map": "Inpatient hospital stays, unclassified diagnoses"
+                },
+                {
+                  "value": "ISP",
+                  "value_map": "Non-acute institutional stays, principal diagnoses"
+                },
+                {
+                  "value": "ISS",
+                  "value_map": "Non-acute institutional stays, secondary diagnoses"
+                },
+                {
+                  "value": "ISX",
+                  "value_map": "Non-acute institutional stays, unclassified diagnoses"
+                },
+                {
+                  "value": "ED*",
+                  "value_map": "Emergency department encounters"
+                },
+                {
+                  "value": "AV*",
+                  "value_map": "Ambulatory visits"
+                },
+                {
+                  "value": "OA*",
+                  "value_map": "Other ambulatory visits"
+                },
+                {
+                  "value": null,
+                  "value_map": "All care settings and any value of PDX"
+                }
+              ]
+            },
+            {
+              "variable": "t1_index",
+              "description": "Indicates, for each code listed in the file, what role the code will play in defining a Type 1.",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DEF",
+                  "value_map": "Code should be used to identify the TYPE1 cohort index date"
+                },
+                {
+                  "value": "IOC",
+                  "value_map": "Code should be used to assess TYPE1 cohort index incidence criteria only"
+                },
+                {
+                  "value": "NOT",
+                  "value_map": "Code should not be used to define TYPE1 cohort index date or incidence criteria"
+                }
+              ]
+            },
+            {
+              "variable": "t2_index",
+              "description": "Indicates, for each code listed in the file, what role the code will play in defining a Type 2 (exposures and follow-up time) index date/exposure episode.",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DEF",
+                  "value_map": "Code should be used to identify the TYPE2 cohort index date"
+                },
+                {
+                  "value": "IOT",
+                  "value_map": "Code should be used to assess TYPE2 cohort index incidence only; exposure episode should be truncated at the occurrence of the code"
+                },
+                {
+                  "value": "IOD",
+                  "value_map": "Code should be used to assess TYPE2 cohort index  incidence only; exposure episode should NOT be truncated at the occurrence of the code"
+                },
+                {
+                  "value": "FUT",
+                  "value_map": "Code should be used to truncate exposure episodes (truncate on the day of first occurrence)"
+                },
+                {
+                  "value": "NOT",
+                  "value_map": "Code should not be used to define TYPE2 cohort index date or incidence criteria"
+                }
+              ]
+            },
+            {
+              "variable": "t2_fup",
+              "description": "Indicates, for each code listed in the file, what role the code will play in defining a Type 2 (exposures and follow-up time) HOI.",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DEF",
+                  "value_map": "Code should be used to identify the TYPE2 cohort HOI"
+                },
+                {
+                  "value": "IOC",
+                  "value_map": "Code should be used to assess TYPE2 cohort HOI incidence criteria only"
+                },
+                {
+                  "value": "NOT",
+                  "value_map": "Code should not be used to define TYPE2 cohort HOI or HOI incidence criteria"
+                }
+              ]
+            },
+            {
+              "variable": "t3_index",
+              "description": "Indicates, for each code listed in the file, what role the code will play in defining a Type 3 exposure.",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DEF",
+                  "value_map": "Code should be used to identify the TYPE3 cohort exposure"
+                },
+                {
+                  "value": "IOC",
+                  "value_map": "Code should be used to assess TYPE3 cohort exposure incidence criteria only"
+                },
+                {
+                  "value": "NOT",
+                  "value_map": "Code should not be used to define TYPE3 cohort exposure or incidence criteria"
+                }
+              ]
+            },
+            {
+              "variable": "t3_fup",
+              "description": "Indicates, for each code listed in the file, what role the code will play in defining a Type 3 HOI. ",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DEF",
+                  "value_map": "Code should be used to identify the TYPE3 cohort HOI"
+                },
+                {
+                  "value": "IOC",
+                  "value_map": "Code should be used to assess TYPE3 cohort HOI incidence criteria only"
+                },
+                {
+                  "value": "NOT",
+                  "value_map": "Code should not be used to define TYPE3 cohort HOI or HOI incidence criteria"
+                }
+              ]
+            },
+            {
+              "variable": "t4_index",
+              "description": "Indicates, for each code listed in the file, what role the code will play in defining a Type 4 (pregnancy) delivery date/exposure episode.",
+              "Variable Type (Length)": "char (5)",
+              "format": "$5.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DEF",
+                  "value_map": "Code should be used to identify the TYPE4 pregnancy cohort delivery date. "
+                },
+                {
+                  "value": "IOC",
+                  "value_map": "Code should be used to assess TYPE4 pregnancy cohort delivery date incidence only"
+                },
+                {
+                  "value": "MPn",
+                  "value_map": "Medical product exposure, where n identifies a unique medical product of interest"
+                },
+                {
+                  "value": "ICn",
+                  "value_map": "Incident medical product exposure, where n identifies a unique medical product of interest. The same n value for MPn and IMPn indicates exposure and incidence defining criteria for that medical product."
+                },
+                {
+                  "value": "NOT",
+                  "value_map": "Code should not be used to define TYPE4 cohort delivery date or incidence criteria"
+                }
+              ]
+            },
+            {
+              "variable": "t4_fup",
+              "description": "",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "NOT",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "t5_index",
+              "description": "Indicates, for each code listed in the file, what role the code will play in defining a Type 5 index date/exposure episode. ",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DEF",
+                  "value_map": "Code should be used to identify the TYPE5 cohort index date"
+                },
+                {
+                  "value": "IOT",
+                  "value_map": "Code should be used to assess TYPE5 cohort index incidence only; exposure episode should be truncated at the occurrence of the code"
+                },
+                {
+                  "value": "IOD",
+                  "value_map": "Code should be used to assess TYPE5 cohort index  incidence only; exposure episode should NOT be truncated at the occurrence of the code"
+                },
+                {
+                  "value": "FUT",
+                  "value_map": "Code should be used to truncate exposure episodes (truncate on the day of first occurrence)"
+                },
+                {
+                  "value": "NOT",
+                  "value_map": "Code should not be used to define TYPE5 cohort index date or incidence criteria"
+                }
+              ]
+            },
+            {
+              "variable": "codesupply",
+              "description": "Indicates, for each code listed in the file, a forced supply that should be attached to procedure or diagnosis codes.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "rawlabdatetype",
+              "description": "Relevant for requests that query laboratory result values. Field specifies in what sequence date(s) in the SCDM Laboratory Result table should be considered to select one relevant date for a laboratory result of interest. The parameter will allow the requester to either specify 1) a single date variable (Lab_dt, Order_dt, or Result_dt) to use; or 2) a hierarchy to choose a date variable (e.g., select Lab_dt else if missing select Result_dt else if missing select Order_dt).",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "rawlabresult",
+              "description": "Specifies the lab result value or lab result range for querying. RAWLABRESULT allows for values or ranges of quantitative laboratory results---`100`; `100–200`---and values of qualitative laboratory results---e.g., `POSITIVE`",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "infant_type1",
+          "description": "Supplies parameters required for a background rate calculation cohort identification strategy. This file is only used in the infant run of the package.",
+          "variables": [
+            {
+              "variable": "group",
+              "description": "Standardized name used to differentiate cohorts.",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "t1washper",
+              "description": "Length of washout period in days. The washout period is a period before an index date during which an individual cannot have evidence of incidence-defining criteria.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "t1cohortdef",
+              "description": "Indicates how many index dates an individual can contribute.",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "01",
+                  "value_map": "Cohort includes only the first valid index date per individual during the query period."
+                },
+                {
+                  "value": "02",
+                  "value_map": "Cohort includes all valid index dates per individual during the query period."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "m_monitoring",
+          "description": "Defines the time period(s) for each data extraction. This  file allows requesters to define specific time periods, or cumulative looks at data as part of sequential monitoring activities. This file is used only in the mother run of the package.",
+          "variables": [
+            {
+              "variable": "periodid",
+              "description": "Identifier for each STARTFOLLOWUP/ ENDDATE combination.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "startfollowup",
+              "description": "Start date for the query period. Should be identical across all PeriodID.",
+              "Variable Type (Length)": "num (8)",
+              "format": "DATE9.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DDMMYYYY",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "enddate",
+              "description": "End date for the query period. Note that this is overwritten by the end date of the last available data in the database.",
+              "Variable Type (Length)": "num (8)",
+              "format": "DATE9.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "m_pregdur",
+          "description": "Defines the codes used to define pregnancy episode duration. Used to instruct the MP algorithm on how to calculate pregnancy episode duration and index date. This file is only used during the mother run of the package.",
+          "variables": [
+            {
+              "variable": "group",
+              "description": "Standardized name used to differentiate cohorts.",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "group",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "stockgroup",
+              "description": "Standardized name used to refer to a specific preterm/postterm codes within a given Group",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "rawlabdatetype",
+              "description": "",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "rawlabresult",
+              "description": "",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "caresettingprincipal",
+              "description": "Defines the care setting and principal diagnosis position requirements for each code. This field uses combination(s) of the SCDM variables care setting (ENCTYPE) and principal discharge diagnosis flag (PDX) to restrict the observance of codes  to those in the requested care settings and with the requested diagnosis position. If no restrictions are required---e.g., requester wants all care settings and any value of PDX---leave the field blank.",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "IPP",
+                  "value_map": "Inpatient hospital stays, principal diagnoses"
+                },
+                {
+                  "value": "IPS",
+                  "value_map": "Inpatient hospital stays, secondary diagnoses"
+                },
+                {
+                  "value": "IPX",
+                  "value_map": "Inpatient hospital stays, unclassified diagnoses"
+                },
+                {
+                  "value": "ISP",
+                  "value_map": "Non-acute institutional stays, principal diagnoses"
+                },
+                {
+                  "value": "ISS",
+                  "value_map": "Non-acute institutional stays, secondary diagnoses"
+                },
+                {
+                  "value": "ISX",
+                  "value_map": "Non-acute institutional stays, unclassified diagnoses"
+                },
+                {
+                  "value": "ED*",
+                  "value_map": "Emergency department encounters"
+                },
+                {
+                  "value": "AV*",
+                  "value_map": "Ambulatory visits"
+                },
+                {
+                  "value": "OA*",
+                  "value_map": "Other ambulatory visits"
+                },
+                {
+                  "value": null,
+                  "value_map": "All care settings and any value of PDX"
+                }
+              ]
+            },
+            {
+              "variable": "codecat",
+              "description": "Type of each code category value included in the CODETYPE field.",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "RX",
+                  "value_map": "NDC"
+                },
+                {
+                  "value": "DX",
+                  "value_map": "Diagnosis Code"
+                },
+                {
+                  "value": "PX",
+                  "value_map": "Procedure Code"
+                },
+                {
+                  "value": "LB",
+                  "value_map": "Lab Code"
+                }
+              ]
+            },
+            {
+              "variable": "codetype",
+              "description": "Type of each code value included in the CODE field.",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "code",
+              "description": "NDC, procedure, diagnosis, and/or lab code of interest. For CODECAT=RX, DX, PX, or LB, the requester should input the NDC, diagnosis, procedure and/or lab code values used to determine the index date. For CODECAT=AN, the requester should input the desired age in the unit specified in CODETYPE. For CODECAT=DT, the requester should input the calendar date in the SAS format `Date9.`---e.g., 01Jan2015",
+              "Variable Type (Length)": "char (11)",
+              "format": "$11.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "duration",
+              "description": "Duration in days attached to the pregnancy episode when a delivery has a gestational age code.",
+              "Variable Type (Length)": "num (8)",
+              "format": "",
+              "label": "duration",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "PriorityGroup1",
+              "description": "Indicates if a code is a first priority code",
+              "Variable Type (Length)": "num (8)",
+              "format": "",
+              "label": "PriorityGroup1",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": 0,
+                  "value_map": false
+                },
+                {
+                  "value": 1,
+                  "value_map": true
+                }
+              ]
+            },
+            {
+              "variable": "PriorityGroup2",
+              "description": "Indicates if a code is a second priority code",
+              "Variable Type (Length)": "num (8)",
+              "format": "",
+              "label": "PriorityGroup2",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": 0,
+                  "value_map": false
+                },
+                {
+                  "value": 1,
+                  "value_map": true
+                }
+              ]
+            },
+            {
+              "variable": "priority",
+              "description": "For members with many different codes, the priority is used to indicate which code will be kept to define the pregnancy episode start date and duration.",
+              "Variable Type (Length)": "num (8)",
+              "format": "",
+              "label": "priority",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "m_type4",
+          "description": "Defines parameters required for a pregnancy episodes cohort identification strategy. Options include the number of days before index date to assess incidence criteria, the length of pregnancy in absence of preterm/postterm codes, and the allowable gap between delivery code and preterm/postterm code.",
+          "variables": [
+            {
+              "variable": "group",
+              "description": "Standardized name used to differentiate cohorts. ",
+              "Variable Type (Length)": "char (30)",
+              "format": "$30.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "t4cohortdef",
+              "description": "Indicates how many pregnancy episodes an individual can contribute. This parameter is used in conjunction with the T4WASHPER parameter (below) to define valid exposure episode(s).",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "02",
+                  "value_map": "Cohort includes all valid pregnancy episodes during the query period"
+                }
+              ]
+            },
+            {
+              "variable": "t4washper",
+              "description": "Length of washout period in days. The washout period is a period before a delivery during which an individual cannot have evidence of a prior delivery. The washout is applied to delivery code and not index date (start of pregnancy episode). If T4WashPer < length of pregnancy, and the index date of a pregnancy episode falls during a prior episode, the second episode is truncated to start 1 day after the prior episode.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ittdays",
+              "description": "Pregnancy duration in the absence of preterm/postterm codes within EPISODEGAP of delivery.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "episodegap",
+              "description": "Sets the number of days around the delivery date where the program looks for evidence of preterm/postterm codes to calculate the length of the pregnancy episode. For example, if EPISODEGAP=10, and a delivery is on 1/31/2012, the program will look in the 10 days before and 10 days after 1/31/2012 to evaluate presence of preterm/postterm codes.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "t4fupwashper",
+              "description": "The washout period is a period before a pregnancy episode during which an individual cannot have evidence of the HOI.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "enrdaysfloor",
+              "description": "indicates the minimum number of days of continuous enrollment required prior to the delivery date for Type 4 analysis only. Enrollment requirements are assessed via the ENRDAYS parameter with respect to the delivery date and not the index date.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "t4cohortdef2",
+              "description": "Indicates how many medical product exposure periods an individual can contribute. No",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "02",
+                  "value_map": "Cohort includes all valid pregnancy episodes during the query period"
+                }
+              ]
+            },
+            {
+              "variable": "t4washper2",
+              "description": "Length of washout period in days for medical products. The washout period is a period before start of medical product episode during which an individual cannot have evidence of a prior episode.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ittdays2",
+              "description": "Number of days after medical product use episode initiation that is considered 'exposed time'.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "episodegaptype2",
+              "description": "Specifies the type of algorithm to use for the calculation of episode gaps for medical product use.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "F",
+                  "value_map": "Fixed episode gap. The value specified in EPISODEGAP2 will be used to determine if two consecutive claims are in the same episode."
+                },
+                {
+                  "value": "P",
+                  "value_map": "Percentage episode gap. The value specified in EPISODEGAP2 will represent a percentage of the previous dispensing’s days of supply to determine if two consecutive claims are in the same episode."
+                }
+              ]
+            },
+            {
+              "variable": "episodegap2",
+              "description": "Used in conjunction with EPISODEGAPTYPE2; sets the number of days allowed between two consecutive dispensings to consider them as part of the same medical product episode. For a given claim, if EPISODEGAPTYPE2 is Fixed (F), a gap of more than EPISODEGAP2 days between the dispensing date and the date of the last day of supply of the previous dispensing triggers a new medical product episode.  If EPISODEGAPTYPE2 is Percentage (P), a gap of more than EPISODEGAP2 percent of the previous dispensing days of supply days between the dispensing date and the date of the last day of supply of the previous dispensing triggers a new treatment episode.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "t4fupwashper2",
+              "description": "The washout period is a period before a medical product episode during which an individual cannot have evidence of the HOI.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "concwashper",
+              "description": "The number of days prior to a pregnancy episode that an individual must be free of a medical product episode in order for the medical product to be included in the “trimester only” statistics.",
+              "Variable Type (Length)": "num (8)",
+              "format": "8.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "censor_dpend",
+              "description": "Indicates whether episodes are censored due to DP data end date (based on [DP Max Date](#dpmax).",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1.",
+              "label": "",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Episodes are censored due to DP data end date"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Episodes are not censored due to DP data end date"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "msoc": {
+      "name": "msoc",
+      "description": "Output datasets found in the MSOC directory are returned to SOC.",
+      "datasets": [
+        {
+          "filename": "motherdeliveries_infants_counts",
+          "description": "Provides summary counts of deliveries and infants identified.",
+          "scdm_table": "MIL",
+          "check_level": null,
+          "methods": [
+            "From the DLocal Mother_Deliveries file, create a count of rows.  Set Level to `Deliveries`.",
+            "From the DLocal Mother_Deliveries file, create a count of unique MPatIDs.  Set Level to `Mothers`.",
+            "From the DLocal Infants file, create a count of rows.  Set Level to `Infants`.",
+            "Combine the three rows and fill the data dictionary above.  Sort by PersonType. Save the file to the MSOC data library as MotherDeliveries_Infants_Counts."
+          ],
+          "variables": [
+            {
+              "variable": "Level",
+              "description": "Categorizes the counts in this table",
+              "Variable Type (Length)": "Char (3)",
+              "label": "Person type",
+              "format": "$3",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "001",
+                  "value_map": "Deliveries"
+                },
+                {
+                  "value": "002",
+                  "value_map": "Mothers"
+                },
+                {
+                  "value": "003",
+                  "value_map": "Infants"
+                }
+              ]
+            },
+            {
+              "variable": "count",
+              "description": "Comma separated counts",
+              "Variable Type (Length)": "Num (8)",
+              "label": "Count",
+              "format": "COMMA14.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer or 0",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "r01_deliveries_counts",
+          "description": "This dataset provides aggregates of factors related to deliveries identified by the Mother-Infant Identification Program",
+          "scdm_table": "MIL",
+          "check_level": null,
+          "methods": [
+            "From the DLocal `Mother_Deliveries` file, extract the following variables: `MPatID`, `EncounterID`, `ADate`, `MBirth_Date`, `EncType`, and `Birth_Type`.",
+            "Use `MBirth_Date` to calculate the Age, in years, as of the `ADate`. Use the Kreuter method. Then set a new variable `AgeGroup` based on the groupings in the data dictionary above.",
+            "Use `ADate` to create the variable `Year`.",
+            "Summarize counts by the following variables: `AgeGroup`, `Year`, `EncType`, and `Birth_Type`."
+          ],
+          "variables": [
+            {
+              "variable": "Level",
+              "description": "Aggregation Level",
+              "Variable Type (Length)": "Char (3)",
+              "label": "Aggregation Level",
+              "format": "$3",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "000",
+                  "value_map": "Total Counts"
+                },
+                {
+                  "value": "001",
+                  "value_map": "By AgeGroup"
+                },
+                {
+                  "value": "002",
+                  "value_map": "By Year"
+                },
+                {
+                  "value": "003",
+                  "value_map": "By EncType"
+                },
+                {
+                  "value": "004",
+                  "value_map": "By AgeGroup and Year"
+                },
+                {
+                  "value": "005",
+                  "value_map": "By AgeGroup and EncType"
+                },
+                {
+                  "value": "006",
+                  "value_map": "By Year and EncType"
+                },
+                {
+                  "value": "007",
+                  "value_map": "By AgeGroup, Year, and EncType"
+                },
+                {
+                  "value": "008",
+                  "value_map": "By Birth_type"
+                },
+                {
+                  "value": "009",
+                  "value_map": "By Birth_type and AgeGroup"
+                },
+                {
+                  "value": "010",
+                  "value_map": "By Birth_type and Year"
+                },
+                {
+                  "value": "011",
+                  "value_map": "By Birth_type and EncType"
+                },
+                {
+                  "value": "012",
+                  "value_map": "By Birth_type, Year, AgeGroup, and EncType"
+                },
+                {
+                  "value": "013",
+                  "value_map": "By YearMonth"
+                },
+                {
+                  "value": "014",
+                  "value_map": "By AgeGroup and YearMonth"
+                },
+                {
+                  "value": "015",
+                  "value_map": "By YearMonth and EncType"
+                },
+                {
+                  "value": "016",
+                  "value_map": "By AgeGroup, YearMonth, and EncType"
+                },
+                {
+                  "value": "017",
+                  "value_map": "By Birth_type and Year"
+                },
+                {
+                  "value": "018",
+                  "value_map": "By Birth_type, YearMonth, AgeGroup, and EncType"
+                }
+              ]
+            },
+            {
+              "variable": "AgeGroup",
+              "description": "Categorizes the counts in this table by age group",
+              "Variable Type (Length)": "Char (9)",
+              "label": "Age Group",
+              "format": "$9.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "10–19",
+                  "value_map": null
+                },
+                {
+                  "value": "20–24",
+                  "value_map": null
+                },
+                {
+                  "value": "25–29",
+                  "value_map": null
+                },
+                {
+                  "value": "30–34",
+                  "value_map": null
+                },
+                {
+                  "value": "35–39",
+                  "value_map": null
+                },
+                {
+                  "value": "40–44",
+                  "value_map": null
+                },
+                {
+                  "value": "45–54",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Year",
+              "description": "Year of delivery",
+              "Variable Type (Length)": "Num (8)",
+              "label": "Year",
+              "format": "$4.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "YearMonth",
+              "description": "Year and Month of delivery",
+              "Variable Type (Length)": "Num (8)",
+              "label": "YearMonth",
+              "format": "Yymmd.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "EncType",
+              "description": "Encounter Type",
+              "Variable Type (Length)": "Char (2)",
+              "label": "Encounter Type",
+              "format": "$2.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "AV",
+                  "value_map": "Ambulatory Visit"
+                },
+                {
+                  "value": "ED",
+                  "value_map": "Emergency Department"
+                },
+                {
+                  "value": "IP",
+                  "value_map": "Inpatient Hospital Stay"
+                },
+                {
+                  "value": "IS",
+                  "value_map": "Non-Acute Institutional Stay"
+                },
+                {
+                  "value": "OA",
+                  "value_map": "Other Ambulatory Visit"
+                }
+              ]
+            },
+            {
+              "variable": "Birth_Type",
+              "description": "Based upon ICD-9-CM/ICD-10-CM codes in the health plan data for the delivery admission.  Will be `0` for non-specific codes",
+              "Variable Type (Length)": "Num (8)",
+              "label": "# of babies born",
+              "format": "3.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "0",
+                  "value_map": "Unspecified # of live births"
+                },
+                {
+                  "value": "1",
+                  "value_map": "1 live birth"
+                },
+                {
+                  "value": "2",
+                  "value_map": "2 live births"
+                },
+                {
+                  "value": "3",
+                  "value_map": "3 live births"
+                },
+                {
+                  "value": "4",
+                  "value_map": "4 live births"
+                },
+                {
+                  "value": "5",
+                  "value_map": "5 live births"
+                },
+                {
+                  "value": "8",
+                  "value_map": "Multiple live births, unspecified number"
+                },
+                {
+                  "value": "9",
+                  "value_map": "Conflicting code(s) for number of live births"
+                }
+              ]
+            },
+            {
+              "variable": "count",
+              "description": "Comma separated counts",
+              "Variable Type (Length)": "Num (8)",
+              "label": "Count",
+              "format": "COMMA14.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer or 0",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "r02_infants_counts",
+          "description": "This dataset provides aggregates of factors related to infants identified by the Mother-Infant Identification Module",
+          "scdm_table": "MIL",
+          "check_level": null,
+          "methods": null,
+          "variables": [
+            {
+              "variable": "Level",
+              "description": "Aggregation Level",
+              "Variable Type (Length)": "Char (3)",
+              "label": "Aggregation Level",
+              "format": "$3",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "000",
+                  "value_map": "Total counts"
+                },
+                {
+                  "value": "001",
+                  "value_map": "By Sex"
+                },
+                {
+                  "value": "002",
+                  "value_map": "By Year"
+                },
+                {
+                  "value": "003",
+                  "value_map": "By EnrollDays"
+                },
+                {
+                  "value": "004",
+                  "value_map": "By Sex and Year"
+                },
+                {
+                  "value": "005",
+                  "value_map": "By Sex and EnrollDays"
+                },
+                {
+                  "value": "006",
+                  "value_map": "By Year and EnrollDays"
+                },
+                {
+                  "value": "007",
+                  "value_map": "By Sex, Year, and EnrollDays"
+                },
+                {
+                  "value": "008",
+                  "value_map": "By YearMonth"
+                },
+                {
+                  "value": "009",
+                  "value_map": "By Sex and YearMonth"
+                },
+                {
+                  "value": "010",
+                  "value_map": "By YearMonth and EnrollDays"
+                },
+                {
+                  "value": "011",
+                  "value_map": "By Sex, YearMonth, and EnrollDays"
+                }
+              ]
+            },
+            {
+              "variable": "Sex",
+              "description": "Child's Sex",
+              "Variable Type (Length)": "Char (1)",
+              "label": "Child Sex",
+              "format": "$1.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "A",
+                  "value_map": "Ambiguous"
+                },
+                {
+                  "value": "F",
+                  "value_map": "Female"
+                },
+                {
+                  "value": "M",
+                  "value_map": "Male"
+                },
+                {
+                  "value": "U",
+                  "value_map": "Unknown"
+                }
+              ]
+            },
+            {
+              "variable": "Year",
+              "description": "Year of delivery",
+              "Variable Type (Length)": "Num (8)",
+              "label": "Year",
+              "format": "$4.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "YearMonth",
+              "description": "Year and Month of delivery",
+              "Variable Type (Length)": "Num (8)",
+              "label": "YearMonth",
+              "format": "Yymmd.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "EnrollDays",
+              "description": "Groupings of medical coverage enrollment days in the 1st year of life",
+              "Variable Type (Length)": "Char (10)",
+              "label": "Enrollment days category",
+              "format": "$7.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "count",
+              "description": "Comma separated counts",
+              "Variable Type (Length)": "Num (8)",
+              "label": "Count",
+              "format": "COMMA14.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer or 0",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "dplocal": {
+      "name": "dplocal",
+      "description": "Output datasets found in the DPLOCAL directory remain with the Data Partner.",
+      "datasets": [
+        {
+          "filename": "r01_deliveries",
+          "description": "The Live Birth Deliveries dataset contains one record per MPatID and ADate. This file is created following identification of mothers (via evidence of live delivery by individuals aged 10--54 inclusive and an assigned value of `Female` in the Sentinel Common Data Model [demographic table](https://dev.sentinelsystem.org/projects/SCDM/repos/sentinel_common_data_model/browse/files/file1200_admin_demographic.md) variable Sex.  This file will stay at the Data Partner and will be used to subsequently create a Sentinel Mother-Infant Linkage Table.",
+          "scdm_table": "MIL",
+          "check_level": null,
+          "variables": [
+            {
+              "variable": "MPatID",
+              "description": "Must match mother PatID value in all other SCDM tables. Can appear in more than one row when multiple pregnancies/deliveries for the mother have occurred",
+              "Variable Type (Length)": "Num (Site specific)",
+              "label": "Mother patient ID",
+              "format": "##",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Unique Member Identifier",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MBirth_Date",
+              "description": "Mother Birth_Date from SCDM Demographic table",
+              "Variable Type (Length)": "Num (4)",
+              "label": "Mother birth date",
+              "format": "MMDDYY10.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SAS Date",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Age",
+              "description": "Mother's age as of ADate",
+              "Variable Type (Length)": "Num (3)",
+              "label": "Mother's age",
+              "format": "$2",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Integer age: 10-54 inclusive",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "EncounterID",
+              "description": "EncounterID value from SCDM Encounter table, for mother's delivery encounter",
+              "Variable Type (Length)": "Num (Site specific)",
+              "label": "Mother's delivery EncounterID",
+              "format": "##",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Unique encounter identifier",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "EncType",
+              "description": "Based on SCDM Encounter table.  If delivery codes on the same ADate are evident in more than one EncType, use this hierarchy to assign a single EncType: IP > IS> ED > AV > OA.",
+              "Variable Type (Length)": "Char (2)",
+              "label": "Encounter Type",
+              "format": "$2",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "AV",
+                  "value_map": "Ambulatory Visit"
+                },
+                {
+                  "value": "ED",
+                  "value_map": "Emergency Department"
+                },
+                {
+                  "value": "IP",
+                  "value_map": "Inpatient Hospital Stay"
+                },
+                {
+                  "value": "IS",
+                  "value_map": "Non-Acute Institutional Stay"
+                },
+                {
+                  "value": "OA",
+                  "value_map": "Other Ambulatory Visit"
+                }
+              ]
+            },
+            {
+              "variable": "FacilityID",
+              "description": "Local facility code that identifies hospital or clinic. Taken from facility claims.",
+              "Variable Type (Length)": "Num (Site specific)",
+              "label": "Servicing provider identifier",
+              "format": "##",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Numeric facility identifier",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ADate",
+              "description": "ADate value from SCDM Encounter table, for mother's delivery encounter",
+              "Variable Type (Length)": "Num (4)",
+              "label": "Admission date for mother's delivery encounter",
+              "format": "MMDDYY10.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SAS Date",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DDate",
+              "description": "DDate value from SCDM Encounter table, for mother's delivery encounter",
+              "Variable Type (Length)": "Num (4)",
+              "label": "Discharge date for mother's delivery encounter",
+              "format": "MMDDYY10.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SAS Date",
+                  "value_map": null
+                },
+                {
+                  "value": ".U",
+                  "value_map": "Unknown"
+                },
+                {
+                  "value": ".S",
+                  "value_map": "Still in hospital"
+                }
+              ]
+            },
+            {
+              "variable": "Birth_Type",
+              "description": "Based upon ICD-9-CM/ICD-10-CM codes in the health plan data for the delivery admission.  Will be `0` for non-specific codes",
+              "Variable Type (Length)": "Num (8)",
+              "label": "# of babies born",
+              "format": "3.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "0",
+                  "value_map": "Unspecified # of live births"
+                },
+                {
+                  "value": "1",
+                  "value_map": "1 live birth"
+                },
+                {
+                  "value": "2",
+                  "value_map": "2 live births"
+                },
+                {
+                  "value": "3",
+                  "value_map": "3 live births"
+                },
+                {
+                  "value": "4",
+                  "value_map": "4 live births"
+                },
+                {
+                  "value": "5",
+                  "value_map": "5 live births"
+                },
+                {
+                  "value": "8",
+                  "value_map": "Multiple live births, unspecified number"
+                },
+                {
+                  "value": "9",
+                  "value_map": "Conflicting code(s) for number of live births"
+                }
+              ]
+            },
+            {
+              "variable": "Birth_Type_Primes",
+              "description": "Multiplication of prime numbers assigned to all Birth_Types found in delivery codes within the selected encounter",
+              "Variable Type (Length)": "Num (8)",
+              "label": "All birth types",
+              "format": "COMMA15.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "2",
+                  "value_map": "Unspecified # of live births"
+                },
+                {
+                  "value": "3",
+                  "value_map": "1 live birth"
+                },
+                {
+                  "value": "5",
+                  "value_map": "2 live births"
+                },
+                {
+                  "value": "7",
+                  "value_map": "3 live births"
+                },
+                {
+                  "value": "11",
+                  "value_map": "4 live births"
+                },
+                {
+                  "value": "13",
+                  "value_map": "5 live births"
+                },
+                {
+                  "value": "17",
+                  "value_map": "Multiple live births, unspecified number"
+                },
+                {
+                  "value": "19",
+                  "value_map": "Conflicting code(s) for number of live births"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "r02_infants",
+          "description": "This dataset contains one record per CPatID.  This file is created following identification of children with a date of birth during the specified time period in the Sentinel Distributed Database (SDD).  This file will stay at the Data Partner and will be used to subsequently create a Sentinel Mother-Infant Linkage Table.",
+          "scdm_table": "MIL",
+          "check_level": null,
+          "variables": [
+            {
+              "variable": "CPatID",
+              "description": "Must match child PatID value in all other SCDM tables. Can appear in more than one row when multiple pregnancies/deliveries for the mother have occurred",
+              "Variable Type (Length)": "Num (Site specific)",
+              "label": "Child patient ID",
+              "format": "##",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Unique Member Identifier",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "CBirth_Date",
+              "description": "Birth_Date value from SCDM Demographic table",
+              "Variable Type (Length)": "Num (4)",
+              "label": "Child birth date",
+              "format": "MMDDYY10.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SAS Date",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Sex",
+              "description": "Sex value from the SCDM Demographic table",
+              "Variable Type (Length)": "Char (1)",
+              "label": "Child's Sex",
+              "format": "$1.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "A",
+                  "value_map": "Ambiguous"
+                },
+                {
+                  "value": "F",
+                  "value_map": "Female"
+                },
+                {
+                  "value": "M",
+                  "value_map": "Male"
+                },
+                {
+                  "value": "U",
+                  "value_map": "Unknown"
+                }
+              ]
+            },
+            {
+              "variable": "CEnr_Start",
+              "description": "Earliest Enr_Start from Enrollment table",
+              "Variable Type (Length)": "Num (4)",
+              "label": "Earliest infant enrollment start date",
+              "format": "MMDDYY10.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SAS Date",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "delivery_codes",
+          "description": "This file contains all delivery clinical codes identified in the Encounter in which a delivery occurred.  Non-delivery clinical codes that occurred in the Encounter will not be included in this table.",
+          "variables": [
+            {
+              "variable": "MPatID",
+              "description": "Must match mother PatID value in all other SCDM tables. Can appear in more than one row when multiple pregnancies/deliveries for the mother have occurred or when there is more than one delivery code per EncounterID.",
+              "Variable Type (Length)": "Num (Site specific)",
+              "label": "Mother patient ID",
+              "format": "##.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Unique Member Identifier",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "EncounterID",
+              "description": "EncounterID value from SCDM Encounter table, for mother's delivery encounter. Can appear in more than one row when there is more than one delivery code per EncounterID",
+              "Variable Type (Length)": "Num (Site specific)",
+              "label": "Mother's delivery EncounterID",
+              "format": "##.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Unique encounter identifier",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Birth_Type",
+              "description": "Indicate number of live births",
+              "Variable Type (Length)": "Num (3)",
+              "label": "Birth Type",
+              "format": "1.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "0",
+                  "value_map": "Unspecified # of live births"
+                },
+                {
+                  "value": "1",
+                  "value_map": "1 live birth"
+                },
+                {
+                  "value": "2",
+                  "value_map": "2 live births"
+                },
+                {
+                  "value": "3",
+                  "value_map": "3 live births"
+                },
+                {
+                  "value": "4",
+                  "value_map": "4 live births"
+                },
+                {
+                  "value": "5",
+                  "value_map": "5 live births"
+                },
+                {
+                  "value": "8",
+                  "value_map": "Multiple live births, unspecified number"
+                },
+                {
+                  "value": "9",
+                  "value_map": "Conflicting code(s) for number of live births"
+                }
+              ]
+            },
+            {
+              "variable": "CodeCat",
+              "description": "Clinical code category.",
+              "Variable Type (Length)": "Char (2)",
+              "label": "Code category",
+              "format": "$2.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "DX",
+                  "value_map": "Diagnosis"
+                },
+                {
+                  "value": "PX",
+                  "value_map": "Procedure"
+                }
+              ]
+            },
+            {
+              "variable": "CodeType",
+              "description": "Clinical code set type.",
+              "Variable Type (Length)": "Char (2)",
+              "label": "Code type",
+              "format": "$2.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "09",
+                  "value_map": "ICD-9-CM"
+                },
+                {
+                  "value": "10",
+                  "value_map": "ICD-10-CM"
+                },
+                {
+                  "value": "C4",
+                  "value_map": "CPT-4/HCPCS Level 1"
+                }
+              ]
+            },
+            {
+              "variable": "ClinCode",
+              "description": "Clinical code.",
+              "Variable Type (Length)": "Char (7)",
+              "label": "Clinical code",
+              "format": "$7.",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Valid clinical codes, in concordance with CodeCat and CodeType",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+# Type 1: Extract Information to Calculate Background Rates  {#sec-type1-package .unnumbered}
+
+The program identifies an exposure, outcome, or medical condition, and calculates the rate of that event in the SDD. Output includes the number of individuals with the exposure/outcome/medical condition, eligible members, and eligible member-days. Rates are reported overall and stratified by user-defined age group, sex, year, and year-month. An attrition table is also provided upon request.

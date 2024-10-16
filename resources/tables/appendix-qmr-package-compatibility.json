@@ -1,0 +1,52 @@
+[
+  {
+    "QA MIL Package Version": "3.4.1",
+    "SCDM Version": "8.2.0 & 8.1.0",
+    "Date": "April 2024"
+  },
+  {
+    "QA MIL Package Version": "3.4.0",
+    "SCDM Version": "8.2.0 & 8.1.0",
+    "Date": "Feb 2024"
+  },
+  {
+    "QA MIL Package Version": "3.3.2",
+    "SCDM Version": "8.2.0 & 8.1.0",
+    "Date": "Dec 2023"
+  },
+  {
+    "QA MIL Package Version": "3.3.1",
+    "SCDM Version": "8.1.0",
+    "Date": "Aug 2023"
+  },
+  {
+    "QA MIL Package Version": "3.3.0",
+    "SCDM Version": "8.1.0",
+    "Date": "Mar 2023"
+  },
+  {
+    "QA MIL Package Version": "3.2.0",
+    "SCDM Version": "8.1.0",
+    "Date": "Jan 2023"
+  },
+  {
+    "QA MIL Package Version": "3.1.2",
+    "SCDM Version": "8.0.0",
+    "Date": "Feb 2022"
+  },
+  {
+    "QA MIL Package Version": "3.1.0",
+    "SCDM Version": "8.0.0",
+    "Date": "Dec 2021"
+  },
+  {
+    "QA MIL Package Version": "3.0.1",
+    "SCDM Version": "8.0.0",
+    "Date": "Jul 2021"
+  },
+  {
+    "QA MIL Package Version": "3.0.0",
+    "SCDM Version": "8.0.0",
+    "Date": "Dec 2020"
+  }
+]

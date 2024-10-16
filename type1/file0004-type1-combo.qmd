@@ -1,0 +1,3 @@
+# Complex Algorithms {#type1-complex-algs}
+
+{{< include ../includes/_complexAlgs.qmd >}}

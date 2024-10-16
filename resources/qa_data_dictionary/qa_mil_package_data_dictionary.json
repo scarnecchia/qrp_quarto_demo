@@ -1,0 +1,4886 @@
+{
+  "package": "Mother-Infant Linkage Quality Assurance Package",
+  "version": "3.3.1",
+  "description": "This is the data dictionary for the Sentinel Mother-Infant Data Quality Assurance and Characterization Program Package.",
+  "directories": {
+    "inputfiles": {
+      "name": "inputfiles",
+      "description": "Input files are used to parameterize the program.",
+      "datasets": [
+        {
+          "filename": "control_flow",
+          "description": "This table is used by the control flow module to selectively and sequentially execute QA MIL Package modules. It is also used in the L1 and L2 modules to selectively execute data checks by SCDM table. This table contains one row per integrated module.",
+          "variables": [
+            {
+              "variable": "module",
+              "description": "Abbreviated name of the module to be executed.",
+              "Variable Type (Length)": "char (5)",
+              "format": "$5",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Lowercase 2--5 character module abbreviation",
+                  "value_map": null
+                }
+              ],
+              "example": "enr"
+            },
+            {
+              "variable": "execute_flag",
+              "description": "Indicates whether the specific module will be executed.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Yes. The module will be executed."
+                },
+                {
+                  "value": "N",
+                  "value_map": "No. The module will not be executed."
+                }
+              ],
+              "example": "Y"
+            },
+            {
+              "variable": "sascode",
+              "description": "Full name of the SAS program module. Case sensitive and should contain no spaces or special characters except `.`, `_`, or `-`.",
+              "Variable Type (Length)": "char (45)",
+              "format": "$45",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ],
+              "example": "02.1_scdm_data_qa_review-level1"
+            },
+            {
+              "variable": "cc_table",
+              "description": "Common Components (CC) macro variable used by all modules, including the QA MIL Package master program. Used to provide DP and ETL-specific SCDM table names to the QA MIL Package.",
+              "Variable Type (Length)": "char (12)",
+              "format": "$12",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ],
+              "example": "PROCTABLE"
+            },
+            {
+              "variable": "seqno",
+              "description": "Indicates sequence of module execution",
+              "Variable Type (Length)": "char (NA)",
+              "format": "BEST12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ],
+              "example": "1"
+            },
+            {
+              "variable": "module_cat",
+              "description": "Indicates module category",
+              "Variable Type (Length)": "char (10)",
+              "format": "$10.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Core",
+                  "value_map": "Core Table QA modules"
+                },
+                {
+                  "value": "Clinical",
+                  "value_map": "Clinical Table QA modules"
+                },
+                {
+                  "value": "Dates",
+                  "value_map": "Dates module"
+                },
+                {
+                  "value": "Level1",
+                  "value_map": "Level 1 Module"
+                },
+                {
+                  "value": "Level2",
+                  "value_map": "Level 2 Module"
+                },
+                {
+                  "value": "Level3",
+                  "value_map": "Level 3 Module"
+                }
+              ],
+              "example": "Level2"
+            },
+            {
+              "variable": "module_util",
+              "description": "Utilization table indicator.  This variable is no longer used by the QA MIL Package functionality, but indicates which tables are broken out from all Encounter claims by the DP (e.g. Encounter, Diagnosis, or Procedure).",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Yes. The table is a utilization table."
+                },
+                {
+                  "value": "N",
+                  "value_map": "No. The table is not a utilization table."
+                }
+              ],
+              "example": "N"
+            }
+          ]
+        },
+        {
+          "filename": "lkp_all_flags",
+          "description": "This SAS output table provides a list of SOC-assigned error codes (FlagID) and descriptions (Flag_Descr), and the name of the output dataset used to evaluate checks associated with the error code. ",
+          "variables": [
+            {
+              "variable": "FlagID",
+              "description": "A unique error code representing an individual data check.",
+              "Variable Type (Length)": "char (21)",
+              "format": "$21",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "{TableID}_{Level}_{VarID}_{TestID}_{CheckID}",
+                  "value_map": null
+                }
+              ],
+              "example": "ENR-LAB_2_01_05-N_201"
+            },
+            {
+              "variable": "FlagType",
+              "description": "Indicator for implication of the data check for passing or failing an ETL under review.",
+              "Variable Type (Length)": "char (4)",
+              "format": "$4",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Fail",
+                  "value_map": "The ETL cannot pass QA review until fixed."
+                },
+                {
+                  "value": "Warn",
+                  "value_map": "The ETL may be able pass QA review, pending Quality Assurance Analyst Review."
+                },
+                {
+                  "value": "Note",
+                  "value_map": "This flag is for characterization or reference purposes. It does not generally affect the ability of the ETL to pass QA review."
+                }
+              ],
+              "example": "Warn"
+            },
+            {
+              "variable": "AbortYN",
+              "description": "Indicator for implication of the data check for the QA MIL Package. AbortYN = `Y` is used to indicate checks that must pass in order to complete the QA module successfully.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Yes. The QA MIL Package will abort if this flag is present."
+                },
+                {
+                  "value": "N",
+                  "value_map": "No. The QA MIL Package will not abort if this flag is present."
+                }
+              ],
+              "example": "N"
+            },
+            {
+              "variable": "TableID",
+              "description": "Token indicating the SCDM table or tables associated with the data check.",
+              "Variable Type (Length)": "char (7)",
+              "format": "$7",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ],
+              "example": "ENR-LAB"
+            },
+            {
+              "variable": "Level",
+              "description": "FlagID token indicating Level of data check.  See [Quality Checks](#qmr-quality-checks) for details on the levels of checks.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "1",
+                  "value_map": "Level 1"
+                },
+                {
+                  "value": "2",
+                  "value_map": "Level 2"
+                },
+                {
+                  "value": "3",
+                  "value_map": "Level 3"
+                }
+              ],
+              "example": "2"
+            },
+            {
+              "variable": "VarID",
+              "description": "Token indicating DMQA-assigned variable identifier representing the primary SCDM variable associated with the check.",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "##",
+                  "value_map": "Two-digit number representing the variable number in the SCDM table."
+                },
+                {
+                  "value": "00",
+                  "value_map": "00 represents table-level check that is not associated with a specific variable."
+                }
+              ],
+              "example": "01"
+            },
+            {
+              "variable": "TestID",
+              "description": "Token indicating Laboratory test identifier associated with the test.",
+              "Variable Type (Length)": "char (4)",
+              "format": "$4",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "##-N",
+                  "value_map": "Token indicating a labratory test with a quantitative result."
+                },
+                {
+                  "value": "##-C",
+                  "value_map": "Token indicating a labratory test with a qualitative result."
+                },
+                {
+                  "value": "00-0",
+                  "value_map": "Token indicating a check that is not associated with a specific laboratory test."
+                }
+              ],
+              "example": "05-N"
+            },
+            {
+              "variable": "CheckID",
+              "description": "Token indicating unique data check identifier.",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "###",
+                  "value_map": "Three-digit number representing the check number."
+                }
+              ],
+              "example": "201"
+            },
+            {
+              "variable": "Variable1",
+              "description": "Primary variable being checked.",
+              "Variable Type (Length)": "char (21)",
+              "format": "$21",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SCDM variable name as it appears in the model",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": "Not Applicable"
+                }
+              ],
+              "example": "PatID"
+            },
+            {
+              "variable": "Variable2",
+              "description": "Second variable being checked.",
+              "Variable Type (Length)": "char (21)",
+              "format": "$21",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SCDM variable name as it appears in the model",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": "Not Applicable"
+                }
+              ],
+              "example": "NA"
+            },
+            {
+              "variable": "Variable3",
+              "description": "Third variable being checked.",
+              "Variable Type (Length)": "char (21)",
+              "format": "$21",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SCDM variable name as it appears in the model",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": "Not Applicable"
+                }
+              ],
+              "example": "NA"
+            },
+            {
+              "variable": "Variable4",
+              "description": "Fourth variable being checked.",
+              "Variable Type (Length)": "char (21)",
+              "format": "$21",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SCDM variable name as it appears in the model",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": "Not Applicable"
+                }
+              ],
+              "example": "NA"
+            },
+            {
+              "variable": "MS_Test_Name",
+              "description": "SCDM Lab table test name as it appears in the model.",
+              "Variable Type (Length)": "char (20)",
+              "format": "$20",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Labratory test name",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": "Not Applicable"
+                }
+              ],
+              "example": "ALP"
+            },
+            {
+              "variable": "Result_type",
+              "description": "Laboratory test result type indicator.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "N",
+                  "value_map": "Numeric. Quantitative or semi-quantitative test results."
+                },
+                {
+                  "value": "C",
+                  "value_map": "Character. Qualitative test results."
+                }
+              ],
+              "example": "N"
+            },
+            {
+              "variable": "Flag_Descr",
+              "description": "Description of the data check.",
+              "Variable Type (Length)": "char (255)",
+              "format": "$255",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Free text description of the data check.",
+                  "value_map": null
+                }
+              ],
+              "example": "Enr_Start variable does not exist."
+            },
+            {
+              "variable": "Dataset",
+              "description": "Indicates the QA MIL Package output dataset used programmatically as the base of the check.  This may be deleted when no longer needed for processing.",
+              "Variable Type (Length)": "char (50)",
+              "format": "$50",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Dataset name",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": "Not Applicable"
+                }
+              ],
+              "example": "dplocal.l1_scdm_comp_enr"
+            },
+            {
+              "variable": "Lookup_Table",
+              "description": "Indicates the name of the lookup table required for the check.",
+              "Variable Type (Length)": "char (20)",
+              "format": "$20",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Lookup table name",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": "Not Applicable"
+                }
+              ],
+              "example": "lkp_all_l1"
+            },
+            {
+              "variable": "FlagYN",
+              "description": "Indicates whether the data check is automatically executed by QA MIL Package or not.  Most Level 1 and Level 2 checks will have FlagYN=Y.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Yes"
+                },
+                {
+                  "value": "N",
+                  "value_map": "No"
+                }
+              ],
+              "example": "Y"
+            }
+          ]
+        },
+        {
+          "filename": "lkp_all_l1",
+          "description": "output table provides information on all variable attributes by SCDM table in order to perform Level 1 model compliance checks. For each variable in the table, the variable identifier, required type (numeric or character), and required length are specified. An indicator of whether a variable is allowed to have a missing/blank value is also included, as well as a list of all allowable variable values (as applicable).",
+          "variables": [
+            {
+              "variable": "SCDMID",
+              "description": "SCDM Table Numeric Identifier",
+              "Variable Type (Length)": "num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": {
+                "value": "Numeric Identifier",
+                "value_map": {}
+              },
+              "example": "1"
+            },
+            {
+              "variable": "TabID",
+              "description": "SCDM table abbreviation",
+              "Variable Type (Length)": "char (3)",
+              "format": "$3",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SCDM table abbreviation",
+                  "value_map": null
+                }
+              ],
+              "example": "DEM"
+            },
+            {
+              "variable": "VarID",
+              "description": "Unique variable identifier",
+              "Variable Type (Length)": "char (2)",
+              "format": "$2",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "##",
+                  "value_map": null
+                }
+              ],
+              "example": "04"
+            },
+            {
+              "variable": "Variable",
+              "description": "Variable name",
+              "Variable Type (Length)": "char (21)",
+              "format": "$21",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Variable name",
+                  "value_map": null
+                }
+              ],
+              "example": "Hispanic"
+            },
+            {
+              "variable": "VarType",
+              "description": "Variable type",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "C",
+                  "value_map": "Character"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Numeric"
+                }
+              ],
+              "example": "C"
+            },
+            {
+              "variable": "VarLength",
+              "description": "Variable length",
+              "Variable Type (Length)": "num (8)",
+              "format": "BEST12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Range of 1--255",
+                  "value_map": null
+                }
+              ],
+              "example": "1"
+            },
+            {
+              "variable": "SortOrder",
+              "description": "Order in which variable should be sorted in the SCDM table.",
+              "Variable Type (Length)": "num (8)",
+              "format": "",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Ordinal number",
+                  "value_map": null
+                }
+              ],
+              "example": "1"
+            },
+            {
+              "variable": "KeyVar",
+              "description": "Unique key variable as defined in the SCDM for a given table. Leave as null if not applicable.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "K",
+                  "value_map": "Is key variable"
+                }
+              ],
+              "example": "K"
+            },
+            {
+              "variable": "CrossVar",
+              "description": "Indicates whether a variable exists across SCDM tables. Leave as null if not applicable.",
+              "Variable Type (Length)": "char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "X",
+                  "value_map": "Is cross variable"
+                }
+              ],
+              "example": "X"
+            },
+            {
+              "variable": "ObsReq",
+              "description": "Indicates whether all records for a variable are required to be populated, only some, or none.",
+              "Variable Type (Length)": "char (4)",
+              "format": "$4",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "ALL",
+                  "value_map": "All records required"
+                },
+                {
+                  "value": "SOME",
+                  "value_map": "Some records required"
+                },
+                {
+                  "value": "NONE",
+                  "value_map": "No records required"
+                }
+              ],
+              "example": "ALL"
+            },
+            {
+              "variable": "ValidValueType",
+              "description": "Indicates the type of values required for a variable, such as a finite list, numeric range of values, up-cased values, etc.",
+              "Variable Type (Length)": "char (15)",
+              "format": "$15",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "find_values",
+                  "value_map": null
+                },
+                {
+                  "value": "list_values",
+                  "value_map": null
+                },
+                {
+                  "value": "num_range",
+                  "value_map": null
+                },
+                {
+                  "value": "numeric",
+                  "value_map": null
+                },
+                {
+                  "value": "only",
+                  "value_map": null
+                },
+                {
+                  "value": "value_case",
+                  "value_map": null
+                }
+              ],
+              "example": "list_values"
+            },
+            {
+              "variable": "ValidValue",
+              "description": "Indicates valid values for a variable.",
+              "Variable Type (Length)": "char (350)",
+              "format": "$350",
+              "label": "ValidValue",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "SCDM valid values as they appear in the model",
+                  "value_map": null
+                }
+              ],
+              "example": "N|U|Y"
+            },
+            {
+              "variable": "FlagCondition",
+              "description": "Indicates what condition will cause a flag to fail",
+              "Variable Type (Length)": "char (425)",
+              "format": "$425",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Free text.",
+                  "value_map": null
+                }
+              ],
+              "example": "Hispanic not in ('N','U','Y')"
+            }
+          ]
+        }
+      ]
+    },
+    "msoc": {
+      "name": "msoc",
+      "description": "Output datasets found in the MSOC directory are returned to SOC.",
+      "datasets": [
+        {
+          "filename": "all_l1_l2_flags",
+          "description": "This dataset contains one record per unique FlagID for Level 1 or Level 2 non-passing data checks and associated frequency.",
+          "scdm_table": "ALL",
+          "methods": null,
+          "check_level": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagID",
+              "description": "Tokenized data quality flag indicator",
+              "Variable Type (Length)": "Char (21)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "AbortYN",
+              "description": "Indicates whether flag causes QA process to abort",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagType",
+              "description": "Indicates if this flag is considered a Warn or a Fail",
+              "Variable Type (Length)": "Char (4)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Flag_Descr",
+              "description": "Description of FlagID",
+              "Variable Type (Length)": "Char (255)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "count",
+              "description": "Count of flagged observations in data set",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "all_l1_nobs",
+          "description": null,
+          "scdm_table": "ALL",
+          "methods": null,
+          "check_level": "L1",
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TABID",
+              "description": "3 character abbreviation for source SCDM table",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.control_flow.module"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Where execute_flag=Y and cc_table NE X"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MemType",
+              "description": "Library Member Type",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "\"SAS proc contents procedure"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count_Obs",
+              "description": "Observations in Data Set",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "SAS proc contents procedure"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "all_l1_record_count",
+          "description": "This dataset contains one record per SCDM table variable and includes the count of non-missing, missing, special missing, and null values.",
+          "scdm_table": "ALL",
+          "methods": null,
+          "check_level": "L1",
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC and populated"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TabID",
+              "description": "3 character abbreviation for source SCDM table",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.control_flow.module"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Where execute_flag=Y and cc_table NE X"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VarID",
+              "description": "2 character variable identifier",
+              "Variable Type (Length)": "2 (2)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Input file"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Variable",
+              "description": "Variable name",
+              "Variable Type (Length)": "Char (21)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count_obs",
+              "description": "Count of all records",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA13.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count_nomiss",
+              "description": "Count of populated records",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA13.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count_spmiss",
+              "description": "Count of records populated with SAS special missing values",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count_null",
+              "description": "Count of null records",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "all_l1_scdm_comp",
+          "description": "This dataset contains a comparison of expected SCDM versus actual observed variable attributes by table.",
+          "scdm_table": "ALL",
+          "methods": null,
+          "check_level": "L1",
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TabID",
+              "description": "3 character abbreviation for source SCDM table",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_l1"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Var",
+              "description": "Variable Name",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_l1"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VarID",
+              "description": "2 character variable identifier",
+              "Variable Type (Length)": "Char (2)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_l1"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MS_var",
+              "description": "Expected variable exists",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_l1"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DP_var",
+              "description": "Actual variable exists",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM Table metadata"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "SAS Proc Contents"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MS_type",
+              "description": "Expected variable type",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_l1"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DP_type",
+              "description": "Actual variable exists",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM Table metadata"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "SAS Proc Contents"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MS_length",
+              "description": "Expected variable length",
+              "Variable Type (Length)": "Num (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Inputfiles.lkp_all_l1"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DP_length",
+              "description": "Actual variable length",
+              "Variable Type (Length)": "Num (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM Table metadata"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "SAS Proc Contents"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "all_l3_flags",
+          "description": "This dataset contains one record per unique FlagID for Level 3 data checks and associated frequency.",
+          "scdm_table": "ALL",
+          "methods": null,
+          "check_level": "L3",
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3--6 character Data Partner identifier.",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagID",
+              "description": "Flag identifier",
+              "Variable Type (Length)": "Char (21)",
+              "format": "$21.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "AbortYN",
+              "description": "Indicates QA MIL Package abort status (Y or N) for each FlagID",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagType",
+              "description": "Flag type",
+              "Variable Type (Length)": "Char (4)",
+              "format": "$4.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Flag_Descr",
+              "description": "Flag description",
+              "Variable Type (Length)": "Char (255)",
+              "format": "$255.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of errors",
+              "Variable Type (Length)": "Num (8)",
+              "format": "comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "data_characteristics_sign_off_report_dpid_etlnum",
+          "description": "This dataset is a duplicate of the [all_l1_l2_flags](#qar-all_l1_l2_flags) dataset output as an .xlsx file with additional fields providing context regarding any flags found in that file. <code>dpid</code> will be replaced with the Data Partner callsign and <code>num</code> will be replaced with the appropriate ETL number—e.g., data_characteristics_sign_off_report_nsdp_etl21.",
+          "scdm_table": "ALL",
+          "check_level": "ALL",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "all_l1_l2_flags"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "%upcase(&DPID)"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagID",
+              "description": "Flag ID used by SOC to identify specific error checks across all SCDM tables",
+              "Variable Type (Length)": "Char (21)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "all_l1_l2_flags & all_l3_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": "Unique FlagID",
+                  "value_map": "See [Quality Checks](#qar-quality-checks)"
+                }
+              ]
+            },
+            {
+              "variable": "AbortYN",
+              "description": "Indicates QA package abort status (Y or N) for each FlagID",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "all_l1_l2_flags & all_l3_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagType",
+              "description": "FlagType",
+              "Variable Type (Length)": "Char (4)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "all_l1_l2_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Flag_Descr",
+              "description": "Description of flag",
+              "Variable Type (Length)": "Char (255)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "all_l1_l2_flags & all_l3_flags"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "count_ETL-1",
+              "description": "Count of flagged records from the previous ETL",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA15.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.all_l1_l2_flags  & inputfiles.all_l3_flags"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Flag count may be record or PatID count. For cases where count is not applicable, use value '99999'"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "count_ETL",
+              "description": "Count of flagged records from this package run",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA15.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "msoc.all_l1_l2_flags & msoc.all_l3_flags"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Flag count may be record or PatID count. For cases where count is not applicable, use value '99999'"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "count_delta",
+              "description": "Difference in the count of flagged records between the current and previous ETL",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA15.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "count_ETL-count_ETL-1"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Sign-Off",
+              "description": "Field used by Sentinel Data Partners to indicate that the Data Partner has reviewed each flag",
+              "Variable Type (Length)": "Char (8)",
+              "format": "$8",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Comment",
+              "description": "Free-text column for Data Partner to include any information related to the flag that would communicate more knowledge to SOC—e.g., Data Partner added a new stream of data",
+              "Variable Type (Length)": "Char (100)",
+              "format": "$100",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "etl_version",
+          "description": "This metadata file contains the number of the ETL under review.",
+          "scdm_table": "ETL",
+          "methods": null,
+          "check_level": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ETL",
+              "description": "ETL number from Common Components",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable ETL"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "level_signature_mil",
+          "description": "This metadata file contains module-level metadata and basic benchmarking statistics after each module has completed. `level` will be replaced with the appropriate module name—e.g., l1_signature, l2_signature.",
+          "scdm_table": "LEV",
+          "methods": null,
+          "check_level": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "Variable",
+              "description": "Metadata variable",
+              "Variable Type (Length)": "Char (14)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "See functional specs"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Value",
+              "description": "Metadata value",
+              "Variable Type (Length)": "Char (21)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "See functional specs"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "l3_mil_aggregate_deliv",
+          "description": "This table contains counts of linked and unlinked deliveries, stratified by `InfantsLinked`, `EncType`, `AgeGroup`, `ICD_Ver`, `YearMonth`, `Year`, `Birth_Type`, and `LinkageStatus`.",
+          "scdm_table": "MIL",
+          "methods": null,
+          "check_level": "L3",
+          "notes": "For details on how to interprete l3_mil_aggregate_deliv level numbers to find stratifications of interest, please see Appendix \\@ref(qmr-l3-mil-aggregate-deliv-level-ref).",
+          "variables": [
+            {
+              "variable": "DP",
+              "description": null,
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": "3--6 character Data Partner identifier",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Level",
+              "description": null,
+              "Variable Type (Length)": "Char (4)",
+              "format": "$4.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "000",
+                  "value_map": "No stratification"
+                },
+                {
+                  "value": "001+",
+                  "value_map": "Various levels of combinations of stratification variables"
+                }
+              ]
+            },
+            {
+              "variable": "Level_desc",
+              "description": null,
+              "Variable Type (Length)": "Char (200)",
+              "format": "$200.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Overall",
+                  "value_map": null
+                },
+                {
+                  "value": "LinkageStatus",
+                  "value_map": null
+                },
+                {
+                  "value": "LinkageStatus*Birth_Type",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LinkageStatus",
+              "description": null,
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "M",
+                  "value_map": "Mother/delivery not linked to infant (Filled MPatID and null CPatID)"
+                },
+                {
+                  "value": "L",
+                  "value_map": "Linked mother/delivery to infant(s)"
+                }
+              ]
+            },
+            {
+              "variable": "Birth_Type",
+              "description": "Based upon ICD-9-CM/ICD-10-CM codes in the health plan data for the delivery admission.  Will be 0 for non-specific codes",
+              "Variable Type (Length)": "Num (8)",
+              "format": "3.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "0",
+                  "value_map": "Unspecified # of live births"
+                },
+                {
+                  "value": "1",
+                  "value_map": "1 live birth"
+                },
+                {
+                  "value": "2",
+                  "value_map": "2 live births"
+                },
+                {
+                  "value": "3",
+                  "value_map": "3 live births"
+                },
+                {
+                  "value": "4",
+                  "value_map": "4 live births"
+                },
+                {
+                  "value": "5",
+                  "value_map": "5 live births"
+                },
+                {
+                  "value": "8",
+                  "value_map": "Multiple live births, unspecified number"
+                },
+                {
+                  "value": "9",
+                  "value_map": "Conflicting code(s) for number of live births"
+                }
+              ]
+            },
+            {
+              "variable": "Year",
+              "description": null,
+              "Variable Type (Length)": "Char (4)",
+              "format": "$4.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Based on ADate of EncounterID"
+                }
+              ],
+              "values": [
+                {
+                  "value": "20YY",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "YearMonth",
+              "description": null,
+              "Variable Type (Length)": "Char (7)",
+              "format": "$7.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Based on ADate of EncounterID"
+                }
+              ],
+              "values": [
+                {
+                  "value": "20YY-##, where ##= 01--12 and dash is delimiter between values for year and month",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ICD_Ver",
+              "description": null,
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "9",
+                  "value_map": "ICD9"
+                },
+                {
+                  "value": "0",
+                  "value_map": "ICD10"
+                }
+              ]
+            },
+            {
+              "variable": "AgeGroup",
+              "description": null,
+              "Variable Type (Length)": "Char (9)",
+              "format": "$9.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Should be in range of 10--54 inclusive"
+                }
+              ],
+              "values": [
+                {
+                  "value": "10--19",
+                  "value_map": null
+                },
+                {
+                  "value": "20--44",
+                  "value_map": null
+                },
+                {
+                  "value": "45--54",
+                  "value_map": null
+                },
+                {
+                  "value": "Other",
+                  "value_map": null
+                },
+                {
+                  "value": "Infants",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "EncType",
+              "description": null,
+              "Variable Type (Length)": "Char (2)",
+              "format": "$2.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "IP",
+                  "value_map": null
+                },
+                {
+                  "value": "ED",
+                  "value_map": null
+                },
+                {
+                  "value": "AV",
+                  "value_map": null
+                },
+                {
+                  "value": "IS",
+                  "value_map": null
+                },
+                {
+                  "value": "OA",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "InfantsLinked",
+              "description": null,
+              "Variable Type (Length)": "Num (3)",
+              "format": "1.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Based on unique populated CPatIDs per delivery"
+                }
+              ],
+              "values": [
+                {
+                  "value": "0+",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": "comma15.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Summary count"
+                }
+              ],
+              "values": [
+                {
+                  "value": "1+",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "l3_mil_aggregate",
+          "description": "This table contains counts of linked and unlinked MIL records where MPatID and CPatID are present, stratified by `MatchMethod`, `DaysDiff`, `sex`, `EncType`, `AgeGroup`, `ICD_Ver`, `YearMonth`, `Year`, `Birth_Type`, and `LinkageStatus`.",
+          "scdm_table": "MIL",
+          "methods": null,
+          "check_level": "L3",
+          "notes": "For details on how to interprete l3_mil_aggregate level numbers to find stratifications of interest, please see Appendix \\@ref(qmr-l3-mil-aggregate-level-ref).",
+          "variables": [
+            {
+              "variable": "DP",
+              "description": null,
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": "3–6 character Data Partner identifier.",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Level",
+              "description": null,
+              "Variable Type (Length)": "Char (4)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "000",
+                  "value_map": "No stratification"
+                },
+                {
+                  "value": "001+",
+                  "value_map": "Various levels of combinations of stratification variables"
+                }
+              ]
+            },
+            {
+              "variable": "Level_desc",
+              "description": null,
+              "Variable Type (Length)": "Char (200)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Overall",
+                  "value_map": null
+                },
+                {
+                  "value": "LinkageStatus",
+                  "value_map": null
+                },
+                {
+                  "value": "LinkageStatus*Birth_Type",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LinkageStatus",
+              "description": null,
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "M",
+                  "value_map": "Mother/delivery not linked to infant (Filled MPatID and null CPatID)"
+                },
+                {
+                  "value": "C",
+                  "value_map": "Infant not linked to mother (Filled CPatID and null MPatID)"
+                },
+                {
+                  "value": "L",
+                  "value_map": "Linked mother/delivery to infant (Filled MPatID and filled CPatID)"
+                }
+              ]
+            },
+            {
+              "variable": "Birth_Type",
+              "description": "Based upon ICD-9-CM/ICD-10-CM codes in the health plan data for the delivery admission.  Will be 0 for non-specific codes",
+              "Variable Type (Length)": "Num (8)",
+              "format": "3.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "0",
+                  "value_map": "Unspecified # of live births"
+                },
+                {
+                  "value": "1",
+                  "value_map": "1 live birth"
+                },
+                {
+                  "value": "2",
+                  "value_map": "2 live births"
+                },
+                {
+                  "value": "3",
+                  "value_map": "3 live births"
+                },
+                {
+                  "value": "4",
+                  "value_map": "4 live births"
+                },
+                {
+                  "value": "5",
+                  "value_map": "5 live births"
+                },
+                {
+                  "value": "8",
+                  "value_map": "Multiple live births, unspecified number"
+                },
+                {
+                  "value": "9",
+                  "value_map": "Conflicting code(s) for number of live births"
+                }
+              ]
+            },
+            {
+              "variable": "Year",
+              "description": null,
+              "Variable Type (Length)": "Char (4)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Based on ADate of EncounterID, or of CBirth_Date"
+                }
+              ],
+              "values": [
+                {
+                  "value": "20YY",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "YearMonth",
+              "description": null,
+              "Variable Type (Length)": "Char (7)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Based on ADate of EncounterID, or of CBirth_Date"
+                }
+              ],
+              "values": [
+                {
+                  "value": "20YY-##",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ICD_Ver",
+              "description": null,
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "9",
+                  "value_map": "ICD9"
+                },
+                {
+                  "value": "0",
+                  "value_map": "ICD10"
+                }
+              ]
+            },
+            {
+              "variable": "AgeGroup",
+              "description": null,
+              "Variable Type (Length)": "Char (9)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Should be in range of 10–54 inclusive"
+                }
+              ],
+              "values": [
+                {
+                  "value": "10–19",
+                  "value_map": null
+                },
+                {
+                  "value": "20–44",
+                  "value_map": null
+                },
+                {
+                  "value": "45–54",
+                  "value_map": null
+                },
+                {
+                  "value": "Other",
+                  "value_map": null
+                },
+                {
+                  "value": "Infants",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "EncType",
+              "description": null,
+              "Variable Type (Length)": "Char (2)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "IP",
+                  "value_map": "Inpatient"
+                },
+                {
+                  "value": "ED",
+                  "value_map": "Emergency Department"
+                },
+                {
+                  "value": "AV",
+                  "value_map": "Ambulatory Visit"
+                },
+                {
+                  "value": "IS",
+                  "value_map": "Institutional Stay"
+                },
+                {
+                  "value": "OA",
+                  "value_map": "Other Ambulatory"
+                }
+              ]
+            },
+            {
+              "variable": "Sex",
+              "description": null,
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "O=A & U from SCDM table"
+                }
+              ],
+              "values": [
+                {
+                  "value": "F",
+                  "value_map": "Female"
+                },
+                {
+                  "value": "M",
+                  "value_map": "Male"
+                },
+                {
+                  "value": "O",
+                  "value_map": "Other or Unknown"
+                }
+              ]
+            },
+            {
+              "variable": "Daysdiff",
+              "description": null,
+              "Variable Type (Length)": "Char (25)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Calculated as CBirthDate - Adate"
+                }
+              ],
+              "values": [
+                {
+                  "value": "< -30 days",
+                  "value_map": null
+                },
+                {
+                  "value": "-11 through -30 days",
+                  "value_map": null
+                },
+                {
+                  "value": "-4 through -10 days",
+                  "value_map": null
+                },
+                {
+                  "value": "-1 through -3 days",
+                  "value_map": null
+                },
+                {
+                  "value": "0 days",
+                  "value_map": null
+                },
+                {
+                  "value": "1 through 3 days",
+                  "value_map": null
+                },
+                {
+                  "value": "4 through 10 days",
+                  "value_map": null
+                },
+                {
+                  "value": "11 through 30 days",
+                  "value_map": null
+                },
+                {
+                  "value": "30 days",
+                  "value_map": null
+                },
+                {
+                  "value": "NA",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MatchMethod",
+              "description": null,
+              "Variable Type (Length)": "Char (2)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Note - Prioritize so that only one method listed: RE > SI > LA > BC > OT. For cases where a mother/delivery is not linked to a child OR a child enrolled is not linked to a mother/delivery, the value of this variable should be NA. Cannot be blank."
+                }
+              ],
+              "values": [
+                {
+                  "value": "BC",
+                  "value_map": "Birth Certificate"
+                },
+                {
+                  "value": "RE",
+                  "value_map": "DP maintained birth registry"
+                },
+                {
+                  "value": "SI",
+                  "value_map": "health plan subscriber or family number"
+                },
+                {
+                  "value": "LA",
+                  "value_map": "exact or probabilistic last name and address match based upon health plan administrative data"
+                },
+                {
+                  "value": "N1",
+                  "value_map": "No subscriber/family IDs available for linkage"
+                },
+                {
+                  "value": "N2",
+                  "value_map": "No name/address available for linkage"
+                },
+                {
+                  "value": "N3",
+                  "value_map": "Neither subscriber/family IDs nor name/address available for linkage"
+                },
+                {
+                  "value": "OT",
+                  "value_map": "other"
+                },
+                {
+                  "value": "NA",
+                  "value_map": "no linkage made"
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Summary count"
+                }
+              ],
+              "values": [
+                {
+                  "value": "1+",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "mil_l1_cont",
+          "description": "This dataset contains resulting output from SAS proc contents for the MIL Table, including table, variable, and engine/host attributes. All variables present, including any non-SCDM variables, will be included in the output.",
+          "scdm_table": "MIL",
+          "methods": null,
+          "check_level": "L1",
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TABID",
+              "description": "3 character abbreviation for source SCDM table",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.control_flow.module"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Where execute_flag=Y and cc_table NE X"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LIBNAME",
+              "description": "Library Name",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "SAS proc contents procedure performed on MIL or MIS tables -- Applies to all variables except for the last one documented"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MEMNAME",
+              "description": "Library Member Name",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MEMLABEL",
+              "description": "Data Set Label",
+              "Variable Type (Length)": "Char (256)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TYPEMEM",
+              "description": "Special Data Set Type (From TYPE=)",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NAME",
+              "description": "Variable Name",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TYPE",
+              "description": "Variable Type",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LENGTH",
+              "description": "Variable Length",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VARNUM",
+              "description": "Variable Number",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LABEL",
+              "description": "Variable Label",
+              "Variable Type (Length)": "Char (256)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FORMAT",
+              "description": "Variable Format",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FORMATL",
+              "description": "Format Length",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FORMATD",
+              "description": "Number of Format Decimals",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "INFORMAT",
+              "description": "Variable Informat",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "INFORML",
+              "description": "Informat Length",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "INFORMD",
+              "description": "Number of Informat Decimals",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "JUST",
+              "description": "Justification",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NPOS",
+              "description": "Position in Buffer",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NOBS",
+              "description": "Observations in Data Set",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ENGINE",
+              "description": "Engine Name",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "CRDATE",
+              "description": "Create Date",
+              "Variable Type (Length)": "Num (8)",
+              "format": "DATETIME16.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MODATE",
+              "description": "Last Modified Date",
+              "Variable Type (Length)": "Num (8)",
+              "format": "DATETIME16.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DELOBS",
+              "description": "Deleted Observations in Data Set",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "IDXUSAGE",
+              "description": "Use of Variable in Indexes",
+              "Variable Type (Length)": "Char (9)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MEMTYPE",
+              "description": "Library Member Type",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "IDXCOUNT",
+              "description": "Number of Indexes for Data Set",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "PROTECT",
+              "description": "Password Protection (Read Write Alter)",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FLAGS",
+              "description": "Update Flags (Protect Contribute Add)",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COMPRESS",
+              "description": "Compression Routine",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "REUSE",
+              "description": "Reuse Space",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "SORTED",
+              "description": "Sorted and/or Validated",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "SORTEDBY",
+              "description": "Position of Variable in Sortedby Clause",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "CHARSET",
+              "description": "Host Character Set",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COLLATE",
+              "description": "Collating Sequence",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NODUPKEY",
+              "description": "Sort Option: No Duplicate Keys",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NODUPREC",
+              "description": "Sort Option: No Duplicate Records",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ENCRYPT",
+              "description": "Encryption Routine",
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "POINTOBS",
+              "description": "Point to Observations",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "GENMAX",
+              "description": "Maximum Number of Generations",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "GENNUM",
+              "description": "Generation Number",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "GENNEXT",
+              "description": "Next Generation Number",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TRANSCOD",
+              "description": "Character Variables Transcoded",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "filesize",
+              "description": "Size of table recorded in bytes",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "obslen",
+              "description": "Observation length",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "nvar",
+              "description": "Number of variables",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "npage",
+              "description": "Number of pages",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "pcompress",
+              "description": "Percent compression",
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM table metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "mil_l2_cenrstart_agedays_cat",
+          "description": "This dataset returns the distance between cbirth_date and cenr_start, stratified by birth year.",
+          "scdm_table": "MIL",
+          "methods": null,
+          "check_level": "L2",
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3–6 character Data Partner identifier",
+              "Variable Type (Length)": "Character (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "YEAR_CBIRTH_DATE",
+              "description": "Infant birth year",
+              "Variable Type (Length)": "Numeric (8)",
+              "format": "BEST12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "cbirth_date"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "AGEDAYS_GRP",
+              "description": "Categories for age in days",
+              "Variable Type (Length)": "Character (16)",
+              "format": "$16",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "&lt; 0 days",
+                  "value_map": "Missing"
+                },
+                {
+                  "value": "0–30 days",
+                  "value_map": null
+                },
+                {
+                  "value": "31–60 days",
+                  "value_map": null
+                },
+                {
+                  "value": "61–120 days",
+                  "value_map": null
+                },
+                {
+                  "value": "121–180 days",
+                  "value_map": null
+                },
+                {
+                  "value": "181–270 days",
+                  "value_map": null
+                },
+                {
+                  "value": "271–365 days",
+                  "value_map": null
+                },
+                {
+                  "value": "&gt; 366 days",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COUNT",
+              "description": "Count of unique CPatIDs",
+              "Variable Type (Length)": "Numeric (8)",
+              "format": "BEST12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "l1_scdm_comp",
+          "description": null,
+          "scdm_table": null,
+          "methods": null,
+          "check_level": "L1",
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TabID",
+              "description": "3 character abbreviation for source SCDM table",
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.control_flow.module"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Where execute_flag=Y and cc_table ne X"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Var",
+              "description": "Variable name",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": "Variable Name",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.lkp_mi l1.variable\\dplocal.l1_cont\\_{tabid}.name"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Coalesce(variable,name)"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VarID",
+              "description": "SCDM variable ID assigned by SOC",
+              "Variable Type (Length)": "Char (2)",
+              "format": "$2.",
+              "label": "SCDM Variable ID",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.lkp_mi_l1.varid"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MS_var",
+              "description": "YN indicator for variable that is expected as per SCDM",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": "Variable expected?",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.lkp_mi_l1.variable"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Ms_var='Y' if variable is in lookup table"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DP_var",
+              "description": "YN indicator for presence of variable in DP SCDM table",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": "Variable present?",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "msoc.mi_l1_cont"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MS_type",
+              "description": "Expected variable type",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1.",
+              "label": "Expected variable type",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.lkp_mi_l1.vartype"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DP_type",
+              "description": "Observed variable type",
+              "Variable Type (Length)": "Char (1)",
+              "format": null,
+              "label": "Actual variable type",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Dplocal.l1_cont\\_{tabid}.type"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "If type=1, then dp_type='N', else if type=2, dp_type='C\""
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MS_length",
+              "description": "Expected variable length in bytes",
+              "Variable Type (Length)": "Num (3)",
+              "format": null,
+              "label": "Expected variable length",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "inputfiles.lkp_mi_l1.varlength"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DP_length",
+              "description": "Observed length of variable in bytes",
+              "Variable Type (Length)": "Num (3)",
+              "format": null,
+              "label": "Actual variable length",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Dplocal.l1_cont\\_{tabid}.length"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "licensed",
+          "description": "This metadata file contains DP-specific SAS component license status.",
+          "scdm_table": null,
+          "methods": null,
+          "check_level": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Common Components macro variable DP"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Assigned by the SOC"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COMPONENT",
+              "description": null,
+              "Variable Type (Length)": "Char (15)",
+              "format": "$15",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "STATUS",
+              "description": null,
+              "Variable Type (Length)": "Char (25)",
+              "format": "$25",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "qa_cc_metadata",
+          "description": "This metadata file contains DP-specific information about ETL number, phase, and SCDM table names.",
+          "scdm_table": null,
+          "methods": null,
+          "check_level": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "Variable",
+              "description": "CC global macro variable names",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Value",
+              "description": "As populated in QA MIL Package",
+              "Variable Type (Length)": "Char (255)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "dplocal": {
+      "name": "dplocal",
+      "description": "These datasets are output to the DPLOCAL directory and are not returned to SOC.",
+      "datasets": [
+        {
+          "filename": "all_l3_flags_mstr",
+          "description": "This dataset contains one record per unique FlagID for [Level 3](#qmr-l3-quality-checks) data checks and associated frequency.",
+          "scdm_table": "ALL",
+          "check_level": "L3",
+          "methods": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "FlagID",
+              "description": "Flag identifier",
+              "Variable Type (Length)": "Char (21)",
+              "format": "$21.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Message",
+              "description": "Error message",
+              "Variable Type (Length)": "Char (300)",
+              "format": "$300.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Flag_Descr",
+              "description": "Flag description",
+              "Variable Type (Length)": "Char (255)",
+              "format": "$255.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagType",
+              "description": "Flag type",
+              "Variable Type (Length)": "Char (4)",
+              "format": "$4.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "AbortYN",
+              "description": "Indicates whether a flag will cause the Quality Assurance Package to abort, if thrown.",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Flag will cause QA MIL Package to abort"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Flag will not cause QA MIL Package to abort"
+                }
+              ]
+            },
+            {
+              "variable": "count",
+              "description": "Count of flagged records",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA18.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "all_l1_flags_mstr",
+          "description": "This dataset contains one record per unique FlagID for [Level 1](#qmr-l1-quality-checks) data checks and associated MPatID and CPatID frequency.",
+          "scdm_table": "ALL",
+          "check_level": "L1",
+          "methods": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "FLAGID",
+              "description": "Flag identifier",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FLAGID",
+              "description": "<b>Format:</b> SAS Character $21",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FLAG_DESCR",
+              "description": "Flag description",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FLAG_DESCR",
+              "description": "<b>Format:</b> SAS Character $255",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FLAGTYPE",
+              "description": "Flag type",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FLAGTYPE",
+              "description": "<b>Format:</b> SAS Character $4",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ABORTYN",
+              "description": "Indicates QA MIL Package abort status (Y or N) for each FlagID",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ABORTYN",
+              "description": "<b>Format:</b> SAS Character $1",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VARIABLE1",
+              "description": "Variable name",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VARIABLE1",
+              "description": "<b>Format:</b> SAS Character $32",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VALUE",
+              "description": "Observed value",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VALUE",
+              "description": "<b>Format:</b> SAS Character $20",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MPATID",
+              "description": "Mother's PatID",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MPATID",
+              "description": "<b>Format:</b> SAS Numeric",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "CPATID",
+              "description": "Child's PatID",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "CPATID",
+              "description": "<b>Format:</b> SAS Numeric",
+              "Variable Type (Length)": null,
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "l2_mstr",
+          "description": "This dataset contains one record per unique FlagID for [Level 2](#qmr-l2-quality-checks) data checks and associated frequency.",
+          "scdm_table": "ALL",
+          "check_level": "L2",
+          "methods": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "FlagID",
+              "description": "Flag identifier",
+              "Variable Type (Length)": "Char (21)",
+              "format": "$21.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Message",
+              "description": "Error message",
+              "Variable Type (Length)": "Char (300)",
+              "format": "$300.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Flag_Descr",
+              "description": "Flag description",
+              "Variable Type (Length)": "Char (255)",
+              "format": "$255.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FlagType",
+              "description": "Flag type",
+              "Variable Type (Length)": "Char (4)",
+              "format": "$4.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "AbortYN",
+              "description": "Indicates whether a flag will cause the Quality Assurance Package to abort, if thrown.",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Y",
+                  "value_map": "Flag will cause QA MIL Package to abort"
+                },
+                {
+                  "value": "N",
+                  "value_map": "Flag will not cause QA MIL Package to abort"
+                }
+              ]
+            },
+            {
+              "variable": "count",
+              "description": "Count of flagged records",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA18.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "MIL_IDFileStatus_MPatid",
+          "description": "This table will include data related to across table checks for all records.",
+          "scdm_table": "MIL",
+          "check_level": "L2",
+          "methods": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "MPATID",
+              "description": "Mother patient identifier",
+              "Variable Type (Length)": "Num (NA)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "M-I Linkage Table or DPLocal.Deliveries file"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ENCOUNTERID",
+              "description": "Encounter identifier",
+              "Variable Type (Length)": "Num (NA)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "M-I Linkage Table or DPLocal.Deliveries file"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "IDFILESTATUS",
+              "description": "ID File Status",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "dplocal.deliveries|MIL"
+                }
+              ],
+              "values": [
+                {
+                  "value": "N",
+                  "value_map": "MPatID from the dplocal.deliveries file is not found in MIL Table."
+                },
+                {
+                  "value": "E",
+                  "value_map": "MPatID from the MIL Table is not found in the dplocal.deliveries file."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "MIL_IDFileStatus_CPatid",
+          "description": "This table will include data related to across table checks for all records.",
+          "scdm_table": "MIL",
+          "check_level": "L2",
+          "methods": null,
+          "notes": null,
+          "variables": [
+            {
+              "variable": "**CPatID**",
+              "description": "Child patient ID",
+              "Variable Type (Length)": "Num (Site specific)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "**IDFileStatus**",
+              "description": "Infant patient delivery table linkage status",
+              "Variable Type (Length)": "Num (1)",
+              "format": "$1.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Derived"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "Item Description": "SAS Version",
+    "Small (<100 GB ETL Size)": "Version 9.4",
+    "Medium (100–499 GB ETL Size)": "Version 9.4",
+    "Large (≥500 GB ETL Size)": "Version 9.4"
+  },
+  {
+    "Item Description": "OS Type",
+    "Small (<100 GB ETL Size)": "Workstation OS",
+    "Medium (100–499 GB ETL Size)": "Server OS",
+    "Large (≥500 GB ETL Size)": "Server OS"
+  },
+  {
+    "Item Description": "Machine Type",
+    "Small (<100 GB ETL Size)": "Workstation",
+    "Medium (100–499 GB ETL Size)": "Server",
+    "Large (≥500 GB ETL Size)": "Server or SAS Grid^[For large Data Partners to ensure adequate performance, it is highly recommended that SAS/CONNECT be installed on either a single server or be installed as part of a SAS Grid installation]"
+  },
+  {
+    "Item Description": "Physical Cores per Sentinel Query",
+    "Small (<100 GB ETL Size)": "1–4",
+    "Medium (100–499 GB ETL Size)": "1–4",
+    "Large (≥500 GB ETL Size)": "1–4"
+  },
+  {
+    "Item Description": "RAM (per core)",
+    "Small (<100 GB ETL Size)": "8–16 GB",
+    "Medium (100–499 GB ETL Size)": "8–16 GB",
+    "Large (≥500 GB ETL Size)": "8–16 GB"
+  },
+  {
+    "Item Description": "Storage Capacity (ETLs)^[Data Partners must reserve capacity to retain 3 ETLs at any given time: the ETL in production (e.g., ETL 2), the previous ETL (e.g., ETL 1), and an ETL in development (e.g., ETL 3).]",
+    "Small (<100 GB ETL Size)": "3X size of latest approved ETL",
+    "Medium (100–499 GB ETL Size)": "3X size of latest approved ETL",
+    "Large (≥500 GB ETL Size)": "3X size of latest approved ETL"
+  },
+  {
+    "Item Description": "Storage Capacity (QA Results)",
+    "Small (<100 GB ETL Size)": "3X QA Results Size",
+    "Medium (100–499 GB ETL Size)": "3X QA Results Size",
+    "Large (≥500 GB ETL Size)": "3X QA Results Size"
+  },
+  {
+    "Item Description": "IO Throughput (per core)",
+    "Small (<100 GB ETL Size)": "150 MB/second",
+    "Medium (100–499 GB ETL Size)": "150 MB/second",
+    "Large (≥500 GB ETL Size)": "150 MB/second"
+  }
+]

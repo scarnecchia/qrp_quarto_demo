@@ -1,0 +1,223 @@
+[
+  {
+    "Parameter": "PTSTOEXCLUDE",
+    "Description": "Name of file, including library reference, that lists patients to be excluded from snapshot-specific output files",
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "PTSTOEXCLUDE = infolder.PtsToExclude",
+    "Notes": null
+  },
+  {
+    "Parameter": "_DP",
+    "Description": "A descriptive identifier for the Data Partner organization.",
+    "Notes": [
+      {
+        "1": "This should be a 3-6 UPPERCASE character abbreviation."
+      }
+    ],
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "NSDP"
+  },
+  {
+    "Parameter": "_PACKAGEROOT",
+    "Description": "Location of this request package's root directory.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "/apps/sentinel/"
+  },
+  {
+    "Parameter": "PROD_SCDM",
+    "Description": "Specify the file path to the location of this ETL's Phase A Sentinel Common Data Model (SCDM) datasets.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "/apps/sentinel/ETL22/PhaseA/SCDM"
+  },
+  {
+    "Parameter": "_DP_MINDATE",
+    "Description": "The overall SCDM minimum date.",
+    "Notes": [
+      {
+        "1": "Value can be found in QA Package output.",
+        "2": "Defaults to <code>\"01Jan2000\"d<\/code>"
+      }
+    ],
+    "Valid Values": null,
+    "Format": "SASDate (\"DDMMMYYYY\"d)",
+    "Example": "\"01Jan2000\"d"
+  },
+  {
+    "Parameter": "_DP_MAXDATE",
+    "Description": "The overall SCDM maximum date.",
+    "Notes": [
+      {
+        "1": "Value can be found in QA Package output."
+      }
+    ],
+    "Valid Values": null,
+    "Format": "SASDate (\"DDMMMYYYY\"d)",
+    "Example": "\"31Jan2022\"d"
+  },
+  {
+    "Parameter": "\\_ETL\\_",
+    "Description": "ETL number for the current Phase A production ETL.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "22"
+  },
+  {
+    "Parameter": "_SCDMVER",
+    "Description": "Parameter indicating the version of the Sentinel Common Data Model associated with this ETL.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "8.1.0"
+  },
+  {
+    "Parameter": "ENRTABLE",
+    "Description": "Specifies the enrollment table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "enrollment"
+  },
+  {
+    "Parameter": "DEMTABLE",
+    "Description": "Specifies the demographic table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "demographic"
+  },
+  {
+    "Parameter": "DISTABLE",
+    "Description": "Specifies the dispensing table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "dispensing"
+  },
+  {
+    "Parameter": "ENCTABLE",
+    "Description": "Specifies the encounter table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "encounter"
+  },
+  {
+    "Parameter": "DIATABLE",
+    "Description": "Specifies the diagnosis table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "diagnosis"
+  },
+  {
+    "Parameter": "PROCTABLE",
+    "Description": "Specifies the procedure table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "procedure"
+  },
+  {
+    "Parameter": "FACTABLE",
+    "Description": "Specifies the facility table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "facility"
+  },
+  {
+    "Parameter": "PVDTABLE",
+    "Description": "Specifies the provider table name. Value should exclude the .sas7bdat file name. Default values are provided.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "provider"
+  },
+  {
+    "Parameter": "LABTABLE",
+    "Description": "Specifies the Lab Results table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "lab_results"
+  },
+  {
+    "Parameter": "DEATHTABLE",
+    "Description": "Specifies the death table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "death"
+  },
+  {
+    "Parameter": "CODTABLE",
+    "Description": "Specifies the cause of death table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "cause_of_death"
+  },
+  {
+    "Parameter": "VITTABLE",
+    "Description": "Specifies the vital signs table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "vital_signs"
+  },
+  {
+    "Parameter": "IPHARMTABLE",
+    "Description": "Specifies the inpatient pharmacy table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "ip_rx"
+  },
+  {
+    "Parameter": "ITRANSTABLE",
+    "Description": "Specifies the inpatient transfusion table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "ip_trx"
+  },
+  {
+    "Parameter": "PRETABLE",
+    "Description": "Specifies the prescribing table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "prescribing"
+  },
+  {
+    "Parameter": "PRSTABLE",
+    "Description": "Specifies the patient reported measures survey table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "prs"
+  },
+  {
+    "Parameter": "PRRTABLE",
+    "Description": "Specifies the patient reported measures response table name. Value should exclude the .sas7bdat file name.",
+    "Notes": null,
+    "Valid Values": null,
+    "Format": null,
+    "Example": "prr"
+  },
+  {
+    "Parameter": "FEATABLE",
+    "Description": "Specifies the feature engineering table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "feature_engineering",
+    "Valid Values": null
+  }
+]

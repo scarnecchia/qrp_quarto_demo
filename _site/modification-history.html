@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.54">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="The Sentinel System is comprised of health care organizations, known as Data Partners, that have medical billing information and electronic health records.">
+
+<title>Appendix A — Modification History – Sentinel Query Request Package (QRP) Documentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./type1/file0005-type1-type1file.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Appendix A — Modification History – Sentinel Query Request Package (QRP) Documentation">
+<meta property="og:description" content="The Sentinel System is comprised of health care organizations, known as Data Partners, that have medical billing information and electronic health records.">
+<meta property="og:image" content="https://dev.sentinelsystem.org/projects/SENTINEL/repos/sentinel-routine-querying-tool-documentation/browse/resources/logo.png">
+<meta property="og:site_name" content="Sentinel Query Request Package (QRP) Documentation">
+<meta property="og:image:height" content="50">
+<meta property="og:image:width" content="127">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Sentinel Query Request Package (QRP) Documentation</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Help</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-help">    
+        <li>
+    <a class="dropdown-item" href="https://jira.sentinelsystem.org/servicedesk/customer/portal/7/create/279"><i class="bi bi-bug" role="img">
+</i> 
+ <span class="dropdown-text">Report a Bug</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://jira.sentinelsystem.org/servicedesk/customer/portal/7/create/282"><i class="bi bi-chat-right-text" role="img">
+</i> 
+ <span class="dropdown-text">Ask a Question</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://dev.sentinelsystem.org/projects/SENTINEL/repos/sentinel-routine-querying-tool-documentation/browse" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=|url|" title="LinkedIn" class="quarto-navigation-tool px-1" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./modification-history.html">Appendices</a></li><li class="breadcrumb-item"><a href="./modification-history.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Modification History</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sentinel Routine Querying System</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./file0001-about-the-qrp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About the QRP</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./type1/file0001-type1-module.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Type 1: Extract Information to Calculate Background Rates</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./type1/file0002-type1-backratecalc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background Rate Calculation Cohort Identification Strategy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./type1/file0003-type1-eligpatients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Eligible Patients and Eligible Days</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./type1/file0004-type1-combo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Complex Algorithms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./type1/file0005-type1-type1file.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Type 1 File</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modification-history.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Modification History</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./modification-history.html">Appendices</a></li><li class="breadcrumb-item"><a href="./modification-history.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Modification History</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-modification-history" class="quarto-section-identifier">Appendix A — Modification History</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="tbl-modification-history" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modification-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.1: Modification History
+</figcaption>
+<div aria-describedby="tbl-modification-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Modification</th>
+<th style="text-align: left;">Input File Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">14.0.1</td>
+<td style="text-align: left;">10/03/2024</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14.0.0</td>
+<td style="text-align: left;">09/30/2024</td>
+<td style="text-align: left;"><ul>
+<li>Added the ability to assess outcomes in a descriptive pregnancy (Type 4) analysis</li>
+<li>Added the ability to conduct a time to event analysis in pregnancy</li>
+<li>Removed the automatic exclusion of the comparator cohort when creating exposure and reference cohorts in a pregnancy analysis</li>
+<li>Added the ability to request only an exposed or only a reference cohort in a pregnancy analysis (previously both were automatically created)</li>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"><p><strong>QRP Parameters File</strong></p>
+<ul>
+<li>Added T4HOIMETHOD</li>
+</ul>
+<p><strong>Mother-Infant Cohort File</strong></p>
+<ul>
+<li>Added COHORTSTOCREATE</li>
+</ul>
+<p><strong>User-defined Strata Levels Lookup Table</strong></p>
+<ul>
+<li>Added t4cida table to valid stratification variables for Type 4</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13.2.0</td>
+<td style="text-align: left;">07/30/2024</td>
+<td style="text-align: left;"><ul>
+<li>Added ability to conduct signal identification with a tree-based scan Poisson statistic using unweighted/weighted PS stratification and inverse probability of treatment weighting</li>
+<li>Refined pregnancy analyses enrollment requirements when evaluating outcomes in linked infant claims</li>
+<li>Added ability to suppress the columns in MSOC tables related to censoring due to death or query end date</li>
+<li>Aligned gestational week computation with the American College of Obstetricians and Gynecologists definition</li>
+<li>Added ability to exclude encounters present in the encounter and diagnosis table from analysis</li>
+<li>Added ability to right censor treatment episodes when conducting signal identification</li>
+<li>Added ability to restrict frozen SCDM datasets to patients with an HOI when conducting signal identification</li>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"><p><strong>QRP Parameters File</strong></p>
+<ul>
+<li>Added T as valid value to FREEZEDATA</li>
+<li>Added DROP_CENS_OUTPUT</li>
+</ul>
+<p><strong>Cohort Codes File</strong></p>
+<ul>
+<li>Added FUT as valid value to INDEXCRITERIA for Type 4</li>
+</ul>
+<p><strong>Mother Infant Cohort File</strong></p>
+<ul>
+<li>Added REQDAYSAFTPREG</li>
+</ul>
+<p><strong>Signal Identification File</strong></p>
+<ul>
+<li>Added DENOMINATOR</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13.1.2</td>
+<td style="text-align: left;">04/11/2024</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13.1.1</td>
+<td style="text-align: left;">03/13/2024</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13.1.0</td>
+<td style="text-align: left;">03/07/2024</td>
+<td style="text-align: left;"><ul>
+<li>Produce riskdiff output when running the Signal Identification Module for Type 2 and Type 4 analyses</li>
+<li>Defined incidence criteria, TTE, and TTC based on delivery date for infant outcomes in a signal identification analysis</li>
+<li>Added ability to report on medical product use in the post-partum period by gestational week</li>
+<li>Computed year based on value of INDEXDATE parameter for Type 4 exposure and reference cohort</li>
+<li>Added SCDM 8.2.0 compatibility and sunsetted SCDM 7 compatibility</li>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Type 4 File</strong></p>
+<ul>
+<li>Removed GRACEDAYS and MIDAYSDIFF</li>
+</ul>
+<p><strong>Mother-Infant Cohort File</strong></p>
+<ul>
+<li>Added GRACEDAYS and MIDAYSDIFF</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13.0.1</td>
+<td style="text-align: left;">01/18/2024</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13.0.0</td>
+<td style="text-align: left;">12/13/2023</td>
+<td style="text-align: left;"><ul>
+<li>Added ability to identify a cohort of pregnancy episodes ending in a non-live birth when conducting a pregnancy (Type 4) analysis</li>
+<li>Enhanced pregnancy episode identification algorithm for medical product use during pregnancy analyses to more accurately categorize pregnancy episodes &lt;20 weeks gestation and linked infants in the Mother-Infant Linkage Table.</li>
+<li>Added ability to perform subgroup analysis based on pregnancy outcome</li>
+<li>Enhanced covariate, medical and drug utilization, most frequent utilization, and high-dimensional propensity score assessment when conducting a pregnancy (Type 4) analysis</li>
+<li>Added ability to define covariates in both mother and linked infant records</li>
+<li>Added ability to identify medical product use in the post-partum period</li>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Mother-Infant Cohort File</strong></p>
+<ul>
+<li>Modified INDEXDATE functionality</li>
+</ul>
+<p><strong>Covariate Codes File</strong></p>
+<ul>
+<li>Added COVFROMANCHOR and COVTOANCHOR</li>
+</ul>
+<p><strong>Most Frequent Utilization File</strong></p>
+<ul>
+<li>Added MFUANCHORFROM and MFUANCHORTO</li>
+</ul>
+<p><strong>Utilization File</strong></p>
+<ul>
+<li>Added MEDUTILANCHORFROM, MEDUTILANCHORTO, DRUGUTILANCHORFROM, DRUGUTILANCHORTO</li>
+</ul>
+<p><strong>Propensity Score Estimation File</strong></p>
+<ul>
+<li>Added HDPSWINFROMANCHOR and HDPSWINTOANCHOR</li>
+</ul>
+<p><strong>Propensity Score or Covariate Stratification Subgroup Analysis File</strong></p>
+<ul>
+<li>Added Preg_Outcome and Preg_Outcomecat as valid values to SUBGROUP</li>
+</ul>
+<p><strong>Type 4 File</strong></p>
+<ul>
+<li>Added POSTPREGDAYS</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.2.2</td>
+<td style="text-align: left;">10/31/2023</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.2.1</td>
+<td style="text-align: left;">09/29/2023</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.2.0</td>
+<td style="text-align: left;">09/08/2023</td>
+<td style="text-align: left;"><ul>
+<li>Implemented new pregnancy episode identification algorithm for medical product use during pregnancy analyses</li>
+<li>Refined non-pregnant cohort selection to exclude episodes of live and non-live births</li>
+<li>Modified how linked infant enrollment is treated when evaluating enrollment criteria</li>
+<li>Added ability to use continuous risk scores in propensity score models</li>
+<li>Added ability to categorize risk scores and added categorical risk scores to baseline characteristics tables</li>
+<li>Implemented new trimester and gestational age categories</li>
+<li>Removed requirement to define a medical outcome of interest for medical product use during pregnancy analyses</li>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Type 4 File</strong></p>
+<ul>
+<li><p>Added LINKAGESTATUS and BIRTHTYPES</p></li>
+<li><p>Removed EPISODEGAP, T4WASHPER, and DEFAULTPREGDUR</p></li>
+</ul>
+<p><strong>Cohort Codes File</strong></p>
+<ul>
+<li><p>Removed MI and added PO as valid values for CODECAT</p></li>
+<li><p>Added valid values for CODE to specify pregnancy outcomes</p></li>
+</ul>
+<p><strong>Risk Score File</strong></p>
+<ul>
+<li>Added RISKSCORECAT</li>
+</ul>
+<p><strong>QRP Parameters File</strong></p>
+<ul>
+<li><p>Added PREGNANCYCODES, PREGNANCYMETA, and PREGNANCYDURATION</p></li>
+<li><p>Removed MODPREGDUR</p></li>
+<li><p>Changed LABSCODEMAP to LABCODESMAP</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.1.2</td>
+<td style="text-align: left;">05/15/2023</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.1.1</td>
+<td style="text-align: left;">05/08/2023</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.1.0</td>
+<td style="text-align: left;">04/14/2023</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to compute a risk score</p></li>
+<li><p>Enhanced inclusion assessment when conducting a pregnancy (Type 4) analysis</p></li>
+<li><p>Enhanced enrollment assessment when conducting a pregnancy (Type 4) analysis</p></li>
+<li><p>Added ability to perform Inverse Probability of Treatment Weighting, Variable Ratio Propensity Score (PS) Matching, and Weighted PS Stratification following a Type 4 analysis</p></li>
+<li><p>Added ability to re-use a patient list when creating multiple cohorts with different health outcome of interest definitions</p></li>
+<li><p>Added QRP lookup files to the QRP repository</p></li>
+<li><p>Sunsetted the computation of Mahalanobis distance when conducting a propensity score analysis</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Inclusion Codes File</strong></p>
+<ul>
+<li><p>Removed INDEXDATE</p></li>
+<li><p>Added CONDFROMANCHOR and CONDTOANCHOR</p></li>
+</ul>
+<p><strong>Type 2 File</strong></p>
+<ul>
+<li>Added BASECOHORT</li>
+</ul>
+<p><strong>Cohort File</strong></p>
+<ul>
+<li>Added T4PREGENRDAYS</li>
+</ul>
+<p><strong>Risk Score Files</strong></p>
+<ul>
+<li><p>Removed Comorbidity Codes File and Comorbidity Lookup File</p></li>
+<li><p>Added Risk Score Codes File and Risk Score Lookup File</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.0.1</td>
+<td style="text-align: left;">01/06/2023</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.0.0</td>
+<td style="text-align: left;">10/28/2022</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to query the SCDM laboratory table when defining baseline covariates in the Propensity Score Analysis module</p></li>
+<li><p>Added the ability to use input files that are .CSV instead of .SAS7BDAT (with limitations)</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.4.0</td>
+<td style="text-align: left;">08/18/2022</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to query the SCDM laboratory table when defining baseline covariates in descriptive analyses</p></li>
+<li><p>Added ability to query DEMOGRAPHIC.RACE = M (Multi-racial), introduced in SCDM 8.1.0</p></li>
+<li><p>Added the ability to test the Cox proportional hazard assumption when conducting a Type 2 Propensity Score analysis</p></li>
+<li><p>Removed T3EXCLONSAMEDAY parameter</p></li>
+<li><p>Modified multi-value parameter inputs to remove internal quotations</p></li>
+<li><p>Modified PSTRIM functionality to always trim non-overlap</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Cohort Codes File, Inclusion Codes File, and Modified Pregnancy Duration File</strong></p>
+<ul>
+<li><p>Renamed RAWLABDATETYPE to LABDATETYPE</p></li>
+<li><p>Renamed RAWLABRESULT to LABRESULT</p></li>
+</ul>
+<p><strong>Covariate Codes File</strong></p>
+<ul>
+<li>Added optional LABDATETYPE and LABRESULT parameters</li>
+</ul>
+<p><strong>Multiple Files</strong></p>
+<ul>
+<li>Removed quotes from all multi-select parameters; remove commas from all multi-value parameters</li>
+</ul>
+<p><strong>Type 3 File</strong></p>
+<ul>
+<li>Removed T3EXCLONSAMEDAY</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.3.0</td>
+<td style="text-align: left;">04/04/2022</td>
+<td style="text-align: left;"><ul>
+<li>Added PSCSSUBGROUPFILE in order to add the ability to 1) re-estimate propensity scores for subgroup analyses in the Propensity Score Analysis (PSA) module and, 2) allow users to specify which subgroup categories to include in the subgroup analysis, and 3) produce all PSA output for subgroup analyses</li>
+<li>Added ability to perform subgroup analysis for Propensity Score Stratum Weighting and Inverse Probability of Treatment Weighting analyses</li>
+<li>Added FIRTH option to perform Firth Logistic Corrected Method when computing propensity scores</li>
+<li>Changed the assignment of date of death from earliest date in the SCDM Death or Encounter table to the date in the SCDM Death table (if available)</li>
+<li>Added ability to define a Type 2 or Type 3 exposure index or HOI as an all-cause death or using cause-of-death codes</li>
+<li>Renamed and redefined post-index enrollment parameters to include all censoring criteria: ENRDAYSAFTIND, ENRDAYSAFTEPI, and SWITCHENRDAYSAFTIND changed to REQDAYSAFTIND, REQDAYSAFTEPI, and SWITCHREQDAYSAFTIND, respectively</li>
+<li>Removed default LEVELID values for Type 1 and Type 2 analyses</li>
+<li>Removed the options IOC and IOT for the parameter INDEXCRITERIA in the COHORTCODES file</li>
+<li>Renamed EXCLUDESUPPLY to DATEONLY in the COHORTCODES, INCLUSIONCODES, and COVARIATECODES files</li>
+<li>Changed the computation of Days Supplied, Amount Supplied, Raw Code Count, and Adjusted Code Count during a Type 2 exposure episode to stop accumulating after an HOI</li>
+<li>Added number of patients to the MSOC output table [runid]_t5_cida_disp_by_daysupp.sas7bdat</li>
+<li>Added number of pregnancy episodes with a Medical Outcome of Interest to the MSOC output table [runid]_t4_cida_preg/nopreg_gestwk.sas7bdat</li>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Cohort Codes File, Inclusion Codes File, and Covariate Codes File</strong></p>
+<ul>
+<li>Renamed EXCLUDESUPPLY to DATEONLY</li>
+</ul>
+<p><strong>Cohort Codes File</strong></p>
+<ul>
+<li>Removed IOC and IOT options from INDEXCRITERIA</li>
+</ul>
+<p><strong>Cohort File</strong></p>
+<ul>
+<li>Renamed ENRDAYSAFTIND to REQDAYSAFTIND</li>
+</ul>
+<p><strong>Type 2 File</strong></p>
+<ul>
+<li>Renamed ENRDAYSAFTEPI to REQDAYSAFTEPI</li>
+</ul>
+<p><strong>Treatment Pathways File</strong></p>
+<ul>
+<li>Renamed SWITCHENRDAYSAFTIND to SWITCHREQDAYSAFTIND</li>
+</ul>
+<p><strong>PS Estimation File</strong></p>
+<ul>
+<li>Added FIRTH</li>
+</ul>
+<p><strong>PS Match File</strong></p>
+<ul>
+<li><p>Removed COVARNUM</p></li>
+<li><p>Removed MATCHEDINFULLONLY</p></li>
+</ul>
+<p><strong>PS Stratification File and Covariate Stratification File</strong></p>
+<ul>
+<li>Removed COVARNUM</li>
+</ul>
+<p><strong>PS/CS Subgroup File</strong></p>
+<ul>
+<li>New input file</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.2.4</td>
+<td style="text-align: left;">01/21/2022</td>
+<td style="text-align: left;"><ul>
+<li><p>Updated for compatibility with QRP Reporting Tool 1.2.4</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.2.3</td>
+<td style="text-align: left;">11/16/2021</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.2.2</td>
+<td style="text-align: left;">11/08/2021</td>
+<td style="text-align: left;"><ul>
+<li>Updated for compatibility with QRP Reporting Tool 1.2.2</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.2.1</td>
+<td style="text-align: left;">11/03/2021</td>
+<td style="text-align: left;"><ul>
+<li>Updated for compatibility with QRP Reporting Tool 1.2.1</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.2.0</td>
+<td style="text-align: left;">11/02/2021</td>
+<td style="text-align: left;"><ul>
+<li>Updated for compatibility with QRP Reporting Tool 1.2.0</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.1.0</td>
+<td style="text-align: left;">10/21/2021</td>
+<td style="text-align: left;"><ul>
+<li><p>Incorporated the QRP Reporting Tool as a submodule, replacing the leave behind report functionality</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Create Report File, Groups Table File, Columns Table File, Create Plots File</strong></p>
+<ul>
+<li>Files replaced by QRP Reporting Tool as submodule of QRP</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.0.0</td>
+<td style="text-align: left;">09/30/2021</td>
+<td style="text-align: left;"><ul>
+<li><p>For Type 2 analyses, added the ability to restrict cohorts based on the current filled daily dose of the index dispensing</p></li>
+<li><p>Added ability to define inclusions/exclusions based on current filled daily dose</p></li>
+<li><p>For Type 5 analyses, added the ability to describe cohorts by:</p>
+<ul>
+<li><p>the total amount of drug a patient has filled amongst all their treatment episodes and in their first treatment episode</p></li>
+<li><p>the distribution of the average filled daily dose of the first and each treatment episode</p></li>
+<li><p>the distribution of the current filled daily dose of all dispensings</p></li>
+</ul></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Type 5 File</strong></p>
+<ul>
+<li>Added AFDD_OUTPUT_CAT, CUMDOSE_OUTPUT_CAT, and CFDD_OUTPUT_CAT</li>
+</ul>
+<p><strong>Type 2 File</strong></p>
+<ul>
+<li>Added MINCFDD and MAXCFDD</li>
+</ul>
+<p><strong>Inclusion/Exclusion Codes File</strong></p>
+<ul>
+<li>Added MINCFDD and MAXCFDD</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.4.0</td>
+<td style="text-align: left;">08/02/2021</td>
+<td style="text-align: left;"><ul>
+<li><p>Created attrition table for medical product use during pregnancy (Type 4) analyses</p></li>
+<li><p>Created attrition table for analyses creating a mother-infant linkage cohort</p></li>
+<li><p>For Type 2 analyses, added the ability to restrict cohort to episodes dispensed at least a minimum cumulative dose prior to episode start date</p></li>
+<li><p>For Type 2 analyses, added the ability to censor episodes after exceeding a maximum cumulative dose</p></li>
+<li><p>Added ability to define inclusions/exclusions based on minimum cumulative dose</p></li>
+<li><p>Added ability to define inclusions/exclusions and covariates based on a minimum and/or maximum average daily dose</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Inclusion/Exclusion Codes File</strong></p>
+<ul>
+<li>Added STRENGTH, UNIT, MINAFDD, MAXAFDD, and MINCUMDOSE</li>
+</ul>
+<p><strong>Type 2 File</strong></p>
+<ul>
+<li>Added T2CUMDOSEPER, MINCUMDOSE, and MAXCUMDOSE</li>
+</ul>
+<p><strong>Covariate Codes File</strong></p>
+<ul>
+<li>Added STRENGTH, UNIT, MINAFDD, and MAXAFDD</li>
+</ul>
+<p><strong>Cohort Codes File</strong></p>
+<ul>
+<li>Added STRENGTH, and UNIT</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.3.3</td>
+<td style="text-align: left;">07/21/2021</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.3.2</td>
+<td style="text-align: left;">04/14/2021</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.3.1</td>
+<td style="text-align: left;">03/26/2021</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.3.0</td>
+<td style="text-align: left;">03/16/2021</td>
+<td style="text-align: left;"><ul>
+<li><p>Replaced user-defined exposure episode length (ITTDAYS) functionality with point exposure (POINT=Y) functionality for Type 2 and Type 4 analyses</p></li>
+<li><p>Added MAXEPISDUR2 parameter to the TYPE4FILE to allow the option of setting a maximum episode duration for all medical product of interest (MOI) episodes for Type 4 analyses</p></li>
+<li><p>Added ability to require a minimum cumulative number of days covered by dispensing (MINRXDAYS) during the evaluation period for inclusions, exclusions, and covariates</p></li>
+<li><p>For Type 2 analyses, added option to request that censor tables reflect 1) FOLLOWUPTIME only, 2) TIMETOCENSOR only, or 3) both</p></li>
+<li><p>Expanded the attrition table to describe losses at both the patient and the episode level</p></li>
+<li><p>Added Sex, Race, Hispanic and Year variables to [runid]_baseline_[cohortid]_[periodid] that were not created when there were 0 patients in a category across all cohorts</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Type 2 File</strong></p>
+<ul>
+<li><p>Added POINT</p></li>
+<li><p>Removed ITTDAYS</p></li>
+</ul>
+<p><strong>Covariate Codes File</strong></p>
+<ul>
+<li>Added MINRXDAYS</li>
+</ul>
+<p><strong>Inclusion/Exclusion File</strong></p>
+<ul>
+<li>Added MINRXDAYS</li>
+</ul>
+<p><strong>Type 4 File</strong></p>
+<ul>
+<li><p>Added POINT</p></li>
+<li><p>Added MAXEPISDUR2</p></li>
+<li><p>Removed ITTDAYS2</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.2.1</td>
+<td style="text-align: left;">03/04/2021</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.2.0</td>
+<td style="text-align: left;">01/19/2021</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to generate baseline tables for Type 6 analysis at switch pattern episode index date, date of 1st switch pattern evaluation, and date of 2nd switch pattern evaluation (added CREATEBASELINE to TREATMENTPATHWAYS input file)</p></li>
+<li><p>Removed ability to define fixed number of days after exposure initiation that is considered “exposed time” for Type 5 analyses (removed ITTDAYS from Type5File)</p></li>
+<li><p>Renamed ITTDAYS parameter in the TYPE4FILE to DEFAULTPREGDUR</p></li>
+<li><p>Renamed the input file parameter for the pregnancy duration look-up file from PREGDUR to MODPREGDUR</p></li>
+<li><p>Changed name of output variable TTE and input parameter TTE_OUTPUT_CAT (MULTEVENTFILE and OVERLAPFILE) to FOLLOWUPTIME and FOLLOWUP_CAT, respectively, for type 2 analysis</p></li>
+<li><p>Removed references to TTE for Type 1 and Type 6 analyses</p></li>
+<li><p>Added ability to compute total time to censor (ignoring episode end date or outcome occurrence) for type 1 and type 2 analyses</p></li>
+<li><p>Added STOCKGROUP parameter to STOCKPILINGFILE to enable ability to apply differential stockpiling parameters by stockgroup</p></li>
+<li><p>Consolidated the number of patients excluded due to presence of an exclusion criteria and the the number of patients excluded due to the absence of an inclusion criteria into one row in the CIDA and Type 6 Switching attrition tables</p></li>
+<li><p>Added information rows to the CIDA and Type 6 Switching attrition tables detailing the number of patients with each exclusion criterion or lack of inclusion criterion</p></li>
+<li><p>Modified FREEZEDATA=Y functionality for type 2 analyses and modified the location of frozen SCDM datasets</p></li>
+<li><p>Removed the parameters KM_TITLE2, CDF_FOOTNOTE1, CDF_FOOTNOTE2, KM_FOOTNOTE1, and KMFOOTNOTE2 from CREATEPLOTS input file</p></li>
+<li><p>Added the ability to conduct 1:n fixed ratio matching for a Signal Identification analysis</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Treatment Pathways File</strong></p>
+<ul>
+<li>Added CREATEBASELINE</li>
+</ul>
+<p><strong>Multiple Events File</strong></p>
+<ul>
+<li>Renamed TTE_OUTPUT_CAT to FOLLOWUP_CAT</li>
+</ul>
+<p><strong>Overlap File</strong></p>
+<ul>
+<li>Renamed TTE_OUTPUT_CAT to FOLLOWUP_CAT</li>
+</ul>
+<p><strong>Type 5 File</strong></p>
+<ul>
+<li>Removed ITTDAYS</li>
+</ul>
+<p><strong>Type 4 File</strong></p>
+<ul>
+<li>Renamed ITTDAYS to DEFAULTPREGDUR</li>
+</ul>
+<p><strong>qrp_parameters</strong></p>
+<ul>
+<li>Renamed PREGDUR to MODPREGDUR</li>
+</ul>
+<p><strong>Stockpiling File</strong></p>
+<ul>
+<li>Added STOCKGROUP</li>
+</ul>
+<p><strong>Create Plots File</strong></p>
+<ul>
+<li>Removed KM_TITLE2, CDF_FOOTNOTE1, CDF_FOOTNOTE2, KM_FOOTNOTE1, and KMFOOTNOTE2</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.1.1</td>
+<td style="text-align: left;">11/25/2020</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.1.0</td>
+<td style="text-align: left;">10/27/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Updated package for compatibility with both Sentinel Common Data Model (SCDM) version 7.X.X and 8.0.0, including:</p></li>
+<li><div>
+<ul>
+<li><p>MedCov = A considered meeting medical coverage</p></li>
+<li><p>Implemented codetype matching in the extraction of RX codes to enable use of non-NDC RX codes</p></li>
+<li><p>Added Prescribing, Facility, and Provider tables to freeze data algorithm</p></li>
+</ul>
+</div></li>
+<li><p>Upversioned master header to v3.2.2</p></li>
+<li><p>Added SCDM version to signature file</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"><p><strong>Drug Class Look-up File</strong></p>
+<ul>
+<li>Renamed NDC to RX</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.0.1</td>
+<td style="text-align: left;">10/16/2020</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.0.0</td>
+<td style="text-align: left;">09/30/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to perform Propensity Score Stratum Weighting analysis following a Type 2 analysis</p></li>
+<li><p>Added weighted patient numbers to Inverse Probability of Treatment Weighting (IPTW) weighted Table 1</p></li>
+<li><p>Replaced “gender” with “sex” in report baseline table labels</p></li>
+<li><p>Removed “other” sex stratification from reports when the user requests that sex = A and U are excluded from all cohorts</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.7.0</td>
+<td style="text-align: left;">09/01/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to perform Inverse Probability of Treatment Weighting analysis following a Type 2 analysis</p></li>
+<li><p>Added OUTPUTDENOM parameter to optionally output DENNUMPTS and DENNUMMEMDAYS for Type 1 and Type 2 analyses</p></li>
+<li><p>Removed requirement that combination covariates must be defined after all other covariates</p></li>
+<li><p>Continuous enrollment enforced throughout the lookback period for both inclusion and exclusion criteria</p></li>
+<li><p>Added DISTRIBUTION parameter to indicate whether percentiles should be based on the full population or exposed population for Propensity Score Stratification analyses</p></li>
+<li><p>Modified code that expands child-parent tree to handle ICD10 only codes</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.6.0</td>
+<td style="text-align: left;">06/24/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to create weighted Table 1 for Propensity Score Stratification analyses</p></li>
+<li><p>Added subgroup analysis for Propensity Score Stratification analyses</p></li>
+<li><p>Added ability to perform fixed ratio matching for Propensity Score Matching analyses</p></li>
+<li><p>Removed PSTRIM from PS Matching file and removed PSTRIM&gt;0 as an option from Stratification file</p></li>
+<li><p>Consolidated type variables in Cohort and Cohort Codes files</p></li>
+<li><p>Added CREATEBASELINE parameter to select groups/analysisgrps for which baseline table is computed</p></li>
+<li><p>Added KEEPINCLEXC parameter to optionally apply Type 6 product utilization cohort inclusion/exclusion criteria to switch patterns cohort</p></li>
+<li><p>Enforced enrollment requirements for prevalent and incident Type 6 utilization analyses</p></li>
+<li><p>Modified CREATEREPORT_FILE and added CREATEPLOTS_FILE</p></li>
+<li><p>Added requirement that unconditional = Y in PSMATCHFILE for Type 4 analyses</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.5.0</td>
+<td style="text-align: left;">04/29/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Added RESTARTQRP parameter to enable the ability to restart QRP mid-run</p></li>
+<li><p>Restricted extraction of claims to a left censor date, the earliest date given the monitoring period and all study lookbacks for which data is needed</p></li>
+<li><p>Changed the name of Multi-factor Matching (MFM) to Covariate Stratification</p></li>
+<li><p>Reorganized input file structure for Propensity Score and Covariate Stratification modules</p></li>
+<li><p>Changed terminology from matched/unmatched to adjusted/unadjusted</p></li>
+<li><p>Updated risk set datasets to reflect multiple methods of confounding adjustment</p></li>
+<li><p>Removed ability to use Covariate Stratification Module with Signal Identification Module</p></li>
+<li><p>Added two parameters to hdPS that allows user to specify the number of diagnosis code digits that hdPS will consider within a given dimension</p></li>
+<li><p>Added PSTRIM parameter, which removes patients as eligible for Propensity Score matching/stratification</p></li>
+<li><p>Changed name of IOD to IOC in cohortcodes input file</p></li>
+<li><p>Created stratified eligible member denominator columns for ITS Module</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.4.1</td>
+<td style="text-align: left;">03/27/2020</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.4.0</td>
+<td style="text-align: left;">03/11/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to define covariate criteria as the occurrence of an encounter</p></li>
+<li><p>Replaced run_programs.sas with two input files: qrp_parameters.sas7bdat (required) and report_parameters.sas7bdat (optional)</p></li>
+<li><p>Removed ability to combine groups from Type 1/Type 2 report</p></li>
+<li><p>Removed the last gap (time from end of the last episode to censor) from Type 5 report</p></li>
+<li><p>Updated Sentinel program header to version 3.1.0</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.3.1</td>
+<td style="text-align: left;">02/27/2020</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.3.0</td>
+<td style="text-align: left;">02/05/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to identify outcomes in mother, infant, or mother and infant claims for signal identification analyses</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.2.1</td>
+<td style="text-align: left;">01/24/2020</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.2.0</td>
+<td style="text-align: left;">01/22/2020</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to define exposure, health outcome of interest, and cohort inclusion/exclusion criteria as the occurrence of an encounter</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.1.0</td>
+<td style="text-align: left;">12/18/2019</td>
+<td style="text-align: left;"><ul>
+<li><p>Automatically exclude pregnancy episodes with both an exposure and active comparator in a Type 4 pregnancy analyses to evaluate maternal and/or infant outcomes following maternal exposure when used with the PSA module.</p></li>
+<li><p>Minor package updates</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.0.1</td>
+<td style="text-align: left;">11/21/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.0.0</td>
+<td style="text-align: left;">09/27/2019</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to perform Interrupted Time Series Analysis following either a Type 2 Multiple Event or a Type 2 Overlap analysis</p></li>
+<li><p>Added ability to automatically extract a prevalent cohort in addition to an incident cohort while performing a Type 2 analysis</p></li>
+<li><p>Added optional Year-Quarter stratification for Type 2 analysis</p></li>
+<li><p>Required ENRDAYS parameter to be set to cover all required pre-index forced enrollment windows</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.1.1</td>
+<td style="text-align: left;">09/16/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.1.0</td>
+<td style="text-align: left;">08/20/2019</td>
+<td style="text-align: left;"><ul>
+<li>Removed TTSWITCH as automatic stratification for Type 6 switchplota and switchplotb tables</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.0.3</td>
+<td style="text-align: left;">07/25/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.0.2</td>
+<td style="text-align: left;">07/15/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.0.1</td>
+<td style="text-align: left;">07/01/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.0.0</td>
+<td style="text-align: left;">06/28/2019</td>
+<td style="text-align: left;"><ul>
+<li><p>Integrated tree extraction capabilities into Types 2, 3, and 4 for signal identification analyses</p></li>
+<li><p>Restructured MonitoringFile and Comparison input files to support multiple look signal identification</p></li>
+<li><p>Removed restriction and always output race and Hispanic information in CIDA, PSA, and MFM baseline tables</p></li>
+<li><p>Added T3COHORTDEF = 03 for Type 3 analyses</p></li>
+<li><p>Removed default post-exposure enrollment requirement and related ‘censor’ datasets for Type 3 analysis</p></li>
+<li><p>Added the ability to specify one outcome evaluation window for Type 3 analysis</p></li>
+<li><p>Changed output name of frozen SCDM datasets saved to the <em>dplocal</em> folder</p></li>
+<li><p>Output new runtimes signature file to the <em>msoc</em> folder</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3.4</td>
+<td style="text-align: left;">05/29/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.3.3</td>
+<td style="text-align: left;">04/24/2019</td>
+<td style="text-align: left;"><ul>
+<li><p>Output a row for each year during the query period and each age group in the Propensity Score/Multiple Factor Matching Table 1.</p></li>
+<li><p>Removed errant spaces in the signature file prior to DPMINDATE and DPMAXDATE.</p></li>
+<li><p>Added additional SAS environment information to the signature file.</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3.2</td>
+<td style="text-align: left;">04/17/2019</td>
+<td style="text-align: left;"><ul>
+<li>Added code to intentionally define all optional Sentinel Common Data Model tables and set as missing when the table does not exist at a Data Partner</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.3.1</td>
+<td style="text-align: left;">04/10/2019</td>
+<td style="text-align: left;"><ul>
+<li>Fixed frozen datasets when table names are created by pointing to a Common Components request folder</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3.0</td>
+<td style="text-align: left;">03/20/2019</td>
+<td style="text-align: left;"><ul>
+<li><p>Incorporated Type 5 reporting tool updates including additional cross stratifications available in the local reporting tool and a new “Figure 5”.</p></li>
+<li><p>Added a new parameter, OutcomeAnchorFrom, to the MICOHORTFILE. This allows the user to specify from which date to anchor the outcome assessment.</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.2.0</td>
+<td style="text-align: left;">03/11/2019</td>
+<td style="text-align: left;"><ul>
+<li>Replaced the master header with a new header to be compatible with the new Common Components.</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.1.1</td>
+<td style="text-align: left;">03/05/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.1.0</td>
+<td style="text-align: left;">02/01/2019</td>
+<td style="text-align: left;"><ul>
+<li><p>Added the ability to produce a leave-behind type 5 report.</p></li>
+<li><p>Added the ability to specify an exposure extension in Type 4 MOI episodes and Type 5 episodes.</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.0.5</td>
+<td style="text-align: left;">01/17/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.0.4</td>
+<td style="text-align: left;">01/07/2019</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.0.3</td>
+<td style="text-align: left;">11/27/2018</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.0.2</td>
+<td style="text-align: left;">11/21/2018</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.0.1</td>
+<td style="text-align: left;">11/07/2018</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.0.0</td>
+<td style="text-align: left;">11/1/2018</td>
+<td style="text-align: left;"><ul>
+<li>Added the ability for Type 4 pregnancy analyses to evaluate maternal and/or infant outcomes following maternal exposure when used with the PSA module.</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.0.0</td>
+<td style="text-align: left;">10/1/2018</td>
+<td style="text-align: left;"><ul>
+<li><p>Multiple enhancements to Type 2 analyses, including 1) ability to evaluate secondary events in the pre-defined observation window in relation to the primary episode; 2) ability to examine concomitant use of two different treatment episodes.</p></li>
+<li><p>Added the ability to evaluate product utilization and switching patterns via creation of a new cohort identification strategy (Type 6)</p></li>
+<li><p>Ability to stratify by covariates and option to create user-defined strata</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.4.4</td>
+<td style="text-align: left;">08/07/2018</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.4.3</td>
+<td style="text-align: left;">06/14/2018</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.4.2</td>
+<td style="text-align: left;">06/13/2018</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.4.1</td>
+<td style="text-align: left;">05/22/2018</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.4.0</td>
+<td style="text-align: left;">05/16/2018</td>
+<td style="text-align: left;"><ul>
+<li><p>Added the ability to optionally output the distribution of codes associated with index events for all analysis types</p></li>
+<li><p>Multiple enhancements to Type 4 pregnancy analyses, including 1) allowing users to include first or last only medical product use episodes during pregnancy; 2) “blackout” medical product exposures that occur within specified time period during pregnancy; 3) raw and adjusted code counts; 4) ability to define pre-pregnancy period instead of 90 day default.</p></li>
+<li><p>Replaced outputs for Dispensings with Adjusted code counts and Raw code counts for Types 1, 2, 5</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.3.1</td>
+<td style="text-align: left;">04/18/2018</td>
+<td style="text-align: left;"><ul>
+<li><p>Altered Type 5 output to provide episode length by individual episode (EpisodeLength), as well as cumulatively across all episodes (CumEpisodeLength)</p></li>
+<li><p>Restricted the PS distribution to the current look</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.3.0</td>
+<td style="text-align: left;">03/30/2018</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to create a never-exposed cohort in a Type 2 request</p></li>
+<li><p>Added ability to use never-exposed cohort as the comparator in a propensity score analysis</p></li>
+<li><p>Added ability to perform multiple factor matching</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.2.1</td>
+<td style="text-align: left;">02/02/2018</td>
+<td style="text-align: left;"><ul>
+<li>Removed default requirement for post-index enrollment criteria when cohort exclusion, covariate, most frequent untilization, and high-dimensional propensity score evaluation windows extend beyond the index date. Post-index enrollment requirements must now be specified by the user.</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.2.0</td>
+<td style="text-align: left;">01/25/2018</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to create report for Type 1 and Type 2 requests</p></li>
+<li><p>Redesigned parameter definitions for comorbidity score</p></li>
+<li><p>Added ability to count multiple occurrences of codes in inclusion/exclusion and covariate criteria</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.1.2</td>
+<td style="text-align: left;">12/12/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.1.1</td>
+<td style="text-align: left;">12/07/2017</td>
+<td style="text-align: left;"><ul>
+<li>Restricted covariate codes to valid enrollment spans</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.1.0</td>
+<td style="text-align: left;">11/20/2017</td>
+<td style="text-align: left;"><ul>
+<li><p>Added the ability to output strata by regions</p></li>
+<li><p>Added two new parameters to the Geography Lookup Table (formerly known as “Zip Code Lookup Table”)</p></li>
+<li><p>Updated QRP with new ICD-10 inclusive pregnancy algorithm</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.0.5</td>
+<td style="text-align: left;">10/17/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.0.4</td>
+<td style="text-align: left;">10/16/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.0.3</td>
+<td style="text-align: left;">09/25/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.0.2</td>
+<td style="text-align: left;">09/18/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.0.1</td>
+<td style="text-align: left;">09/14/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.0.0</td>
+<td style="text-align: left;">08/21/2017</td>
+<td style="text-align: left;"><ul>
+<li><p>Integrated MP7 and MP8 into QRP</p></li>
+<li><p>Made Type 2 and Type 4 consistent with Type 5</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.1.3</td>
+<td style="text-align: left;">07/13/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.1.2</td>
+<td style="text-align: left;">07/12/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.1.0</td>
+<td style="text-align: left;">06/26/2017</td>
+<td style="text-align: left;"><ul>
+<li><p>Added the ability to allow subgroup analyses by RACE or HISPANIC</p></li>
+<li><p>Added YEAR values to Table 1 output</p></li>
+<li><p>AGESTRAT values can now be specified by scenario (vary across GROUP values)</p></li>
+<li><p>Enabled the creation of PS distributions locally</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.0.0</td>
+<td style="text-align: left;">05/23/2017</td>
+<td style="text-align: left;"><ul>
+<li><p>Made SEX, RACE, HISPANIC, ENRDAYSAFT available to all Types</p></li>
+<li><p>Moved ENRDAYSFLOOR parameter from COHORTFILE to the TYPE4FILE</p></li>
+<li><p>Moved GEOG parameter from COHORTFILE to Type 1 and Type 2 files</p></li>
+<li><p>Renamed SubGroup input parameter to “StockGroup” and RawSubGroup to “RawStockGroup” in the combo tool</p></li>
+<li><p>Removed concept of “categories” for Type 4 analyses</p></li>
+<li><p>Redesigned Type 4 output</p></li>
+<li><p>Removed PXDXSupplyFunc</p></li>
+<li><p>Covariates are now able to be defined within the Combo Tool</p></li>
+<li><p>CARESETTINGPRINCIPAL allowable values updated</p></li>
+<li><p>New section titled “Creation and Retention of First Valid Episodes” added</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.3.6</td>
+<td style="text-align: left;">03/02/2017</td>
+<td style="text-align: left;"><ul>
+<li>Updated riskdiff output to include only informative events; updated propensity score distribution figures</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.3.5</td>
+<td style="text-align: left;">02/13/2017</td>
+<td style="text-align: left;"><ul>
+<li>Added ability to output unmatched and matched propensity score distributions in .pdf format</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.3.4</td>
+<td style="text-align: left;">02/09/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.3.3</td>
+<td style="text-align: left;">01/12/2017</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.3.2</td>
+<td style="text-align: left;">12/12/2016</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.3.1</td>
+<td style="text-align: left;">12/09/2016</td>
+<td style="text-align: left;"><ul>
+<li>Removed KeepAllDum as a parameter in the Comorbfile</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.3.0</td>
+<td style="text-align: left;">12/06/2016</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to truncate follow-up at query end date</p></li>
+<li><p>Added ability to output reason for follow-up time censoring</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.2.0</td>
+<td style="text-align: left;">11/22/2016</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to stratify output by geographic location</p></li>
+<li><p>Added ability to turn off “envelope” macro</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.1.0</td>
+<td style="text-align: left;">10/19/2016</td>
+<td style="text-align: left;"><ul>
+<li>Added new prospective surveillance section and options for using the propensity score matched design</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.0.3</td>
+<td style="text-align: left;">08/15/2016</td>
+<td style="text-align: left;"><ul>
+<li>Updated HDPS to include two new <a href="https://jira.sentinelsystem.org/browse/ICD-10">ICD-10</a> data dimensions</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.0.2</td>
+<td style="text-align: left;">07/20/2016</td>
+<td style="text-align: left;"><ul>
+<li>Added ability to output additional information for patients identified in a self-controlled risk interval design (SCRI) cohort: event information for patients not meeting post-exposure enrollment requirements.</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.0.1</td>
+<td style="text-align: left;">07/14/2016</td>
+<td style="text-align: left;"><ul>
+<li>Added ability to specify a maximum episode duration for a “Type 2” analysis</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.0.0</td>
+<td style="text-align: left;">07/14/2016</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to define complex inclusion/exclusion criteria algorithms outside of the Combo Tool</p></li>
+<li><p>Added ability to define varying covariate assessment windows</p></li>
+<li><p>Added ability to explicitly define covariates in propensity score estimation models (i.e., no forced variable inclusion)</p></li>
+<li><p>Added ability to return additional propensity score estimation diagnostic output</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.2.3</td>
+<td style="text-align: left;">06/16/2016</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.2.2</td>
+<td style="text-align: left;">06/13/2016</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.2.1</td>
+<td style="text-align: left;">04/20/2016</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.2.0</td>
+<td style="text-align: left;">04/15/2016</td>
+<td style="text-align: left;"><ul>
+<li>Modified to include drug use during pregnancy “Type 4” analysis</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.1.1</td>
+<td style="text-align: left;">02/19/2016</td>
+<td style="text-align: left;"><ul>
+<li><p>Added ability to specify covariates and generate baseline “Table 1” output for evaluation prior to specifying comparative, adjusted analyses</p></li>
+<li><p>Updated lab lookup table for SCDM 5.0.1 compliance</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.1.0</td>
+<td style="text-align: left;">12/14/2015</td>
+<td style="text-align: left;"><ul>
+<li>Added risk set level analysis for propensity score matched design</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.0.8</td>
+<td style="text-align: left;">07/21/2015</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.0.7</td>
+<td style="text-align: left;">07/10/2015</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.0.6</td>
+<td style="text-align: left;">07/07/2015</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.0.5</td>
+<td style="text-align: left;">04/13/2015</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.0.4</td>
+<td style="text-align: left;">03/31/2015</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.0.3</td>
+<td style="text-align: left;">03/19/2015</td>
+<td style="text-align: left;"><ul>
+<li>Changed output variable names in [RUNID] _mstr Output for Type 3 analyses</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.0.2</td>
+<td style="text-align: left;">02/20/2015</td>
+<td style="text-align: left;"><ul>
+<li>Moved output of two datasets to Sentinel Operations Center (SOC) folder from DPLOCAL folder: [RUNID]_varinfo_[COMP_ORDER]<em>[PERIODID] and [RUNID]_estimates</em> [COMP_ORDER] _ [PERIODID]</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.0.1</td>
+<td style="text-align: left;">01/30/2015</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.0.0</td>
+<td style="text-align: left;">01/16/2015</td>
+<td style="text-align: left;"><ul>
+<li><p>Modified to include self-controlled risk interval design cohort identification strategy</p></li>
+<li><p>Modified to change variable matching ratio ceiling from 100 to 10</p></li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.4.1</td>
+<td style="text-align: left;">12/18/2014</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.4.0</td>
+<td style="text-align: left;">10/14/2014</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.3.0</td>
+<td style="text-align: left;">10/02/2014</td>
+<td style="text-align: left;"><ul>
+<li>Modified to make 1:100 variable ratio matching optional</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.2.0</td>
+<td style="text-align: left;">09/16/2014</td>
+<td style="text-align: left;"><ul>
+<li>Minor package updates</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.1.0</td>
+<td style="text-align: left;">09/05/2014</td>
+<td style="text-align: left;"><ul>
+<li>Modified to allow combo tool module updated to process combinations of combination items</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.0.0</td>
+<td style="text-align: left;">07/31/2014</td>
+<td style="text-align: left;"><ul>
+<li>Original published version</li>
+</ul></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/dev\.sentinelsystem\.org\/projects\/SENTINEL\/repos\/sentinel-routine-querying-tool-documentation\/browse");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./type1/file0005-type1-type1file.html" class="pagination-link" aria-label="Type 1 File">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Type 1 File</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.sentinelinitiative.org/">
+<p>Sentinel Operations Center</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><ul><li><a href="https://jira.sentinelsystem.org/servicedesk/customer/portal/7/group/75" class="toc-action"><i class="bi bi-git"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./disclosure.html">
+<p>Disclosure</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

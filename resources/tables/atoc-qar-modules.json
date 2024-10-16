@@ -1,0 +1,106 @@
+[
+  {
+    "Module Filename": "scdm_data_qa_review_master_file.sas",
+    "Description": "This master program requires editing by the Data Partner to identify the location of the SCDM tables in staging. It is the only program that is edited and manually executed by the Data Partner, and it must be executed in batch mode."
+  },
+  {
+    "Module Filename": "scdm_control_flow.sas",
+    "Description": "This program module selectively and sequentially executes the QA program modules."
+  },
+  {
+    "Module Filename": "scdm_standard_macros.sas",
+    "Description": "Contains macros used across QA program modules."
+  },
+  {
+    "Module Filename": "scdm_formats.sas",
+    "Description": "Contains standard formats used across QA program modules."
+  },
+  {
+    "Module Filename": "scdm_sas_log_checker_directory_cc.sas",
+    "Description": "Checks all program logs and summarizes notes, warnings, and errors in an output PDF file after all modules have completed."
+  },
+  {
+    "Module Filename": "scdm_qasignaturerequest.sas",
+    "Description": "Creates a final signature file (msoc.alltable_signature) that summarizes metadata from individual module-level signature files."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-level1.sas",
+    "Description": "Queries applicable SCDM tables to perform level 1 data checks and creates all l1 output datasets. The data checks included in the module check compliance with the current SCDM specifications (e.g., appropriate length, type, and format). Reference Figure 1 in [Section 5](QA700_04_MODULE_FLOW.md)"
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-level2.sas",
+    "Description": "Queries applicable SCDM tables to perform all level 2 abort checks, as well as L2 cross-table checks and output datasets. Reference Figure 2 in [Section 5](QA700_04_MODULE_FLOW.md)."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-enrollment.sas",
+    "Description": "Queries the Enrollment table, and outputs L2 and L3 datasets containing information on medical and drug coverage indicators, enrollment start, end, enrollment duration, and chart availability."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-demographic.sas",
+    "Description": "Queries the Demographic table, and outputs L2 and L3 datasets containing information on age, sex, race, and Postal Code."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-dispensing.sas",
+    "Description": "Queries the number of members and records in the Dispensing table, and outputs information on dispensing date, dispensings over time, dispensings per member over time, days' supply and dispensed amount."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-encounter.sas",
+    "Description": "Queries the number of members, records, encounters, and providers in the Encounter table, and outputs information on admission and discharge date, encounters over time, encounter type, length of stay, facility location, admitting source, discharge status and disposition, DRG and DRG type, and number of encounters per member."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-diagnosis.sas",
+    "Description": "Queries the number of members, records, encounters, and providers in the Diagnosis table, and outputs information on encounter type, admission date, diagnosis code and type, principal diagnosis indicators, number of diagnoses per encounter, and number of diagnoses over time."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-procedure.sas",
+    "Description": "Queries the number of members, records, encounters, and providers in the Procedure table, and outputs information on encounter type, admission date, procedure code and type, number of procedures per encounter, and number of procedures over time."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-death.sas",
+    "Description": "This module is executed only by Data Partners who have death data available. Queries the number of members and records in the Death table, and outputs information on the source of and confidence in death information, number of deaths over time, and if the death date has been imputed."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-causeofdeath.sas",
+    "Description": "This module is executed only by Data Partners who have cause of death data available. Queries the number of members and records in the Cause of Death table, and outputs information on cause of death codes and cause type, and source of and confidence in cause of death information."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-labs.sas",
+    "Description": "This module is executed only by Data Partners who have laboratory result data available. This program queries the number of members and records in the Laboratory Result table and outputs information on lab tests included, result values, units, and available dates."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-vitalsigns.sas",
+    "Description": "This module is executed only by Data Partners who have vital signs data available. This program queries the number of members and records in the Vital Signs table, and outputs information on height, weight, blood pressure, and tobacco use."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-inpatientpharmacy.sas",
+    "Description": "This module is executed only by Data Partners who have inpatient pharmacy data available. This program queries the number of patients and records in the Inpatient Pharmacy table, and outputs information on dispensing date, dispensings per encounter, dispensings per member, dispensed route, and dispensed amount."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-inpatienttransfusion.sas",
+    "Description": "This module is executed only by Data Partners who have inpatient transfusion data available. This program queries the number of patients and records in the Inpatient Transfusion table, and outputs information on transfusion start and end date, start and end time, transfusions per member, and transfusion blood product."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-prescribing.sas",
+    "Description": "This module is executed only by Data Partners who have Prescribing data available. This program queries the number of patients and records in the Prescribing table, and outputs information on OrderDate, RxDaw, RxDoseForm, RxDoseQuantity, RxDoseUnit, RxFreqQuantity, RxFreqUnit, RxPrnFlag, RxRefills, RxRoute, RxSource, Rx_CodeType, RxSup, RxAmt, prescriptions over time, and prescriptions per patient over time."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-facility.sas",
+    "Description": "This program queries facility level information."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-provider.sas",
+    "Description": "This program queries provider level information, including Specialty_CodeType and Specialty."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-minmax_dates.sas",
+    "Description": "Queries SCDM tables and outputs minimum and maximum dates per table (as applicable) and calculates `DP Min` (calculated as the maximum of the Min Dates) and `DP Max` (calculated as the minimum of the Max dates)."
+  },
+  {
+    "Module Filename": "scdm_data_qa_review-level3.sas",
+    "Description": "Creates Level 3 cross-table and age-related datasets from intermediate table-level datasets, and performs many housekeeping activities, such as moving specific files from dplocal to msoc, and bulk addition of DP variables to msoc datasets."
+  },
+  {
+    "Module Filename": "soc_setup_macros.sas",
+    "Description": "This macro assists with the SAS environment setup."
+  }
+]

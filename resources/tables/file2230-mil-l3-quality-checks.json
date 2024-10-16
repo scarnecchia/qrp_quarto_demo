@@ -1,0 +1,106 @@
+[
+  {
+    "FlagID": "MIL_3_00_00-0_370",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (0) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_371",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (1) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_372",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (2) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_373",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (3) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_374",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (4) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_375",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (5) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_376",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (6) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_377",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (7) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_378",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (8) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_3_00_00-0_379",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type (9) not consistent with number of linkages; confirmation required",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_00_00-0_394",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "Birth_Type = 2–8 and no CPatIDs are linked",
+    "Variable1": "BirthType",
+    "Variable2": null
+  },
+  {
+    "FlagID": "MIL_00_00-0_396",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "MPatID not linked to CPatID",
+    "Variable1": "MPatID",
+    "Variable2": "CPatID"
+  },
+  {
+    "FlagID": "MIL_00_00-0_397",
+    "FlagType": "Warn",
+    "AbortYN": "N",
+    "FlagDescr": "CPatID not linked to MPatID",
+    "Variable1": "CPatID",
+    "Variable2": "MPatid"
+  }
+]

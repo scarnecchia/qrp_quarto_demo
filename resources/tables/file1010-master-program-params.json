@@ -1,0 +1,336 @@
+[
+  {
+    "Parameter": "QAPACKAGE_ROOT",
+    "Description": "Location of the QA Package root directory.",
+    "Notes": null,
+    "Format": "Alphanumeric",
+    "Example": "/apps/socrequests/",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "EVALUATE_SCDM",
+    "Description": "Location of staged SCDM tables under review.",
+    "Notes": [
+      {
+        "1": "If multiple paths are necessary, delimit with a single space"
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "/sentinel/etl14/tables",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "ENRTABLE",
+    "Description": "Specifies the enrollment table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "enrollment",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "DEMTABLE",
+    "Description": "Specifies the demographic table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "demographic",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "DISTABLE",
+    "Description": "Specifies the dispensing table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "dispensing",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "ENCTABLE",
+    "Description": "Specifies the encounter table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "encounter",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "DIATABLE",
+    "Description": "Specifies the diagnosis table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "diagnosis",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "PROCTABLE",
+    "Description": "Specifies the procedure table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "procedure",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "FACTABLE",
+    "Description": "Specifies the facility table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "facility",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "PVDTABLE",
+    "Description": "Specifies the provider table name. Value should exclude the .sas7bdat extension part of the file name. Default values are provided.",
+    "Notes": null,
+    "Format": null,
+    "Example": "provider",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "LABTABLE",
+    "Description": "Specifies the laboratory results table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "lab_results",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "DEATHTABLE",
+    "Description": "Specifies the death table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "death",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "CODTABLE",
+    "Description": "Specifies the cause of death table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "cause_of_death",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "VITTABLE",
+    "Description": "Specifies the vital signs table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "vital_signs",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "IPHARMTABLE",
+    "Description": "Specifies the inpatient pharmacy table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "ip_rx",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "ITRANSTABLE",
+    "Description": "Specifies the inpatient transfusion table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "ip_trx",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "PRETABLE",
+    "Description": "Specifies the prescribing table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "prescribing",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "PRSTABLE",
+    "Description": "Specifies the patient reported measures survey table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "prs",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "PRRTABLE",
+    "Description": "Specifies the patient reported measures response table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "prr",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "FEATABLE",
+    "Description": "Specifies the feature engineering table name. Value should exclude the .sas7bdat extension part of the file name.",
+    "Notes": null,
+    "Format": null,
+    "Example": "feature_engineering",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "PTSTOEXCLUDE",
+    "Description": "Name of file, including library reference, that lists patients to be excluded from snapshot-specific output files",
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "PTSTOEXCLUDE = infolder.PtsToExclude",
+    "Notes": null
+  },
+  {
+    "Parameter": "Execute_CC",
+    "Description": "Parameter indicating if the Common Components module should run.",
+    "Notes": [
+      {
+        "1": "If left blank, parameter will default to N"
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "Y",
+    "Valid Values": [
+      "`Y`: Yes",
+      "`N`: No"
+    ]
+  },
+  {
+    "Parameter": "_ROOT_DPLOCAL",
+    "Description": "Local ETL and Phase-specific (NOT request specific) request folder root for DPLOCAL subfolder. When combined with parameters from the master program file for a specific production request, the full path(s) specific to that request are dynamically generated.",
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "_ROOT_DPLOCAL = /sentinel/etl22/PhaseA/requests/",
+    "Notes": [
+      {
+        "1": "For most Data Partners, all root-path parameters will point to the same directory."
+      }
+    ]
+  },
+  {
+    "Parameter": "_ROOT_INPUTFILES",
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "_ROOT_INPUTFILES = &_ROOT_DPLOCAL",
+    "Description": "Local ETL and Phase-specific (NOT request specific) request folder root for INPUTFILES subfolder. When combined with parameters from the master program file for a specific production request, the full path(s) specific to that request are dynamically generated.",
+    "Notes": [
+      {
+        "1": "For most Data Partners, all root-path parameters will point to the same directory."
+      }
+    ]
+  },
+  {
+    "Parameter": "_ROOT_MSOC",
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "_ROOT_MSOC = &_ROOT_DPLOCAL",
+    "Description": "Local ETL and Phase-specific (NOT request specific) request folder root for MSOC subfolder. When combined with parameters from the master program file for a specific production request, the full path(s) specific to that request are dynamically generated.",
+    "Notes": [
+      {
+        "1": "For most Data Partners, all root-path parameters will point to the same directory."
+      }
+    ]
+  },
+  {
+    "Parameter": "_ROOT_SASPROGRAMS",
+    "Valid Values": null,
+    "Format": "Alphanumeric",
+    "Example": "_ROOT_SASPROGRAMS = &_ROOT_DPLOCAL",
+    "Description": "Local ETL and Phase-specific (NOT request specific) request folder root for SASPROGRAMS subfolder. When combined with parameters from the master program file for a specific production request, the full path(s) specific to that request are dynamically generated.",
+    "Notes": [
+      {
+        "1": "For most Data Partners, all root-path parameters will point to the same directory."
+      }
+    ]
+  },
+  {
+    "Parameter": "PROJID",
+    "Description": "Project identifier for internal SOC identification and tracking",
+    "Notes": null,
+    "Format": "Alphanumeric",
+    "Example": "soc",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "WPTYPE",
+    "Description": "Work plan type for internal SOC identification and tracking.",
+    "Notes": [
+      {
+        "1": "This value is used to conditionally select the appropriate inputfiles for the distributed database type."
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "qar",
+    "Valid Values": [
+      "`qar`: Used for package distributions aimed at Sentinel Distributed Database Data Partners",
+      "`qcr`: Used for package distributions aimed at Rapid COVID Distributed Database Data Partners",
+      "`qad`: Used for beta test packages"
+    ]
+  },
+  {
+    "Parameter": "WPID",
+    "Description": "Work plan identifier for internal SOC identification and tracking.",
+    "Notes": [
+      {
+        "1": "Should follow the format wp[###].",
+        "2": "Should be used to uniquely identify packages distributed against given ETL"
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "wp001",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "DPID",
+    "Description": "Data Partner identifier for internal SOC identification and tracking.",
+    "Notes": null,
+    "Format": "Alphanumeric",
+    "Example": "nsdp",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "VERID",
+    "Description": "Version identifier for internal SOC identification and tracking. Should track each re-distribution of the package (if multiple distributions are required).",
+    "Notes": [
+      {
+        "1": "Should follow the format v[##]."
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "v01",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "ETL",
+    "Description": "ETL Number for this request.",
+    "Notes": null,
+    "Format": "Numeric",
+    "Example": "22",
+    "Valid Values": null
+  },
+  {
+    "Parameter": "EXECUTE_MI",
+    "Description": "Parameter indicating whether the Mother-Infant Identification Program should run.",
+    "Notes": [
+      {
+        "1": "If left blank, parameter will default to N"
+      }
+    ],
+    "Format": "Alphanumeric",
+    "Example": "Y",
+    "Valid Values": [
+      "`Y`: Yes",
+      "`N`: No"
+    ]
+  },
+  {
+    "Parameter": "ZIP3",
+    "Description": "Specifies whether a three or five digit ZIP code value is available.",
+    "Notes": null,
+    "Format": null,
+    "Example": "Y",
+    "Valid Values": [
+      "`Y`: Yes",
+      "`N`: No"
+    ]
+  },
+  {
+    "Parameter": "SCDMVER",
+    "Description": "Parameter indicating the version of the Sentinel Common Data Model in which the data the QA Package is to run against is formated.",
+    "Notes": null,
+    "Format": "Alphanumeric",
+    "Example": "8.2.0",
+    "Valid Values": null
+  }
+]

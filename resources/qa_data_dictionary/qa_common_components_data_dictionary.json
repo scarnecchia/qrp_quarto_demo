@@ -1,0 +1,1061 @@
+{
+  "package": "Sentinel Common Components",
+  "version": "1.4.2",
+  "description": "This is the data dictionary for the Sentinel Common Components Program. This includes data dictionaries for datasets output to the msoc and dplocal subdirectories.",
+  "directories": {
+    "msoc": {
+      "name": "msoc",
+      "description": "Output datasets found in the MSOC directory are returned to SOC.",
+      "datasets": [
+        {
+          "filename": "cc_signature",
+          "description": "This metadata file contains module-level metadata and basic benchmarking statistics.",
+          "variables": [
+            {
+              "variable": "Variable",
+              "description": "Metadata Variable",
+              "Variable Type (Length)": "Char (14)",
+              "format": null,
+              "label": "NAME OF FORMER VARIABLE",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Value",
+              "description": "Metadata Value",
+              "Variable Type (Length)": "Char (22)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "test_cc_results",
+          "description": null,
+          "variables": [
+            {
+              "variable": "test_group",
+              "description": "Names or types of parameters tested.",
+              "Variable Type (Length)": "Char (30)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "grade",
+              "description": "Test outcome",
+              "Variable Type (Length)": "Char (5)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "PASS",
+                  "value_map": null
+                },
+                {
+                  "value": "FAIL",
+                  "value_map": null
+                },
+                {
+                  "value": "CHECK",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "details",
+              "description": "Description of test.",
+              "Variable Type (Length)": "Char (100)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "results",
+              "description": "Results of test.",
+              "Variable Type (Length)": "Char (300)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "dplocal": {
+      "name": "dplocal",
+      "description": "These datasets are output to the DPLOCAL directory and are not returned to SOC.",
+      "datasets": [
+        {
+          "filename": "cc_request_paths",
+          "description": "This dataset contains paths to the directory where SOC requests will be placed prior to package execution at a Data Partner's site or the location of a Data Partner's SCDM data.",
+          "variables": [
+            {
+              "variable": "Variable",
+              "description": "SAS Libname",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "dplocal",
+                  "value_map": null
+                },
+                {
+                  "value": "msoc",
+                  "value_map": null
+                },
+                {
+                  "value": "inputfiles",
+                  "value_map": null
+                },
+                {
+                  "value": "sasprograms",
+                  "value_map": null
+                },
+                {
+                  "value": "indata",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Value",
+              "description": "The path or composite path associated with a SAS libname.",
+              "Variable Type (Length)": "Char (255)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "compare_table_names",
+          "description": "This dataset contains a list of expected table names derived from Quality Assurance Package or Mother-Infant Linkage Quality Assurance Package and compares them to the actual table names for each SCDM table in the Data Partner's Sentinel database.",
+          "variables": [
+            {
+              "variable": "table",
+              "description": "SCDM Table",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "expected",
+              "description": "Expected SCDM table name",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "infolder.qa_cc_metadata"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "actual",
+              "description": "Actual SCDM table name",
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "dplocal.scdm_l1_cont"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "scdm_l1_cont",
+          "description": "This dataset contains resulting output from SAS proc contents for all SCDM tables, including table, variable, and engine/host attributes. All variables present, including any non-SCDM variables, will be included in the output.",
+          "variables": [
+            {
+              "variable": "LIBNAME",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Library Name",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MEMNAME",
+              "description": null,
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": "Library Member Name",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MEMLABEL",
+              "description": null,
+              "Variable Type (Length)": "Char (256)",
+              "format": null,
+              "label": "Data Set Label",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TYPEMEM",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Special Data Set Type (From TYPE=)",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NAME",
+              "description": null,
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": "Variable Name",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TYPE",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Variable Type",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LENGTH",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Variable Length",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VARNUM",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Variable Number",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LABEL",
+              "description": null,
+              "Variable Type (Length)": "Char (256)",
+              "format": null,
+              "label": "Variable Label",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FORMAT",
+              "description": null,
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": "Variable Format",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FORMATL",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Format Length",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FORMATD",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Number of Format Decimals",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "INFORMAT",
+              "description": null,
+              "Variable Type (Length)": "Char (32)",
+              "format": null,
+              "label": "Variable Informat",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "INFORML",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Informat Length",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "INFORMD",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Number of Informat Decimals",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "JUST",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Justification",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NPOS",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Position in Buffer",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NOBS",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Observations in Data Set",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ENGINE",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Engine Name",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "CRDATE",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": "DATETIME16.",
+              "label": "Create Date",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MODATE",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": "DATETIME16.",
+              "label": "Last Modified Date",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DELOBS",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Deleted Observations in Data Set",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "IDXUSAGE",
+              "description": null,
+              "Variable Type (Length)": "Char (9)",
+              "format": null,
+              "label": "Use of Variable in Indexes",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "MEMTYPE",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Library Member Type",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "IDXCOUNT",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Number of Indexes for Data Set",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "PROTECT",
+              "description": null,
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": "Password Protection (Read Write Alter)",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "FLAGS",
+              "description": null,
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": "Update Flags (Protect Contribute Add)",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COMPRESS",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Compression Routine",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "REUSE",
+              "description": null,
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": "Reuse Space",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "SORTED",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Sorted and/or Validated",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "SORTEDBY",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Position of Variable in Sortedby Clause",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "CHARSET",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Host Character Set",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COLLATE",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Collating Sequence",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NODUPKEY",
+              "description": null,
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": "Sort Option: No Duplicate Keys",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "NODUPREC",
+              "description": null,
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": "Sort Option: No Duplicate Records",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "ENCRYPT",
+              "description": null,
+              "Variable Type (Length)": "Char (8)",
+              "format": null,
+              "label": "Encryption Routine",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "POINTOBS",
+              "description": null,
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": "Point to Observations",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "GENMAX",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Maximum Number of Generations",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "GENNUM",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Generation Number",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "GENNEXT",
+              "description": null,
+              "Variable Type (Length)": "Num (8)",
+              "format": null,
+              "label": "Next Generation Number",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "TRANSCOD",
+              "description": null,
+              "Variable Type (Length)": "Char (3)",
+              "format": null,
+              "label": "Character Variables Transcoded",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

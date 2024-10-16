@@ -1,0 +1,77 @@
+[
+  {
+    "Version": "4.0.0",
+    "Date": "06/06/2024",
+    "Modification": "<p>Integrates Common Components and the SCDM Snapshot Program Package as modules in the QA MIL Package</p>"
+  },
+  {
+    "Version": "3.4.1",
+    "Date": " 04/03/2024",
+    "Modification": "<ul><li>Adds the macro variable FEATABLE to control flow to ensure it carries through to Common Components</li><li>Minor package updates</li></ul>"
+  },
+  {
+    "Version": "3.4.0",
+    "Date": " 02/01/2024",
+    "Modification": "<p>The QA MIL Package now generates the Data Characteristics Sign Off Report</p>"
+  },
+  {
+    "Version": "3.3.2",
+    "Date": "12/15/2023",
+    "Modification": "<p>Minor Package Updates and Bug Fixes</p>"
+  },
+  {
+    "Version": "3.3.1",
+    "Date": "08/31/2023",
+    "Modification": "<p>Bug Fixes</p><p>Fixed a bug which was preventing certain flags from being included in the QA MIL Package inputfiles. The following flags are now included in the QA MIL Package inputfiles:</p><ul><li>MIL_2_01_00-0_218: For linked records, rows are not distinct by key variables MPatID, EncounterID, ADate, CPatID</li><li>MIL_2_01_00-0_218: For linked records, rows are not distinct by key variables MPatID, CPatID, NA, NA</li><li>MIL_2_01_00-0_219: For linked records, value of MPatID not consistently populated by row and combinations of key variables MPatID, EncounterID, ADate, NA</li><li>MIL_2_01_00-0_219: For linked records, value of MPatID not consistently populated by row and combinations of key variables MPatID, EncounterID, EncType, NA</li><li>MIL_2_01_00-0_219: For linked records, value of MPatID not consistently populated by row and combinations of key variables MPatID, ADate, MBirth_Date, NA</li><li>MIL_2_01_00-0_219: For linked records, value of MPatID not consistently populated by row and combinations of key variables MPatID, EncounterID, Birth_Type, NA</li><li>MIL_2_01_00-0_219: For linked records, value of MPatID not consistently populated by row and combinations of key variables MPatID, EncounterID, ADate, MBirth_Date</li><li>MIL_2_01_00-0_219: For linked records, value of MPatID not consistently populated by row and combinations of key variables MPatID, ADate, EncounterID, NA</li><li>MIL_2_01_00-0_219: For linked records, value of MPatID not consistently populated by row and combinations of key variables MPatID, ADate, Birth_Type, NA</li><li>MIL_2_01_00-0_221: MPatID is populated but EncounterID = missing ( . or blank)</li><li>MIL_2_01_00-0_221: MPatID is populated but Age = missing ( . or blank)</li><li>MIL_2_01_00-0_221: MPatID is populated but MBirth_Date = missing ( . or blank)</li><li>MIL_2_04_00-0_221: MBirth_Date is populated but EncType = missing ( . or blank)</li><li>MIL_2_04_00-0_221: MBirth_Date is populated but Birth_Type = missing ( . or blank)</li></ul>"
+  },
+  {
+    "Version": "3.3.0",
+    "Date": "03/09/2023",
+    "Modification": "<p>Adds a new WARN flag `MIL_2_09_00-0_280`: \"If both variables are populated, the difference between  CBirth_Date and  ADate must be less than or equal to 180 days.\"</p>"
+  },
+  {
+    "Version": "3.2.0",
+    "Date": "01/18/2023",
+    "Modification": "<ul><li>The package now outputs a new MSOC dataset which returns the distance between cbirth_date and cenr_start, stratified by birth year.</li><li>Resolved a bug which could cause the package to crash on FlagID 201, 202, or 203.</li><li>Minor Package Updates</li></ul>"
+  },
+  {
+    "Version": "3.1.0",
+    "Date": "12/16/2021",
+    "Modification": "Adds additional flags to the QA MIL Package: <ul><li>MIL-INF_2_09_00-0_208—Tables linked on PatID, Cbirth_Date is populated, but Cbirth_Date not equal to CBirth_Date in table INF</li><li>MIL-INF_2_10_00-0_208—Tables linked on CPatID, Sex is populated, but Sex not equal to Sex in table INF</li><li>MIL-DEL_2_06_00-0_208—Tables linked on EncounterID, Adate is populated, but Adate not equal to ADate in table DEL</li><li>MIL-DEL_2_07_00-0_208—Tables linked on EncounterID, Ddate is populated, but Ddate not equal to ddate in table DEL</li></ul>"
+  },
+  {
+    "Version": "3.0.1",
+    "Date": "07/29/2021",
+    "Modification": "Minor Package documentation updates to allow for public release of the QA MIL Package"
+  },
+  {
+    "Version": "3.0.0",
+    "Date": "03/15/2021",
+    "Modification": "Major enhancement to comply with SCDM v8.0.0 requirements; Functionality for MIS table checks removed from code."
+  },
+  {
+    "Version": "2.1.0",
+    "Date": "02/20/2019",
+    "Modification": "Dataset name changes and updates based on new QA CC package"
+  },
+  {
+    "Version": "2.0.0",
+    "Date": "06/04/2018",
+    "Modification": "Enhancements for Round 2 including the following:<br>&bullet; MIS: Adding a check for names and child's date of birth<br>&bullet; Level 3 aggregates: Added variable DaysDiff"
+  },
+  {
+    "Version": "1.2.0",
+    "Date": "05/02/2018",
+    "Modification": "In MIL and MIS tables, allows infant sex to be `O`, in addition to: `A`, `M`, `F`, and `U`"
+  },
+  {
+    "Version": "1.1.0",
+    "Date": "04/06/2018",
+    "Modification": "Create additional level 3 table restricted to unique deliveries"
+  },
+  {
+    "Version": "1.0.0",
+    "Date": "04/05/2018",
+    "Modification": "Original Version"
+  }
+]

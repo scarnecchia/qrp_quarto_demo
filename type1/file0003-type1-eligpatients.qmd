@@ -1,0 +1,3 @@
+# Eligible Patients and Eligible Days {#type1-eligpatients}
+
+{{< include ../includes/_eligpatients.qmd >}}

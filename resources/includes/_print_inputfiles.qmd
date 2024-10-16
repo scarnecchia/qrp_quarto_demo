@@ -1,0 +1,33 @@
+```{r}
+#| echo: false
+#| results: asis
+
+.p <- purrr::pmap_chr(.l=list(.dd$filename, .dd$description, .dd$slug, .dd$variables), function(name, description, slug, variables) {
+
+
+    knitr::knit_child(text=c(
+        "### `r name` {.unnumbered}",
+        "",
+        "```{r}",
+        "#| echo: false",
+        glue::glue("#|label: tbl-{slug}"),
+        glue::glue("#|tbl-cap: {name}"),
+        "",
+        "gt::gt(variables, rowname_col = 'variable') |>
+        gt::tab_stubhead(label = 'Variable') |>
+        gt::tab_caption(description) |>
+        gt::fmt_markdown() |>
+        gt::cols_align('left') |>
+        gt_theme_sentinel() |>
+        gt::tab_options(
+            table.width = gt::pct(100)
+        )",
+     "```",
+      "",
+      ""
+    ), envir = environment(), quiet = TRUE)
+
+    })
+
+cat(.p, sep="\n")
+```

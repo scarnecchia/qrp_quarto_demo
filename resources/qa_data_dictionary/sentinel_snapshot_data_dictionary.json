@@ -1,0 +1,1764 @@
+{
+  "package": "Sentinel SCDM Snapshot Program",
+  "description": "This is the data dictionary for the Sentinel SCDM Snapshot Program. This includes data dictionaries for datasets output to the msoc and dplocal subdirectories.",
+  "directories": {
+    "msoc": {
+      "name": "msoc",
+      "description": "These datasets are output to the msoc directory. Datasets found in the MSOC directory are returned to SOC.",
+      "datasets": [
+        {
+          "filename": "enr_rec_covlength_md",
+          "description": "Frequency of length of enrollment spans by record for members with medical and drug coverage.",
+          "scdm_table": "ENR",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 Character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Data Partner ID populated using Common Components macro variable DP"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LOE  ",
+              "description": "Length of Enrollment (days)",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA12.",
+              "label": "Length of Enrollment (days)",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM Enrollment Table"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "LOE=Enr_End - Enr_Start +1"
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of records by length of enrollment.",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA16.",
+              "label": "Record Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer or 0",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "enr_pat_covlength_md",
+          "description": "Frequency of total length of enrollment span in days by unique PatID.",
+          "scdm_table": "ENR",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 Character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Data Partner ID populated using Common Components macro variable DP"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "tLOE  ",
+              "description": "Total length of Enrollment (days)",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA12.",
+              "label": "Total length of Enrollment (days)",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM Enrollment Table"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "tLOE=sum(Enrollment.Enr_End - Enrollment.Enr_Start +1) per unique Enrollment.Patid whereEnrolllment.MedCov='Y' and Enrollment.DrugCov='Y'."
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique Enrollment.PatID per tLOE",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA16.",
+              "label": "Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer or 0",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "enr_patid_ct_md_y",
+          "description": "Number of PatIDs with at least one day of medical and drugcoverage by year.",
+          "scdm_table": "ENR",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "3-6 Character Data Partner identifier",
+              "Variable Type (Length)": "Char (6)",
+              "format": null,
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Data Partner ID populated using Common Components macro variable DP"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Year",
+              "description": "Calendar Year",
+              "Variable Type (Length)": "Num (8)",
+              "format": "YEAR4.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "SCDM Enrollment Table"
+                },
+                {
+                  "prefix": "Derivation",
+                  "text": "Enr_Start, Enr_End"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID by year",
+              "Variable Type (Length)": "Num (8)",
+              "format": "COMMA15.",
+              "label": "PatID count by year",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer or 0",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "enr_patid_ct_md",
+          "description": "Number of PatIDs with at least one day of medical and drug coverage.",
+          "scdm_table": "ENR",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma15.",
+              "label": "Total PatID Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "enr_active_patid_ct_md",
+          "description": "Number of actively enrolled patients as of a Data Partner's overall maximum date for data completeness (DP_MaxDate).",
+          "scdm_table": "ENR",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "DP_MaxDate",
+              "description": "Based on macro variable &dp_maxdate (created by common components)",
+              "Variable Type (Length)": "Num (4)",
+              "format": "mmddyy10.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID where last enrollment.Enr_End ge DP_MaxDate",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": "Active Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dem_pat_lstagecount_md",
+          "description": "Age distribution of all PatIDs with at least one day of medical and drug coverage. Age reflective of the member's first day of enrollment of most recent enrollment span.",
+          "scdm_table": "DEM",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "SortOrder",
+              "description": "An input table will be used to specify these values",
+              "Variable Type (Length)": "Num (3)",
+              "format": "2.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Age_Category",
+              "description": "Age Category",
+              "Variable Type (Length)": "Char(TBD) (NA)",
+              "format": "TBD",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "TBD"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": "Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dem_pat_actagecount_md",
+          "description": "Age distribution of actively enrolled PatIDs with at least one day of medical and drug coverage. Age reflective of the member's first day of enrollment based on their active enrollment span.",
+          "scdm_table": "DEM",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "SortOrder",
+              "description": "An input table will be used to specify these values",
+              "Variable Type (Length)": "Num (3)",
+              "format": "2.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Age_Category",
+              "description": "Age Category",
+              "Variable Type (Length)": "Char(TBD) (NA)",
+              "format": "TBD",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "TBD"
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID where last enrollment.Enr_End ge DP_MaxDate",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": "Active Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dem_sexct_md",
+          "description": "Distribution of sex for members that have at least one span of medical and drug coverage.",
+          "scdm_table": "DEM",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Sex",
+              "description": "Sex Category (Ambiguous, Female, Male, Unknown)",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1",
+              "label": "Sex Category",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": "Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dem_hispanicct_md",
+          "description": "Distribution of Hispanic status for members that have at least one span of medical and drug coverage.",
+          "scdm_table": "DEM",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Hispanic",
+              "description": "Hispanic Status (No, Yes, Unknown)",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1",
+              "label": "Hispanic Status",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "N",
+                  "value_map": "No"
+                },
+                {
+                  "value": "Y",
+                  "value_map": "Yes"
+                },
+                {
+                  "value": "U",
+                  "value_map": "Unknown"
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": "Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dem_racect_md",
+          "description": "Distribution of race for members that have at least one span of medical and drug coverage.",
+          "scdm_table": "DEM",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Race",
+              "description": "Race Category",
+              "Variable Type (Length)": "Char (1)",
+              "format": "$1",
+              "label": "Race Category",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "0",
+                  "value_map": "Unknown"
+                },
+                {
+                  "value": "1",
+                  "value_map": "American Indian or Alaska Native"
+                },
+                {
+                  "value": "2",
+                  "value_map": "Asian"
+                },
+                {
+                  "value": "3",
+                  "value_map": "Black or African American"
+                },
+                {
+                  "value": "4",
+                  "value_map": "Native Hawaiian or Other Pacific Islander"
+                },
+                {
+                  "value": "5",
+                  "value_map": "White"
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": "Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dem_geolocct_md",
+          "description": "Distribution of geographic location (state-level) for members that have at least one span of medical and drug coverage.",
+          "scdm_table": "DEM",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "StateCode",
+              "description": "Geographic Location (2-letter uppercase US state abbreviation, '00' for missing zip, '99' for invalid zip values, and 'OT' for Other)",
+              "Variable Type (Length)": "Char (2)",
+              "format": "$2",
+              "label": "Geographic Location",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "lkp_dem_zip.sas7bdat"
+                },
+                {
+                  "prefix": "Note 1",
+                  "text": "American Samoa (AS), Micronesia (FM), Guam (GU), Marshall Islands (MH), Northern Mariana Islands (MP), Puerto Rico (PR), Palau (PW) and U.S. Virgin Islands are aggregated as OT"
+                }
+              ],
+              "values": [
+                {
+                  "value": "00",
+                  "value_map": "Overall"
+                },
+                {
+                  "value": "99",
+                  "value_map": "Missing"
+                },
+                {
+                  "value": "OT",
+                  "value_map": "U.S. Overseas Territories and Freely Associated States"
+                },
+                {
+                  "value": "AL",
+                  "value_map": "Alabama"
+                },
+                {
+                  "value": "AK",
+                  "value_map": "Alaska"
+                },
+                {
+                  "value": "AZ",
+                  "value_map": "Arizona"
+                },
+                {
+                  "value": "AR",
+                  "value_map": "Arkansas"
+                },
+                {
+                  "value": "CA",
+                  "value_map": "California"
+                },
+                {
+                  "value": "CO",
+                  "value_map": "Colorado"
+                },
+                {
+                  "value": "CT",
+                  "value_map": "Connecticut"
+                },
+                {
+                  "value": "DE",
+                  "value_map": "Delaware"
+                },
+                {
+                  "value": "DC",
+                  "value_map": "District of Columbia"
+                },
+                {
+                  "value": "FL",
+                  "value_map": "Florida"
+                },
+                {
+                  "value": "GA",
+                  "value_map": "Georgia"
+                },
+                {
+                  "value": "HI",
+                  "value_map": "Hawaii"
+                },
+                {
+                  "value": "ID",
+                  "value_map": "Idaho"
+                },
+                {
+                  "value": "IL",
+                  "value_map": "Illinois"
+                },
+                {
+                  "value": "IN",
+                  "value_map": "Indiana"
+                },
+                {
+                  "value": "IA",
+                  "value_map": "Iowa"
+                },
+                {
+                  "value": "KS",
+                  "value_map": "Kansas"
+                },
+                {
+                  "value": "KY",
+                  "value_map": "Kentucky"
+                },
+                {
+                  "value": "LA",
+                  "value_map": "Louisiana"
+                },
+                {
+                  "value": "ME",
+                  "value_map": "Maine"
+                },
+                {
+                  "value": "MD",
+                  "value_map": "Maryland"
+                },
+                {
+                  "value": "MA",
+                  "value_map": "Massachusetts"
+                },
+                {
+                  "value": "MI",
+                  "value_map": "Michigan"
+                },
+                {
+                  "value": "MN",
+                  "value_map": "Minnesota"
+                },
+                {
+                  "value": "MS",
+                  "value_map": "Mississippi"
+                },
+                {
+                  "value": "MO",
+                  "value_map": "Missouri"
+                },
+                {
+                  "value": "MT",
+                  "value_map": "Montana"
+                },
+                {
+                  "value": "NE",
+                  "value_map": "Nebraska"
+                },
+                {
+                  "value": "NV",
+                  "value_map": "Nevada"
+                },
+                {
+                  "value": "NH",
+                  "value_map": "New Hampshire"
+                },
+                {
+                  "value": "NJ",
+                  "value_map": "New Jersey"
+                },
+                {
+                  "value": "NM",
+                  "value_map": "New Mexico"
+                },
+                {
+                  "value": "NY",
+                  "value_map": "New York"
+                },
+                {
+                  "value": "NC",
+                  "value_map": "North Carolina"
+                },
+                {
+                  "value": "ND",
+                  "value_map": "North Dakota"
+                },
+                {
+                  "value": "OH",
+                  "value_map": "Ohio"
+                },
+                {
+                  "value": "OK",
+                  "value_map": "Oklahoma"
+                },
+                {
+                  "value": "OR",
+                  "value_map": "Oregon"
+                },
+                {
+                  "value": "PA",
+                  "value_map": "Pennsylvania"
+                },
+                {
+                  "value": "RI",
+                  "value_map": "Rhode Island"
+                },
+                {
+                  "value": "SC",
+                  "value_map": "South Carolina"
+                },
+                {
+                  "value": "SD",
+                  "value_map": "South Dakota"
+                },
+                {
+                  "value": "TN",
+                  "value_map": "Tennessee"
+                },
+                {
+                  "value": "TX",
+                  "value_map": "Texas"
+                },
+                {
+                  "value": "UT",
+                  "value_map": "Utah"
+                },
+                {
+                  "value": "VT",
+                  "value_map": "Vermont"
+                },
+                {
+                  "value": "VA",
+                  "value_map": "Virginia"
+                },
+                {
+                  "value": "WA",
+                  "value_map": "Washington"
+                },
+                {
+                  "value": "WV",
+                  "value_map": "West Virginia"
+                },
+                {
+                  "value": "WI",
+                  "value_map": "Wisconsin"
+                },
+                {
+                  "value": "WY",
+                  "value_map": "Wyoming"
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Count of unique PatID",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": "Enrollee Count",
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dis_pat_rxcount_md",
+          "description": "Number of dispensings per member, while actively enrolled in medical and drug coverage.",
+          "scdm_table": "DIS",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Rx_Count",
+              "description": "Dispensing Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dis_pat_rxcount_d",
+          "description": "Number of dispensings per member, while actively enrolled in drug coverage.",
+          "scdm_table": "DIS",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Rx_Count",
+              "description": "Dispensing Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "enc_pat_enccount_md",
+          "description": "Number of encounters per member, while actively enrolled in medical and drug coverage.",
+          "scdm_table": "ENC",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Enc_Count",
+              "description": "Encounter Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "lab_pat_testcount_md",
+          "description": "Number of laboratory result records per member, while actively enrolled in medical and drug coverage.",
+          "scdm_table": "LAB",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Lab_Count",
+              "description": "Lab Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "vit_pat_vitct_md",
+          "description": "Number of members with at least one vital sign measurement, per type (height, weight, systolic BP, diastolic BP), while actively enrolled in medical and drug coverage.",
+          "scdm_table": "VIT",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "VS_type",
+              "description": "Vital Sign",
+              "Variable Type (Length)": "Char (3)",
+              "format": "$3",
+              "label": "Vital Sign",
+              "notes": [
+                {
+                  "prefix": "Source",
+                  "text": "Valid Values: HGT=Height, WGT=Weight, SYS=Systolic, DIA=Diastolic"
+                }
+              ],
+              "values": [
+                {
+                  "value": "HGT",
+                  "value_map": "Height"
+                },
+                {
+                  "value": "WGT",
+                  "value_map": "Weight"
+                },
+                {
+                  "value": "SYS",
+                  "value_map": "Systolic"
+                },
+                {
+                  "value": "DIA",
+                  "value_map": "Diastolic"
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "enr_pat_enrcount_md",
+          "description": "Number of enrollment spans per member, while actively enrolled in medical and drug coverage.",
+          "scdm_table": "ENR",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Enr_Count",
+              "description": "Enrollment Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dth_dthct_md",
+          "description": "Number of death records for members that had at least one span of medical and drug coverage (active or inactive at time of death).",
+          "scdm_table": "DTH",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Death Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "dth_dthct_m",
+          "description": "Number of death records for members that had at least one span of medical coverage (active or inactive at time of death).",
+          "scdm_table": "DTH",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Death Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "cod_pat_codct_md",
+          "description": "Number of Cause of death (COD) records by members that had at least one span of medical and drug coverage (active or inactive at time of death).",
+          "scdm_table": "COD",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COD_Count",
+              "description": "COD Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "cod_pat_codct_m",
+          "description": "Number of Cause of death (COD) records for members that had at least one span of medical coverage (active or inactive at time of death).",
+          "scdm_table": "COD",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "COD_Count",
+              "description": "COD Record Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Count",
+              "description": "Enrollee Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma12.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "filename": "mil_linkage_rates",
+          "description": "Mother-infant linkage (MIL) stratified by mother's age at delivery, encounter type, year, birth_type, and overall.",
+          "scdm_table": "MIL",
+          "methods": null,
+          "variables": [
+            {
+              "variable": "DP",
+              "description": "Data Partner ID",
+              "Variable Type (Length)": "Char (6)",
+              "format": "$6",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Variable",
+              "description": "Variable",
+              "Variable Type (Length)": "Char (12)",
+              "format": "$12",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "agegroup",
+                  "value_map": null
+                },
+                {
+                  "value": "enctype",
+                  "value_map": null
+                },
+                {
+                  "value": "year",
+                  "value_map": null
+                },
+                {
+                  "value": "birth_type",
+                  "value_map": null
+                },
+                {
+                  "value": "overall",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Value",
+              "description": "Variable-dependent",
+              "Variable Type (Length)": "Char (50)",
+              "format": "$40",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": null,
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "Deliveries",
+              "description": "Delivery Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma18.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "InfantsLinked",
+              "description": "Linked Infant Count",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Comma18.",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            },
+            {
+              "variable": "LinkageRate",
+              "description": "Linkage Rate",
+              "Variable Type (Length)": "Num (8)",
+              "format": "Percent6.2",
+              "label": null,
+              "notes": [
+                {
+                  "prefix": null,
+                  "text": null
+                }
+              ],
+              "values": [
+                {
+                  "value": "Any positive integer",
+                  "value_map": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

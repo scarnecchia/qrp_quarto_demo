@@ -1,0 +1,21 @@
+# Background Rate Calculation Cohort Identification Strategy {#sec-t1-backratecalc}
+
+The background rate cohort identification strategy identifies prevalent or incident use of an event of interest (i.e., exposure to a medical product or occurrence of an HOI) during the user-defined query period. This type of request is often used in preparation for a more in-depth analysis, to determine the rate of new use of a medical product, or the prevalence/incidence of an HOI in the SDD. There are several user options, including defining incidence and additional inclusion/exclusion criteria.
+
+## Identifying Events
+
+An event can be defined using any set of NDCs, procedure and/or diagnosis codes, and laboratory result values found in the SCDM. Procedure and diagnosis codes can be restricted to those observed in specific care settings (e.g., inpatient, outpatient), and diagnosis codes can be restricted by position (e.g., principal discharge diagnosis, secondary diagnosis). For example, exposure to a drug product dispensed in the outpatient setting can be defined as observation of one or more NDCs in the pharmacy dispensing table; occurrence of an HOI can be defined based on observation of specific diagnosis codes in the diagnosis table.
+
+The CIDA module queries the SDD and extracts all codes indicative of the event during the query period. NDCs identified undergo additional processing through the stockpiling algorithm.
+
+## Event Incidence
+
+If an incidence rate calculation is needed, users must specify the criteria to define an incident occurrence of the event of interest. Specifying incidence criteria instructs the CIDA module to evaluate a user-defined number of days before the event date (index date) to determine if the event is 'new.'
+
+Patients are required to have continuous enrollment in the coverage type specified during the incidence assessment period. If this condition is not met, the event is excluded from analysis.
+
+## Number of Valid Events per Patient
+
+Users have the ability to specify the number of valid events each patient can contribute to the final cohort. Options include:
+- Include the first valid event per patient that meets all user criteria during the query period.
+- Include all valid events per patient that meet all user criteria during the query period.

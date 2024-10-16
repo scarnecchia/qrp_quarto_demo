@@ -1,0 +1,22 @@
+[
+  {
+    "Check": "Check 1",
+    "Description": "This check confirms that there are no system errors generated during a module run.",
+    "Action": "If an error is detected, the following message will be written to the log and the package will abort: <code>Post Module Check 1: System error detected. Process will abort.\n    ==> Check program log &msoc.&last_module.&dt_today..log for details.</code>"
+  },
+  {
+    "Check": "Check 2",
+    "Description": "This check evaluates the results of a module to detect data checking results that should cause processing to abort.",
+    "Action": "If an error is detected the final master signature file and log checking output will be generated: <code>&last_module. module has produced data check flags that require the QA package to abort. Process will abort after creating a master signature file and running the log checker.</code>"
+  },
+  {
+    "Check": "Check 2",
+    "Description": "This check evaluates the results of a module to detect data checking results that should cause processing to abort.",
+    "Action": "After the generating the master signature file and log checking output, the following error message will also be written to the log: <code>Post-Module Check 2: The macro MASTER_FLOW has terminated early due to data check failures\n    ==> The macro MASTER_FLOW will now abort ...';\n    ==> Check msoc.&dpid._scdm_data_qa_logcheck.pdf for details.</code>"
+  },
+  {
+    "Check": "Check 3",
+    "Description": "This check evaluates whether generating the master signature file and log checking output resulted in a system error.",
+    "Action": "If an error is detected, the following message will be written to the log and the package will abort: <code>Post Module Check 3: The macro MASTER_FLOW has run the modules selected without any fatal problems detected.\n    ==> HOWEVER, there was a fatal problem with either the master signature and/or log checker';\n    ==> program(s) that ran after the modules were run.';\n    ==> The macro MASTER_FLOW will now abort...';\n    ==> Check program log &sasprograms.00.0_scdm_data_qa_review_master_file.log for details.</code>"
+  }
+]

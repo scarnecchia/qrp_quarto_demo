@@ -1,0 +1,76 @@
+project:
+  type: book
+  output-dir: _site
+
+book:
+  title: "Sentinel Query Request Package (QRP) Documentation"
+  author: "Sentinel Operations Center"
+  date: today
+  cover-image: resources/logo.png
+  image: resources/logo.png
+  description: The Sentinel System is comprised of health care organizations, known as Data Partners, that have medical billing information and electronic health records.
+  site-url: https://dev.sentinelsystem.org/projects/SENTINEL/repos/sentinel-routine-querying-tool-documentation/browse
+  repo-url: https://dev.sentinelsystem.org/projects/SENTINEL/repos/sentinel-routine-querying-tool-documentation/browse
+  issue-url: https://jira.sentinelsystem.org/servicedesk/customer/portal/7/group/75
+  reader-mode: true
+  search:
+    show-item-context: true
+    type: overlay
+  page-footer:
+    left:
+      - text: "Sentinel Operations Center"
+        href: https://www.sentinelinitiative.org/
+    right:
+      - text: "Disclosure"
+        href: disclosure.qmd
+  page-navigation: true
+  back-to-top-navigation: true
+  bread-crumbs: true
+  open-graph: true
+  sharing: [linkedin]
+  navbar:
+    left:
+      - text: "Home"
+        href: index.html
+      - text: "Help"
+        menu:
+          - text: "Report a Bug"
+            icon: "bug"
+            href: "https://jira.sentinelsystem.org/servicedesk/customer/portal/7/create/279"
+          - text: "Ask a Question"
+            icon: "chat-right-text"
+            href: "https://jira.sentinelsystem.org/servicedesk/customer/portal/7/create/282"
+    tools:
+      - icon: bug
+        text: Report an issue
+        url: https://jira.sentinelsystem.org/servicedesk/customer/portal/7/create/279
+      - icon: git
+        text: QRP Repository
+        url: https://dev.sentinelsystem.org/projects/AD/repos/qrp/browse
+
+  chapters:
+    - index.qmd
+    - file0001-about-the-qrp.qmd
+    - part: type1\file0001-type1-module.qmd
+      chapters:
+        - type1/file0002-type1-backratecalc.qmd
+        - type1/file0003-type1-eligpatients.qmd
+        - type1/file0004-type1-combo.qmd
+        - type1/file0005-type1-type1file.qmd
+  appendices:
+    - modification-history.qmd
+
+bibliography: bibliography.bib
+csl: resources/american-medical-association.csl
+
+format:
+  html:
+    theme: cosmo
+    html-table-processing: none
+    grid:
+      body-width: 1080px
+    reference-location: margin
+
+execute:
+  echo: false
+  warning: false

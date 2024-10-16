@@ -1,0 +1,34 @@
+```{r}
+#| echo: false
+#| results: asis
+.p <- purrr::pmap_chr(.l=list(.mstr_level_flags$TableID2, .mstr_level_flags$TableName, .mstr_level_flags$Level, .mstr_level_flags$Flags), function(table, name, level, flags) {
+
+    caption <- glue::glue("{name} Table Level {level} Quality Checks")
+
+    knitr::knit_child(text=c(
+        "### `r name` Level `r level` Quality Checks {.unnumbered}",
+        "",
+        "```{r}",
+        "#| echo: false",
+        glue::glue("#|label: tbl-{table}-table-level-{level}-quality-checks"),
+        glue::glue("#|tbl-cap: {name} Table Level {level} Quality Checks"),
+        "",
+        "gt::gt(flags, rowname_col = 'FlagID') |>
+        gt::tab_stubhead(label = 'FlagID') |>
+        gt::tab_caption(caption) |>
+        gt::fmt_markdown() |>
+        gt::cols_align('left') |>
+        gt::cols_width(c('Flag_Descr') ~ gt::pct(50)) |>
+        gt_theme_sentinel() |>
+        gt::tab_options(
+            table.width = gt::pct(100)
+        )",
+     "```",
+      "",
+      ""
+    ), envir = environment(), quiet = TRUE)
+
+    })
+
+cat(.p, sep="\n")
+```
