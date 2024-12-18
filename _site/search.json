@@ -99,11 +99,22 @@
     ]
   },
   {
+    "objectID": "type1/file0001-type1-module.html",
+    "href": "type1/file0001-type1-module.html",
+    "title": "Type 1: Extract Information to Calculate Background Rates",
+    "section": "",
+    "text": "The program identifies an exposure, outcome, or medical condition, and calculates the rate of that event in the SDD. Output includes the number of individuals with the exposure/outcome/medical condition, eligible members, and eligible member-days. Rates are reported overall and stratified by user-defined age group, sex, year, and year-month. An attrition table is also provided upon request.",
+    "crumbs": [
+      "Home",
+      "Type 1: Extract Information to Calculate Background Rates"
+    ]
+  },
+  {
     "objectID": "type1/file0002-type1-backratecalc.html",
     "href": "type1/file0002-type1-backratecalc.html",
     "title": "2  Background Rate Calculation Cohort Identification Strategy",
     "section": "",
-    "text": "2.1 Identifying Events\nAn event can be defined using any set of NDCs, procedure and/or diagnosis codes, and laboratory result values found in the SCDM. Procedure and diagnosis codes can be restricted to those observed in specific care settings (e.g., inpatient, outpatient), and diagnosis codes can be restricted by position (e.g., principal discharge diagnosis, secondary diagnosis). For example, exposure to a drug product dispensed in the outpatient setting can be defined as observation of one or more NDCs in the pharmacy dispensing table; occurrence of an HOI can be defined based on observation of specific diagnosis codes in the diagnosis table.\nThe CIDA module queries the SDD and extracts all codes indicative of the event during the query period. NDCs identified undergo additional processing through the stockpiling algorithm.",
+    "text": "2.1 Identifying Events\nThe background rate cohort identification strategy identifies prevalent or incident use of an event of interest (i.e., exposure to a medical product or occurrence of an HOI) during the user-defined query period. This type of request is often used in preparation for a more in-depth analysis, to determine the rate of new use of a medical product, or the prevalence/incidence of an HOI in the SDD. There are several user options, including defining incidence and additional inclusion/exclusion criteria.\nAn event can be defined using any set of NDCs, procedure and/or diagnosis codes, and laboratory result values found in the SCDM. Procedure and diagnosis codes can be restricted to those observed in specific care settings (e.g., inpatient, outpatient), and diagnosis codes can be restricted by position (e.g., principal discharge diagnosis, secondary diagnosis). For example, exposure to a drug product dispensed in the outpatient setting can be defined as observation of one or more NDCs in the pharmacy dispensing table; occurrence of an HOI can be defined based on observation of specific diagnosis codes in the diagnosis table.\nThe CIDA module queries the SDD and extracts all codes indicative of the event during the query period. NDCs identified undergo additional processing through the stockpiling algorithm.",
     "crumbs": [
       "Home",
       "Type 1: Extract Information to Calculate Background Rates",
@@ -139,7 +150,7 @@
     "href": "type1/file0003-type1-eligpatients.html",
     "title": "3  Eligible Patients and Eligible Days",
     "section": "",
-    "text": "3.1 Eligible Patients\nFor both prevalent and incident cohorts, eligible patients must meet the enrollment requirements, demographic criteria, and inclusion/exclusion criteria specified. Prevalent cohort eligible patients must meet the index criteria for at least one day during the query period if ENRDAYS = 0. Incident cohort eligible patients must meet the criteria for the washout period number of days as well as one day of enrollment during the query period or during the pre-query period. If additional inclusion/exclusion criteria are specified, the patient must also satisfy those requirements to be included as eligible. Eligible patients may or might not also meet the index defining criteria. Index defining criteria are not evaluated in the enumeration of eligible patients. Minimum cumulative dose is only taken into account for determining eligible members when it is specified as an inclusion or exclusion criteria.",
+    "text": "3.1 Eligible Patients\nIn order to calculate prevalence and incidence, the program calculates both the number of eligible patients and the number of eligible days for the denominator(s).\nFor both prevalent and incident cohorts, eligible patients must meet the enrollment requirements, demographic criteria, and inclusion/exclusion criteria specified. Prevalent cohort eligible patients must meet the index criteria for at least one day during the query period if ENRDAYS = 0. Incident cohort eligible patients must meet the criteria for the washout period number of days as well as one day of enrollment during the query period or during the pre-query period. If additional inclusion/exclusion criteria are specified, the patient must also satisfy those requirements to be included as eligible. Eligible patients may or might not also meet the index defining criteria. Index defining criteria are not evaluated in the enumeration of eligible patients. Minimum cumulative dose is only taken into account for determining eligible members when it is specified as an inclusion or exclusion criteria.",
     "crumbs": [
       "Home",
       "Type 1: Extract Information to Calculate Background Rates",
@@ -240,17 +251,6 @@
       "Home",
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Modification History</span>"
-    ]
-  },
-  {
-    "objectID": "type1/file0001-type1-module.html",
-    "href": "type1/file0001-type1-module.html",
-    "title": "Type 1: Extract Information to Calculate Background Rates",
-    "section": "",
-    "text": "The program identifies an exposure, outcome, or medical condition, and calculates the rate of that event in the SDD. Output includes the number of individuals with the exposure/outcome/medical condition, eligible members, and eligible member-days. Rates are reported overall and stratified by user-defined age group, sex, year, and year-month. An attrition table is also provided upon request.",
-    "crumbs": [
-      "Home",
-      "Type 1: Extract Information to Calculate Background Rates"
     ]
   },
   {
